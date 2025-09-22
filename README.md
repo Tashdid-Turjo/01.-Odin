@@ -2,9 +2,12 @@
 
 ✅HTML:
 -> Keywords:
+            -> attribute
             -> void element
             -> anchor element
             -> absolute & relative link
+            -> alt attribute
+            
 
 
 -> Photo Credit:
