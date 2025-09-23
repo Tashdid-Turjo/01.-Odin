@@ -7,6 +7,8 @@
             -> anchor element
             -> absolute & relative link
             -> alt attribute
+            -> commit message
+
             
 
 
