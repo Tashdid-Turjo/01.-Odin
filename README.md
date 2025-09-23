@@ -3,6 +3,7 @@
 ✅HTML:
 -> Keywords:
             -> attribute
+            -> value, type, start
             -> void element
             -> anchor element
             -> absolute & relative link
