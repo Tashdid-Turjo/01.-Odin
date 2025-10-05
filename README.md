@@ -10,7 +10,11 @@
             -> alt attribute
             -> commit message
 
+✅Git/GitHub:
+-> Keyword:
+            -> symmetric, asymmetric encryption(asymmetric has both public & private keys)
             
+
 
 
 -> Photo Credit:
