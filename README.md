@@ -12,7 +12,7 @@
 
 ✅Git/GitHub:
 -> Keyword:
-            -> symmetric, asymmetric encryption(asymmetric has both public & private keys)
+            -> symmetric, asymmetric encryption(asymmetric has both public & private keys), atomic commit, 
             
 
 
