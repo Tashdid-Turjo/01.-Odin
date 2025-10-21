@@ -2,7 +2,7 @@
 
 ✅HTML:
 -> Keywords:
-            -> boilerplate
+            -> boilerplate --> (DOCTYPE, html, head, body) tags {Basic Structure of HTML}
             -> attribute
             -> value, type, start
             -> void element
@@ -10,6 +10,7 @@
             -> absolute & relative link
             -> alt attribute
             -> commit message
+            -> Identical Page Basic Structure --> (header, nav, main, footer) tags under Body tag. For every identical page structure- Only 'main' tag will be different from others but rest other tags will be same.
 
 ✅Git/GitHub:
 -> Keyword:
