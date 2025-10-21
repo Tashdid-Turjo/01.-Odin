@@ -2,6 +2,7 @@
 
 ✅HTML:
 -> Keywords:
+            -> boilerplate
             -> attribute
             -> value, type, start
             -> void element
@@ -18,4 +19,4 @@
 
 
 -> Photo Credit:
-            -> used The Odin Project's Some photos for practising.
+            -> used The Odin Project's photos for practising.
