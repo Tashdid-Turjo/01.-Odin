@@ -18,7 +18,7 @@
 
 ✅CSS:
 -> Keywords:
-            -> class, id attribute, selector{Universal, Type, Class, ID, Grouping, Chaining}, property, value, 
+            -> class, id attribute, selector{Universal, Type, Class, ID, Grouping, Chaining & many more}, property, value, 
 
 
 ✅Git/GitHub:
