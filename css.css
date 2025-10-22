@@ -1,3 +1,4 @@
+/*-------------Dont do any code. Just doing CSS Notes here -------------*/
 /*---------------- Universal Selector ----------------*/
 * {
     color: Red;
@@ -5,17 +6,35 @@
 
 /*------------------ Type Selector -------------------*/
 /* HTML Code */
-/*
 <!-- index.html -->
 <div>Hello, World!</div>
 <div>Hello again!</div>
 <p>Hi...</p>
 <div>Okay, bye.</div>
-/*
+
 
 /* styles.css */
-/*
 div {
-  color: white; // Here, only div tag of HTML will be highlighted.
+    color: white;  /* Here, only div tag of HTML will be highlighted. But <p> tag won't be selected. */
 }
-*/
+
+/*------------------- Class Selector ------------------*/
+<!-- index.html -->
+<div class="alert-text">Please agree to our terms of service.</div>
+
+
+/* styles.css */
+.alert-text {
+    color: red; /* class selector won't work if it class name starts with number. Ex- '4alert-text'. Though you can give class name starting with number in html, but that class name won't work in css class selector. */
+}
+
+/*------------------- ID Selector ------------------*/
+<!-- index.html -->
+<div id="title">My Awesome 90's Page</div>
+
+/* styles.css */
+#title {
+    background-color: red; /* Like Class selector, it won't work if div id starts with number. Also in HTML, the div id name can't have any space. */
+}
+
+/* From Grouping Selector, start studying. */
