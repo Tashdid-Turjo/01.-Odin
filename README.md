@@ -21,3 +21,7 @@
 
 -> Photo Credit:
             -> used The Odin Project's photos for practising.
+
+✅CSS:
+-> Keywords:
+            -> class, id attribute, selector{Universal, Type, Class, ID, Grouping, Chaining}, property, value, 
