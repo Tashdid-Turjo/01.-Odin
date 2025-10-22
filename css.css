@@ -1,0 +1,21 @@
+/*---------------- Universal Selector ----------------*/
+* {
+    color: Red;
+}
+
+/*------------------ Type Selector -------------------*/
+/* HTML Code */
+/*
+<!-- index.html -->
+<div>Hello, World!</div>
+<div>Hello again!</div>
+<p>Hi...</p>
+<div>Okay, bye.</div>
+/*
+
+/* styles.css */
+/*
+div {
+  color: white; // Here, only div tag of HTML will be highlighted.
+}
+*/
