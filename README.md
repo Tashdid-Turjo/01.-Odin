@@ -18,7 +18,10 @@
 
 ✅CSS:
 -> Keywords:
-            -> class, id attribute, selector{Universal, Type, Class, ID, Grouping, Chaining & many more}, property, value, 
+            -> class, id attribute, property, value, 
+            -> selector{Universal, Type, Class, ID, Grouping, Chaining & many more},
+            -> combinator -> that combines multiple selectors either by grouping or by chaining them,
+                          -> 4 types; one is descendant combinator,
 
 
 ✅Git/GitHub:

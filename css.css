@@ -1,40 +1,149 @@
 /*-------------Dont do any code. Just doing CSS Notes here -------------*/
-/*---------------- Universal Selector ----------------*/
+/* Topics-> Selector, Combinator */
+/*----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
 * {
     color: Red;
 }
 
-/*------------------ Type Selector -------------------*/
+
+
+/*--------------------------------------------------------- Type Selector ---------------------------------------------------------*/
 /* HTML Code */
 <!-- index.html -->
 <div>Hello, World!</div>
 <div>Hello again!</div>
-<p>Hi...</p>
+<p>Hi... </p>
 <div>Okay, bye.</div>
-
 
 /* styles.css */
 div {
-    color: white;  /* Here, only div tag of HTML will be highlighted. But <p> tag won't be selected. */
+    color: white;  /* Here, only div tag of HTML will be highlighted.
+                      But <p> tag won't be selected. */
 }
 
-/*------------------- Class Selector ------------------*/
-<!-- index.html -->
-<div class="alert-text">Please agree to our terms of service.</div>
 
+
+/*--------------------------------------------------------- Class Selector ---------------------------------------------------------*/
+<!-- index.html -->
+ <div class="alert-text">Please agree to our terms of service.</div> /* This 'alert-text' can't have spaces.
+                                                                        Cz, both div class & div id can't have spaces. */
 
 /* styles.css */
 .alert-text {
-    color: red; /* class selector won't work if it class name starts with number. Ex- '4alert-text'. Though you can give class name starting with number in html, but that class name won't work in css class selector. */
+    color: red; /* class selector won't work if it class name starts with number.
+                   Ex- '4alert-text'. Though you can give class name starting with number in html,
+                   but that class name won't work in css class selector. */
 }
 
-/*------------------- ID Selector ------------------*/
+
+
+/*--------------------------------------------------------- ID Selector -------------------------------------------------------------*/
 <!-- index.html -->
 <div id="title">My Awesome 90's Page</div>
 
 /* styles.css */
 #title {
-    background-color: red; /* Like Class selector, it won't work if div id starts with number. Also in HTML, the div id name can't have any space. */
+    background-color: red; /* Like Class selector, it won't work if div id starts with number.
+                              Also in HTML, the div id name can't have any space.
+                              Space means another class to HTML & CSS. */
 }
 
-/* From Grouping Selector, start studying. */
+
+
+/*--------------------------------------------------------- Grouping Selector ------------------------------------------------------*/
+/* Wrong one */
+.read {
+  color: white;
+  background-color: black;
+  /* several unique declarations */
+}
+
+.unread {
+  color: white;
+  background-color: black;
+  /* several unique declarations */
+}
+
+/* Corrected one (If both doesn't have any other unique 
+declaration except color & background-color) */
+.read,
+.unread {
+  color: white;
+  background-color: black;
+}
+
+/* Corrected one (If both have some other unique declarations) */
+.read,
+.unread {
+  color: white;
+  background-color: black;
+}
+
+/* unique styles for .read only */
+.read {
+  font-style: italic;
+}
+
+/* unique styles for .unread only */
+.unread {
+  font-weight: bold;
+}
+
+
+
+/*--------------------------------------------------------- Chaining Selector ----------------------------------------------------------*/
+/* Type-01: */
+/* HTML */
+<div>
+    <div class="subsection header">Latest Posts</div>                                   /* It has 'subsection' & 'header' class. */
+    <p class="subsection preview">This is where a preview for a post might go.</p>      /* It has 'subsection' & preview' class. */
+</div>
+        /* Here, the class names are- subsection, header, preview.
+        Both div & p share same class which is- subsection. */
+
+/* CSS */
+.subsection.header {
+  color: red;
+}
+        /* Here, this ".subsection.header" means that, any element that has
+        both the subsection and header classes. 
+        Thus, it won't effect the subsection and preview class as there,
+        the header class is not there. */
+
+
+/* Type-02: */
+/* HTML */
+<div>
+  <div class="subsection header">Latest Posts</div>
+  <p class="subsection" id="preview">This is where a preview for a post might go.</p>
+</div>
+
+/* CSS */
+.subsection.header {
+  color: red;
+}
+
+.subsection#preview {       /* # is used when class type and id type is combining. */
+  color: blue;
+}
+/* Chain Selector can also be used to chain a class and an ID. */
+
+
+
+/* ----------------------------------------- Descendant Combinator ----------------------------------------- */
+/* <!-- index.html --> */
+<div class="ancestor">
+  <div class="contents">
+    <div class="contents"></div>
+  </div>
+</div>
+
+<div class="contents"></div>
+
+/* styles.css */
+.ancestor .contents {           /* Single space between two class names is mandatory. */
+  /* some declarations */
+}
+        /* Here, in the HTML, nested occurs, thus- inside ancestor class's, 
+        both the two contents class will be selected, 
+        but the one contents class which is outside of ancestor class won't be selected. */
