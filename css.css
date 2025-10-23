@@ -131,6 +131,7 @@ declaration except color & background-color) */
 
 
 /* ----------------------------------------- Descendant Combinator ----------------------------------------- */
+/* Type-01 */
 /* <!-- index.html --> */
 <div class="ancestor">
   <div class="contents">
@@ -148,7 +149,26 @@ declaration except color & background-color) */
         both the two contents class will be selected, 
         but the one contents class which is outside of ancestor class won't be selected. */
 
+/* Type-02 */
+/* HTML */
+<div class="one">
+  <div class="two">
+    <div class="three">
+      <p class="four">Hello</p>
+    </div>
+  </div>
+</div>
 
-
+/* CSS */
+.one .two .three .four {
+  color: red;
+}
+        /* Select an element with the class .four 
+        that is inside an element with class .three,
+        which is inside an element with class .two,
+        which is inside an element with class .one.
+        That <p> will turn red. But if .four isn't 
+        nested in that exact order, then it won't match. 
+        But it's recommended to avoid this type of too much nesting. */
 
 /* from Properties to get started wiill be started */
