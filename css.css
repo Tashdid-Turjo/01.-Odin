@@ -199,5 +199,16 @@ img {
 }
 
 
+/* Adding CSS to HTML */
+/* styles.css */
 
-/* start from this: "Adding CSS to HTML" */
+div {
+  color: white; /* Here, color is Property and white is value. */
+  background-color: black;
+}
+
+p {
+  color: red;
+}
+
+/* start from this: "Adding CSS to HTML's Internal CSS" */
