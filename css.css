@@ -1,5 +1,5 @@
 /*-------------Dont do any code. Just doing CSS Notes here -------------*/
-/* Topics-> Selector, Combinator */
+/* Topics-> Selector, Combinator, properties(color, bg color, typography, text-align, image height & weight) */
 /*----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
 * {
     color: Red;
@@ -171,4 +171,22 @@ declaration except color & background-color) */
         nested in that exact order, then it won't match. 
         But it's recommended to avoid this type of too much nesting. */
 
-/* from Properties to get started wiill be started */
+
+
+/* ----------------------------------------- Color & BG color Property ----------------------------------------- */
+/* Link of all possible legal color values: https://www.w3schools.com/cssref/css_colors_legal.asp */
+p {
+  /* hex example: */
+  color: #1100ff;
+}
+
+p {
+  /* rgb example: */
+  color: rgb(100, 0, 127);
+}
+
+p {
+  /* hsl example: */
+  color: hsl(15, 82%, 56%);
+}
+
