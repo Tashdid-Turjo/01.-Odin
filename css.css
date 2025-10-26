@@ -190,3 +190,14 @@ p {
   color: hsl(15, 82%, 56%);
 }
 
+
+
+/* ----------------------------------------- Image Height & Weight Property ----------------------------------------- */
+img {
+  height: auto;
+  width: 500px; /* there should be any space between 500 and px */
+}
+
+
+
+/* start from this: "Adding CSS to HTML" */
