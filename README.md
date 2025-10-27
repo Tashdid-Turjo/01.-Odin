@@ -23,6 +23,7 @@
             -> combinator -> that combines multiple selectors either by grouping or by chaining them,
                           -> 4 types; one is descendant combinator,
             -> properties -> color, bg-color, typography, text-align, image height & weight, 
+            -> External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS,
 
 
 ✅Git/GitHub:

@@ -1,5 +1,5 @@
 /*-------------Dont do any code. Just doing CSS Notes here -------------*/
-/* Topics-> Selector, Combinator, properties(color, bg color, typography, text-align, image height & weight) */
+/* Topics-> Selector, Combinator, properties(color, bg color, typography, text-align, image height & weight), External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS,  */
 /*----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
 * {
     color: Red;
@@ -211,4 +211,6 @@ p {
   color: red;
 }
 
-/* start from this: "Adding CSS to HTML's Internal CSS" */
+
+
+/* External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS */
