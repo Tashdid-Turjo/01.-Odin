@@ -52,6 +52,7 @@ div {
 
 
 /*--------------------------------------------------------- Grouping Selector ------------------------------------------------------*/
+/************* when different elements share the same style. *************/
 /* Wrong one */
 .read {
   color: white;
@@ -93,6 +94,7 @@ declaration except color & background-color) */
 
 
 /*--------------------------------------------------------- Chaining Selector ----------------------------------------------------------*/
+/************* when one element has multiple conditions (like multiple classes). *************/
 /* Type-01: */
 /* HTML */
 <div>
@@ -107,8 +109,8 @@ declaration except color & background-color) */
   color: red;
 }
         /* Here, this ".subsection.header" means that, any element that has
-        both the subsection and header classes. 
-        Thus, it won't effect the subsection and preview class as there,
+        both the subsection and header classes in <div>.
+        Thus, it won't effect the subsection and preview class as in <p>,
         the header class is not there. */
 
 
