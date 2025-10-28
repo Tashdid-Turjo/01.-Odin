@@ -9,7 +9,7 @@
 
 /*--------------------------------------------------------- Type Selector ---------------------------------------------------------*/
 /* HTML Code */
-<!-- index.html -->
+/* <!-- index.html --> */
 <div>Hello, World!</div>
 <div>Hello again!</div>
 <p>Hi... </p>
@@ -24,9 +24,10 @@ div {
 
 
 /*--------------------------------------------------------- Class Selector ---------------------------------------------------------*/
-<!-- index.html -->
- <div class="alert-text">Please agree to our terms of service.</div> /* This 'alert-text' can't have spaces.
-                                                                        Cz, both div class & div id can't have spaces. */
+/* <!-- index.html --> */
+ <div class="alert-text">Please agree to our terms of service.</div>
+                                                  /* This 'alert-text' can't have spaces.
+                                                  Cz, both div class & div id can't have spaces. */
 
 /* styles.css */
 .alert-text {
@@ -38,7 +39,7 @@ div {
 
 
 /*--------------------------------------------------------- ID Selector -------------------------------------------------------------*/
-<!-- index.html -->
+/* <!-- index.html --> */
 <div id="title">My Awesome 90's Page</div>
 
 /* styles.css */
@@ -214,3 +215,40 @@ p {
 
 
 /* External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS */
+/* External CSS */
+/* <!-- index.html --> */
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+/* styles.css */
+div {
+  color: white;
+  background-color: black;
+}
+
+p {
+  color: red;
+}
+
+/* Internal CSS */
+<head>
+  <style>
+    div {
+      color: white;
+      background-color: black;
+    }
+
+    p {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  ...
+</body>
+
+/* Inline CSS */
+<body>
+  <div style="color: white; background-color: black;">...</div>
+</body>
