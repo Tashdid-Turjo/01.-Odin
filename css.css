@@ -103,6 +103,8 @@ h2.title {
 
 /* Corrected one (If both doesn't have any other unique 
 declaration except color & background-color) */
+/* Here, any element that has the class "read" or 
+the class "unread" (at least one) will be colored. */
 .read,
 .unread {
   color: white;
@@ -461,16 +463,33 @@ h1 {
 
 
 /*********************** Ex08 ***********************/
+/* HTML */
+<button id="confirm-button" class="warning confirm">Confirm</button>
+<button id="cancel-button" class="warning cancel">Cancel</button>
+
 /* CSS */
 /* Rule1 */
-.alert {
+.confirm {
   color: red;
 }
 
-/* Rule2 [This one wins, cz if it's draw, then last element gets precedence] */
+/* Rule2 [This one wins, though it's draw, so last element gets precedence] */
 .warning {
   color: yellow;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
