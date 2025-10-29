@@ -16,7 +16,7 @@
 <div>Okay, bye.</div>
 
 /* styles.css */
-div {
+div {               /* Don't use .div */
     color: white;  /* Here, only div tag of HTML will be highlighted.
                       But <p> tag won't be selected. */
 }
@@ -34,6 +34,33 @@ div {
     color: red; /* class selector won't work if it class name starts with number.
                    Ex- '4alert-text'. Though you can give class name starting with number in html,
                    but that class name won't work in css class selector. */
+}
+
+
+
+/*---------------------------- Combination of Type & Class Selector ----------------------------*/
+/* HTML */
+<div class="card">
+    <h2 class="title">Welcome</h2>
+    <p class="description">This is a paragraph</p>
+    <p class="highlight">This is highlighted text</p>
+    <button class="primary">Click me</button>
+</div>
+
+/* CSS */
+p.highlight {  /* Don't use .p as it's Type Selector, but use .hightlight as Class Selector*/
+    background-color: yellow;
+    font-weight: bold;
+}
+
+button.primary {
+    background-color: blue;
+    color: white;
+}
+
+h2.title {
+    color: navy;
+    border-bottom: 2px solid gray;
 }
 
 
@@ -93,8 +120,8 @@ declaration except color & background-color) */
 
 
 
-/*--------------------------------------------------------- Chaining Selector ----------------------------------------------------------*/
-/************* when one element has multiple conditions (like multiple classes). *************/
+/*------------------------------ Chaining Selector ----------------------------------*/
+/******** when one element has multiple conditions (like multiple classes). *********/
 /* Type-01: */
 /* HTML */
 <div>
@@ -149,8 +176,8 @@ declaration except color & background-color) */
   /* some declarations */
 }
         /* Here, in the HTML, nested occurs, thus- inside ancestor class's, 
-        both the two contents class will be selected, 
-        but the one contents class which is outside of ancestor class won't be selected. */
+        both the two "contents" class will be selected, 
+        but the one contents class which is outside of "ancestor" class won't be selected. */
 
 /* Type-02 */
 /* HTML */
@@ -163,7 +190,7 @@ declaration except color & background-color) */
 </div>
 
 /* CSS */
-.one .two .three .four {
+.one .two .three .four {    /* Here, you can just write .four only as there's no standalone "class four" which is outside the nested*/
   color: red;
 }
         /* Select an element with the class .four 
@@ -173,6 +200,63 @@ declaration except color & background-color) */
         That <p> will turn red. But if .four isn't 
         nested in that exact order, then it won't match. 
         But it's recommended to avoid this type of too much nesting. */
+
+
+
+/* Type-03 */
+/* HTML */
+<div class="one">
+  <div class="two">
+    <div class="three">
+      <p class="four">Hello</p>
+    </div>
+  </div>
+</div>
+<div class="four">Hello></div>   /* Just added a standalone "four class outside of nested"*/
+
+/* CSS */
+.one .two .three .four {
+  color: red;
+}
+        /* Select an element with the class .four 
+        that is inside an element with class .three,
+        which is inside an element with class .two,
+        which is inside an element with class .one.
+        That <p> will turn red. But the standalone "four class" won't be selected.
+        But it's recommended to avoid this type of too much nesting. */
+
+
+
+/*------------- Descendant Combinator + Type & Class Selector's Combination -------------*/
+/* HTML */
+<div class="container">
+      <p class="text">This should be styled.</p>
+</div>
+<p class="text">This should be unstyled.</p>
+
+/* CSS */
+div .text {
+    color: red;
+}
+
+/* CSS with more specific */
+div p.text {   /* Targets only p elements with class "text" inside div */
+    color: red;
+}
+
+/* CSS with far more specific */
+div.container p.text {      /* styles here will only apply to p elements with class "text" 
+                            that are inside div elements with class "container" */
+    color: red;
+}
+
+/* CSS(NOT RECOMMENDED) */
+div.container .text {       /* styles here will only apply with class "text" 
+                            that are inside div elements with class "container" */
+    color: red;
+}
+
+
 
 
 
@@ -254,3 +338,60 @@ p {
 <body>
   <div style="color: white; background-color: black;">...</div>
 </body>
+
+
+
+
+
+/* Extra Learning(From YT Reels, Link- https://youtube.com/shorts/IZmtyESp89A?si=o6pr1RDLLFX71tsO) */
+/***************** The cursor changes to a pointing hand *****************/
+/* Type-01 */
+/* HTML */
+<body>
+    <button class="Different-one1 Same-one">Click Me!</button>
+    <button class="Different-two2 Same-one">No, Click Me!</button>
+</body>
+
+/* CSS */
+button:hover {
+    cursor: pointer;
+    transition: all 0.1s;
+    transform: translate(-3px);
+    box-shadow: 0px 3px 6px rgba(250, 242, 242, alpha);
+}
+
+/* Type-02 ; Haven't implemented yet.*/
+/* HTML */
+<button>
+    <div>Button Text</div>
+    <div class="icon">
+        <!-- You can put an icon here, for example: -->
+        <i class="fas fa-arrow-right"></i>
+        <!-- or an image:
+        <img src="path-to-your-icon.png" alt="icon">
+        -->
+    </div>
+</button>
+
+/* CSS */
+.icon {
+  position:absolute;
+  transition: all 0.2s;
+  transform: translate(70px);
+}
+
+button:hover {
+  cursor: pointer;
+  background: linear-gradient(34deg, #1100ff, #111);
+  transition: all 0.2s;
+}
+
+button:hover > div {
+  transform: translateX(-20px);
+  cursor: pointer;
+}
+
+button:hover > .icon {
+  opacity: 1;
+  transform: translate(30px);
+}
