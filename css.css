@@ -1,5 +1,13 @@
 /*-------------Dont do any code. Just doing CSS Notes here -------------*/
-/* Topics-> Selector, Combinator, properties(color, bg color, typography, text-align, image height & weight), External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS,  */
+/* Topics-> Selector, 
+         -> Combinator, 
+         -> properties(color, bg color, typography, text-align, image height & weight), 
+         -> External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS,  
+         -> Cascade [Rule ordering]
+         */
+
+
+
 /*----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
 * {
     color: Red;
@@ -343,6 +351,145 @@ p {
 
 
 
+/*----------------------------------------- Cascade --------------------------*/
+/*********************** Ex01 ***********************/
+/* <!-- HTML --> */ */
+
+<div class="main">
+  <div class="list subsection">Red text</div>
+</div>
+
+/* CSS */
+/* rule 1 */
+.subsection {
+  color: blue;
+}
+
+/* rule 2 [This one precedence] */
+.main .list {
+  color: red;
+}
+
+
+/*********************** Ex02 ***********************/
+/* HTML */
+<div class="main">
+  <div class="list" id="subsection">Blue text</div>
+</div>
+
+/* CSS */
+/* rule 1 [This one precedence]*/
+#subsection {
+  color: blue;
+}
+
+/* rule 2 */
+.main .list {
+  color: red;
+}
+
+
+/*********************** Ex03 ***********************/
+/* HTML */
+<div class="main">
+  <div class="list" id="subsection">Red text on yellow background</div>
+</div>
+
+/* CSS */
+/* rule 1 */
+#subsection {
+  background-color: yellow;
+  color: blue;
+}
+
+/* rule 2 [This one precedence]*/
+.main #subsection {
+ color: red;
+}
+
+
+/*********************** Ex04 ***********************/
+/* rule 1 [Draw]*/
+.class.second-class {
+  font-size: 12px;
+}
+
+/* rule 2 [Draw]*/
+.class .second-class {
+  font-size: 24px;
+}
+
+
+/*********************** Ex05 ***********************/
+/* rule 1 [Draw]*/
+.class.second-class {
+  font-size: 12px;
+}
+
+/* rule 2 [Draw]*/
+.class > .second-class {
+  font-size: 24px;
+}
+
+
+/*********************** Ex06 ***********************/
+/* rule 1 */
+* {
+  color: black;
+}
+
+/* rule 2 [This one precedence]*/
+h1 {
+  color: orange;
+}
+
+
+/*********************** Ex07 ***********************/
+/* HTML */
+<div id="parent">
+  <div class="child"></div>
+</div>
+
+/* CSS [dont know who wins]*/
+#parent {
+  color: red;
+}
+
+.child {
+  color: blue;
+}
+
+
+/*********************** Ex08 ***********************/
+/* CSS */
+/* Rule1 */
+.alert {
+  color: red;
+}
+
+/* Rule2 [This one wins, cz if it's draw, then last element gets precedence] */
+.warning {
+  color: yellow;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Extra Learning(From YT Reels, Link- https://youtube.com/shorts/IZmtyESp89A?si=o6pr1RDLLFX71tsO) */
 /***************** The cursor changes to a pointing hand *****************/
 /* Type-01 */
@@ -395,3 +542,5 @@ button:hover > .icon {
   opacity: 1;
   transform: translate(30px);
 }
+
+

@@ -18,12 +18,13 @@
 
 ✅CSS:
 -> Keywords:
-            -> class, id attribute, property, value, 
+            -> class, id attribute, property, value, element, 
             -> selector{Universal, Type, Class, ID, Grouping, Chaining & many more},
-            -> combinator -> that combines multiple selectors either by grouping or by chaining them,
-                          -> 4 types; one is descendant combinator,
+            -> combinator -> that combines multiple selectors either by grouping or by chaining them -> 4 types; one is descendant combinator,
             -> properties -> color, bg-color, typography, text-align, image height & weight, 
             -> External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS,
+            -> Value -> "color: red;" & "height: 19px" here, red & 19px is the value.
+            -? Cascade, 
 
 
 ✅Git/GitHub:
