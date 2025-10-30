@@ -532,22 +532,132 @@ h1 {
 
 
 
-/* Link of images of some notes. Avoid the 'nothing'. */
+/* Link of images, Links of notes. Avoid the 'nothing'. */
 nothing {
   background-image: url("Odin_Project_Box_Models_CSS.png");
   background-image: url("padding_border_margin.png");
-  /* border-box vs content-box YT Link  */
+  /* border-box vs content-box YT Link:  */
   background-image: url(https://youtu.be/HdZHcFWcAd8?si=EW15hi0yF7ZOM0gC&t=150);
+  /* Some type of examples in this link: */
+  background-image: url(https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model#block_and_inline_boxes);
 }
 
 
 
+/* Ex02 */
+/* HTML */
+<p>I am a paragraph. A short one.</p>
+<ul>
+  <li>Item One</li>
+  <li>Item Two</li>
+  <li>Item Three</li>
+</ul>
+<p>
+  I am another paragraph. Some of the <span class="block">words</span> have been
+  wrapped in a <span>span element</span>.
+</p>
+
+/* CSS */
+body {
+  font-family: sans-serif;
+}
+p,
+ul {
+  border: 2px solid rebeccapurple;    /* This will color the 3 <li> as one border */
+  padding: 0.2em;
+}
+
+.block,
+li {
+  border: 2px solid blue;             /* This will color the 3 <li> as 3 borders. */
+  padding: 0.2em;
+}
+
+ul {
+  display: flex;              /* flex makes the <ul> as paragraph type in one line. */
+  list-style: none;
+}
+
+.block {
+  display: block;   /* By commenting or uncommenting it, you will see the difference. */
+}
 
 
 
+/* Ex03 */
+/* HTML */
+<p>
+  I am a paragraph. Some of the
+  <span>words</span> have been wrapped in a <span>span element</span>.
+</p>
+<ul>
+  <li>Item One</li>
+  <li>Item Two</li>
+  <li>Item Three</li>
+</ul>
+<p class="inline">I am a paragraph. A short one.</p>
+<p class="inline">I am another paragraph. Also a short one.</p>
+
+/* CSS */
+body {
+  font-family: sans-serif;
+}
+p,
+ul {
+  border: 2px solid rebeccapurple;
+}
+
+span,
+li {
+  border: 2px solid blue;
+}
+
+ul {
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+}
+
+.inline {
+  display: inline;
+}
 
 
 
+/* Ex04 */
+/* HTML */
+<div class="container">
+  <div class="box">Change my margin.</div>
+</div>
+
+/* CSS */
+.container {
+  border: 5px solid blue;
+  margin: 40px;
+}
+
+.box {
+  border: 5px solid rebeccapurple;
+  background-color: lightgray;
+  padding: 10px;
+  height: 100px;
+  /* try changing the margin properties to see then changes. */
+  margin-top: -40px;  /* By changing this, the writing part goes top than the blue border. */
+  margin-right: 30px;
+  margin-bottom: 40px;
+  margin-left: 4em;
+}
+
+
+
+/* Ex05 */
+nothing {
+  /* Some type of examples in this link: */
+  background-image: url(https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model#block_and_inline_boxes);
+}
+
+/* From The Box Model's MDN's lesson's margin, padding, borders part 
+should be studied and experimented wi their in-browser editor. */
 
 
 
