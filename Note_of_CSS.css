@@ -4,6 +4,7 @@
          -> properties(color, bg color, typography, text-align, image height & weight), 
          -> External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS,  
          -> Cascade [Rule ordering]
+         -> Box Model 
          */
 
 
@@ -353,7 +354,7 @@ p {
 
 
 
-/*----------------------------------------- Cascade --------------------------*/
+/*---------------------------- Cascade / Specificity --------------------------*/
 /*********************** Ex01 ***********************/
 /* <!-- HTML --> */ */
 
@@ -479,6 +480,74 @@ h1 {
 }
 
 
+/*********************** Ex09 ***********************/
+/* Inline CSS > Internal CSS > External CSS  is the priority/precedence order */
+
+
+
+
+
+/*********************************** Box Model **************************************/
+/* CSS(Everything will be boxed shaped, as everything is web page is box shaped.) */
+/* You can manipulate the size of box using padding, border, margin, height, width. */
+/* Ex01 */
+* {
+  outline: 2px solid red;
+}
+
+
+/* Ex02 (After doing the code, right click to 'one' -> inspect -> go to 'computed')*/
+/* HTML */
+<div class="box-one">One </div>
+<div class="box-two">Two </div>
+
+/* CSS */
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 40px;
+}
+
+.box-one {
+  background-color: red;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+  border: 30px solid blueviolet;
+  margin: 60px;
+  /* box-sizing: border-box; */
+}
+
+.box-two {
+  background-color: skyblue;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+  border: 30px solid blueviolet;
+  margin: 60px;
+  /* box-sizing: content-box; /* 'content-box' value is the default. */
+}
+
+
+
+/* Link of images of some notes. Avoid the 'nothing'. */
+nothing {
+  background-image: url("Odin_Project_Box_Models_CSS.png");
+  background-image: url("padding_border_margin.png");
+  /* border-box vs content-box YT Link  */
+  background-image: url(https://youtu.be/HdZHcFWcAd8?si=EW15hi0yF7ZOM0gC&t=150);
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -561,5 +630,8 @@ button:hover > .icon {
   opacity: 1;
   transform: translate(30px);
 }
+
+
+
 
 

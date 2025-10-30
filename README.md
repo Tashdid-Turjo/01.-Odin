@@ -24,7 +24,10 @@
             -> properties -> color, bg-color, typography, text-align, image height & weight, 
             -> External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS,
             -> Value -> "color: red;" & "height: 19px" here, red & 19px is the value.
-            -? Cascade, 
+            -> Cascade, Box Model(padding, border, margin, height, width),
+            ->  
+
+
 
 
 ✅Git/GitHub:
