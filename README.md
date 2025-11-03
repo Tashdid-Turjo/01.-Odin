@@ -25,7 +25,11 @@
             -> External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS,
             -> Value -> "color: red;" & "height: 19px" here, red & 19px is the value.
             -> Cascade, Box Model(padding, border, margin, height, width),
-            ->  
+            -> Box Model(padding, border, margin), 
+            -> Block & Inline Box -> display property,
+                                  -> 'div' vs 'spans',
+                                  -> Normal Flow (the way block and inline elements are rendered on a webpage by default) */
+
 
 
 

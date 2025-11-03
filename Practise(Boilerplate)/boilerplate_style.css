@@ -1,4 +1,4 @@
-* {
+/* * {
   padding: 0;
   margin: 0;
   font-size: 40px;
@@ -22,4 +22,16 @@
   padding: 10px;
   border: 30px solid blueviolet;
   margin: 60px;
+} */
+
+.box {
+  /* This defines the width and height of the container/background */
+  width: 300px;
+  height: 100px;
+  background-color: pink;
+
+  /* This modifies the text appearance inside that box */
+  font-size: 2rem;
+  color: black;
+  text-align: center;
 }

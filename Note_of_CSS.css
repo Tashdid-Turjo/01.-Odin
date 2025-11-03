@@ -1,11 +1,13 @@
 /*-------------Dont do any code. Just doing CSS Notes here -------------*/
 /* Topics-> Selector, 
-         -> Combinator, 
+         -> Combinator -> that combines multiple selectors either by grouping or by chaining them -> 4 types; one is descendant combinator,
          -> properties(color, bg color, typography, text-align, image height & weight), 
          -> External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS,  
-         -> Cascade [Rule ordering]
+         -> Cascade [Rule ordering],
          -> Box Model(padding, border, margin) 
-         */
+         -> Block & Inline Box -> display property,
+                               -> 'div' vs 'spans',
+                               -> Normal Flow (the way block and inline elements are rendered on a webpage by default) */
 
 
 
@@ -520,7 +522,8 @@ h1 {
                                   Total Width = Width (as set by you).
                                   If you set the element to be 100 pixels wide,
                                   it will be 100 pixels wide, and the padding and border
-                                  are contained inside that 100-pixel space. */
+                                  are contained inside that 100-pixel space. 
+                                  Most of the developer use this border-box. */
 }
 
 .box-two {
@@ -717,6 +720,9 @@ use one of the more granular longhand properties:
       border-left-width
       border-left-style
       border-left-color
+
+      // Sequence -> Size, Style, Color
+      border: 5px solid black;
 */
 
 
@@ -754,13 +760,49 @@ CSS Code:
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: border-box;       // Universally give every element as border-box;
 }
-
 
 */
 
 
+
+
+/*----------------------------------------------------- Block & Inline Box ---------------------------------------------------------*/
+/* By default, most the elements that I learned is block element. */
+/* Block element -> each new element starting on a new line.
+                 -> <div>, <p>, <h1>
+                 -> Stack vertically (one on top of the other).
+
+   Inline element -> don't start a new line.
+                  -> <span>, <a>, <strong>
+                  -> Flow horizontally along the text baseline (left to right).
+*/
+
+
+
+/*---------------------------------- div(Block) & span(Inline) ----------------------------------*/
+/* div is by default block-level element. */
+/* span is by default inline-level element. */
+
+/* Ex01 */
+<div>
+    This sentence contains 
+    <span class="inline">a highlighted word</span> and 
+    <span class="inline">another highlighted phrase</span>.
+</div>
+
+/* Ex02 */
+<span>
+    This sentence contains 
+    <span class="inline">a highlighted word</span> and 
+    <span class="inline">another highlighted phrase</span>.
+</span>
+
+/* Ex03 */
+<ul>
+  <li>User: <span style="font-weight: bold;">John Doe</span></li>
+</ul>
 
 
 
