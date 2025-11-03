@@ -4,7 +4,7 @@
          -> properties(color, bg color, typography, text-align, image height & weight), 
          -> External, Internal/Embedded, Inline(NOT RECOMMENDED) CSS,  
          -> Cascade [Rule ordering]
-         -> Box Model 
+         -> Box Model(padding, border, margin) 
          */
 
 
@@ -241,13 +241,13 @@ the class "unread" (at least one) will be colored. */
 /*------------- Descendant Combinator + Type & Class Selector's Combination -------------*/
 /* HTML */
 <div class="container">
-      <p class="text">This should be styled.</p>
+  <p class="text">This should be styled.</p>
 </div>
 <p class="text">This should be unstyled.</p>
 
 /* CSS */
 div .text {
-    color: red;
+    color: red;     /* the second class "This should be unstyled" won't be colored. */
 }
 
 /* CSS with more specific */
@@ -481,7 +481,7 @@ h1 {
 
 
 /*********************** Ex09 ***********************/
-/* Inline CSS > Internal CSS > External CSS  is the priority/precedence order */
+/* (Inline CSS) > (Internal CSS) > (External CSS)  is the priority/precedence order */
 
 
 
@@ -492,7 +492,7 @@ h1 {
 /* You can manipulate the size of box using padding, border, margin, height, width. */
 /* Ex01 */
 * {
-  outline: 2px solid red;
+  outline: 2px solid red;   /* Here, everything will be boxed shaped. */
 }
 
 
@@ -516,7 +516,11 @@ h1 {
   padding: 10px;
   border: 30px solid blueviolet;
   margin: 60px;
-  /* box-sizing: border-box; */
+  /* box-sizing: border-box; */   /* 'border-box' is the alternate box model.
+                                  Total Width = Width (as set by you).
+                                  If you set the element to be 100 pixels wide,
+                                  it will be 100 pixels wide, and the padding and border
+                                  are contained inside that 100-pixel space. */
 }
 
 .box-two {
@@ -527,7 +531,13 @@ h1 {
   padding: 10px;
   border: 30px solid blueviolet;
   margin: 60px;
-  /* box-sizing: content-box; /* 'content-box' value is the default. */
+  /* box-sizing: content-box; /*    /* 'content-box' value is the default.
+                                    It's the standard box model. 
+                                    Total Width = (Width + Padding + Border)
+                                    If you order a 100-pixel wide cake box (the content),
+                                    the padding (air inside) and the border (cardboard) are
+                                    added on top, making the final box size larger than 
+                                    100 pixels. */
 }
 
 
@@ -656,10 +666,93 @@ nothing {
   background-image: url(https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model#block_and_inline_boxes);
 }
 
-/* From The Box Model's MDN's lesson's margin, padding, borders part 
-should be studied and experimented wi their in-browser editor. */
 
 
+
+
+/*--------------- Padding, Border, Margin All Types--------------- */
+/* Padding Type */
+/* 
+      padding-top
+      padding-right
+      padding-bottom
+      padding-left
+*/
+
+
+
+/* Border Type */
+/* 
+To set the properties of each side individually, use:
+
+      border-top
+      border-right
+      border-bottom
+      border-left
+
+To set the width, style, or color of all sides, use:
+
+      border-width
+      border-style
+      border-color
+
+To set the width, style, or color of a single side,
+use one of the more granular longhand properties:
+
+      border-top-width
+      border-top-style
+      border-top-color
+      border-right-width
+      border-right-style
+      border-right-color
+      border-bottom-width
+      border-bottom-style
+      border-bottom-color
+      border-left-width
+      border-left-style
+      border-left-color
+*/
+
+
+
+/* Margin Types */
+/*
+      margin-top
+      margin-right
+      margin-bottom
+      margin-left 
+*/
+
+
+
+/* Ques Ans */
+/*
+Would you use margin or padding to create more space between 2 elements?
+Ans: You would use margin. Margin is the space outside an element's border,
+separating it from adjacent elements.
+
+Would you use margin or padding to create more space between the contents 
+of an element and its border?
+Ans: You would use padding. Padding is the space inside an element's border,
+separating the content from the edge.
+
+Would you use margin or padding if you wanted two elements to overlap each other?
+Ans: You would use margin, specifically negative margin (e.g., margin-top: -10px;).
+Negative margin allows an element to pull itself into the space of an adjacent element,
+causing an overlap.
+
+How do you set the alternative box model for all of your elements?
+Ans:
+CSS Code:
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+*/
 
 
 
