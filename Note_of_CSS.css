@@ -7,7 +7,7 @@
          -> Box Model(padding, border, margin) 
          -> Block & Inline Box -> display property,
                                -> 'div' vs 'spans',
-                               -> Normal Flow (the way block and inline elements are rendered on a webpage by default) */
+                               -> Normal Flow (the way block and inline elements are rendered on a webpage by default. For instance, <button> works as inline by default where <p> works as block by default.) */
 
 
 
@@ -716,6 +716,16 @@ nothing {
 
 
 
+*/
+
+
+
+
+
+/*------------------- CSS values that I learned -------------------*/
+/* 
+  1. to horizontally center that element within its container:
+  auto;
 */
 
 
