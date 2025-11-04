@@ -714,7 +714,8 @@ nothing {
     outline: 1px solid red;
   }
 
-
+  8. To improve the browser's handling of small windows-
+  max-width: 10px;
 
 */
 
