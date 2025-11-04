@@ -672,6 +672,55 @@ nothing {
 
 
 
+/*------------------- CSS Properties that I learned -------------------*/
+/*  
+  1.
+  top
+  right
+  bottom
+  left
+
+  2. Position property(****Very Imp****)-
+  position: relative;
+  position: fixed;
+  position: sticky;   // For sticky, only writing this won't change anything, cz it only works when we define a top property. check using top: 0px & top: 10px; You will see the difference.
+  position: absolute;
+  position: static; // it's the default value.
+
+  3. relative, absolute's work in two different selector's-
+  <div class="parent">Parent
+    <p class="child"> Child </p>
+  </div>
+
+  parent {
+    position: relative;
+  }
+
+  child {
+    position: absolute;     // By this, child selector will be inside parent selector's inside position instead of full website's position.
+  }
+
+  4. which selector will overlap to another selector-
+  z-index
+
+  5. horizontal positioning gone-
+  overflow-x: hidden;
+
+  6. When want stop forcing a new line and try to stick to the content/text/image before.
+  display: inline;
+
+  7. To see the whole elements as boxed shaped-
+  * {
+    outline: 1px solid red;
+  }
+
+
+
+*/
+
+
+
+
 
 /*--------------- Padding, Border, Margin All Types--------------- */
 /* Padding Type */
@@ -773,13 +822,19 @@ CSS Code:
 /* Block element -> each new element starting on a new line.
                  -> <div>, <p>, <h1>
                  -> Stack vertically (one on top of the other).
+                 -> Ex- display: block;
 
    Inline element -> don't start a new line.
                   -> <span>, <a>, <strong>
                   -> Flow horizontally along the text baseline (left to right).
+                  -> Ex- display: inline;
+                  -> There's difference between display: inline; & display: inline-block;
 */
 
-
+/* <h1> is block;
+   <button> is inline-block (often acts inline);
+   <div> is block;
+   <span> is inline. */
 
 /*---------------------------------- div(Block) & span(Inline) ----------------------------------*/
 /* div is by default block-level element. */
