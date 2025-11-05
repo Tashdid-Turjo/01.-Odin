@@ -7,9 +7,9 @@
          -> Box Model(padding, border, margin) 
          -> Block & Inline Box -> display property,
                                -> 'div' vs 'spans',
-                               -> Normal Flow (the way block and inline elements are rendered on a webpage by default. For instance, <button> works as inline by default where <p> works as block by default.) */
-
-
+                               -> Normal Flow (the way block and inline elements are rendered on a webpage by default. For instance, <button> works as inline by default where <p> works as block by default.) 
+         -> Flexbox (grow or shrink)
+        */
 
 /*----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
 * {
@@ -237,6 +237,19 @@ the class "unread" (at least one) will be colored. */
         which is inside an element with class .one.
         That <p> will turn red. But the standalone "four class" won't be selected.
         But it's recommended to avoid this type of too much nesting. */
+
+/* Type-04 */
+/* HTML */
+<div class="flex-container">
+  <div class="one"></div>
+  <div class="two"></div>
+  <div class="three"></div>
+</div>
+
+/* CSS */
+.flex-container div {    /* Here, flex-container class's nested 3 <div> will be selected. */
+  color: red;
+}
 
 
 
@@ -870,6 +883,16 @@ CSS Code:
   <li>User: <span style="font-weight: bold;">John Doe</span></li>
 </ul>
 
+
+
+
+
+/* ------------------------------------ Flexbox ------------------------------------ */
+/* 1. */
+  nothing {
+    background-image: url("Flex_Container_&_Flex_Item.png");
+    background-image: url("An_Item_as_both_Flex_Container_&_Flex_Item.png");
+  }
 
 
 
