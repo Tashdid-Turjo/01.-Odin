@@ -8,7 +8,8 @@
          -> Block & Inline Box -> display property,
                                -> 'div' vs 'spans',
                                -> Normal Flow (the way block and inline elements are rendered on a webpage by default. For instance, <button> works as inline by default where <p> works as block by default.) 
-         -> Flexbox (grow or shrink)
+         -> Flexible Box / Flexbox (grow or shrink) -> Flex Container,
+                            `                       -> Flex Item,
         */
 
 /*----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
@@ -887,15 +888,65 @@ CSS Code:
 
 
 
-/* ------------------------------------ Flexbox ------------------------------------ */
-/* 1. */
-  nothing {
-    background-image: url("Flex_Container_&_Flex_Item.png");
-    background-image: url("An_Item_as_both_Flex_Container_&_Flex_Item.png");
-  }
+/* ---------------------------- Flexible Box / Flexbox ------------------------------ */
+/* 1. Images */
+nothing {
+  background-image: url("Flex_Container_&_Flex_Item.png");
+  background-image: url("An_Item_as_both_Flex_Container_&_Flex_Item.png");
+  background-image: url("Nested_Flex_Container_&_Flex_Item.png");
+}
+
+/* 2. See the Difference by yourself. */
+/* type1 */
+<div class='menu-container'>
+  <div class='menu'>
+    <div class='date'>Aug 14, 2016</div>
+    <div class='signup'>Sign Up</div>
+    <div class='login'>Login</div>
+  </div>
+</div>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu-container {
+  color: #fff;
+  background-color: #5995DA;
+  padding: 20px 0;
+  border: 10px solid red;
+}
 
 
 
+Type2
+<div class='menu-container'>
+  <div class='menu'>
+    <div class='date'>Aug 14, 2016</div>
+    <div class='signup'>Sign Up</div>
+    <div class='login'>Login</div>
+  </div>
+</div>
+	
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu-container {
+  color: #fff;
+  background-color: #5995DA;
+  padding: 20px 0;
+}
+
+.menu {
+  border: 1px solid red;
+}
+
+/* -------------- These two aren't same thing, check it yourself -------------- */
 
 
 
