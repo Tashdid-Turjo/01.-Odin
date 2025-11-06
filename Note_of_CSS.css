@@ -720,18 +720,31 @@ nothing {
   5. horizontal positioning gone-
   overflow-x: hidden;
 
-  6. When want stop forcing a new line and try to stick to the content/text/image before.
+  6. align-item-
+  align-items: center;
+  align-items: flex-start;
+  align-end: end;
+  align-items: stretch;
+  align-items: baseline;
+
+  7. When want stop forcing a new line and try to stick to the content/text/image before.
   display: inline;
 
-  7. To see the whole elements as boxed shaped-
+  8. To see the whole elements as boxed shaped-
   * {
     outline: 1px solid red;
   }
 
-  8. To improve the browser's handling of small windows-
+  9. To improve the browser's handling of small windows-
   max-width: 10px;
 
-*/
+  10. to make the whole element in the center position-
+  justify-content: center;        // When there's only one flex item in flex container.
+  justify-content: flex-start;    // When there's only one flex item in flex container.                   
+  justify-content: flex-end;      // When there's only one flex item in flex container.
+  justify-content: space-around;  // This use when there's multiple flex items in flex container.
+  justify-content: space-between; // This use when there's multiple flex items in flex container.
+  */
 
 
 
@@ -808,6 +821,8 @@ use one of the more granular longhand properties:
       margin-bottom
       margin-left 
 */
+
+
 
 
 
@@ -896,7 +911,7 @@ nothing {
   background-image: url("Nested_Flex_Container_&_Flex_Item.png");
 }
 
-/* 2. See the Difference by yourself. */
+/* 2. See the Difference by yourself. These two types aren't same, check it yourself */
 /* type1 */
 <div class='menu-container'>
   <div class='menu'>
@@ -916,12 +931,12 @@ nothing {
   color: #fff;
   background-color: #5995DA;
   padding: 20px 0;
-  border: 10px solid red;
+  border: 10px solid red;     /* By putting border under .menu-container */
 }
 
 
 
-Type2
+/* Type2 */
 <div class='menu-container'>
   <div class='menu'>
     <div class='date'>Aug 14, 2016</div>
@@ -943,10 +958,29 @@ Type2
 }
 
 .menu {
-  border: 1px solid red;
+  border: 1px solid red;      /* By putting border under .menu */
 }
 
-/* -------------- These two aren't same thing, check it yourself -------------- */
+
+/* Type3 (Notes) */
+/*  
+  -> Use 'display: flex'; to create a flex container.
+  -> Use 'justify-content' to define the horizontal alignment of items.
+  -> Use 'align-items' to define the vertical alignment of items.
+  -> Use 'flex-direction' if you need columns instead of rows.
+  -> Use the 'row-reverse' or 'column-reverse' values to flip item order.
+  -> Use 'order' to customize the order of individual elements. It's default value = 0.
+  -> Use 'align-self' to vertically align individual items.
+  -> Use 'flex' to create flexible boxes that can stretch and shrink.
+  -> Use 'flex-wrap: wrap;' when no longer trying to fit into one line but instead are allowed to wrap when there's no more space available.
+  -> Use align-content' when you have flex wrap set to wrap, like this- 'flex-wrap: wrap' & have items wrapping. This property allows us to align everything on the cross axis. The possible values that go here are pretty much the same as with 'justified-content'.
+  -> Use 'gap: 1em' when add gaps in between each item.
+  -> Use 'flex-grow' takes a unitless value and allows the item to grow if there's enough space.
+  -> 'flex-grow', 'flex-shrink', 'flex-basis' are 'flex' property's shorthand.
+          -> For instance- flex: 1; is the equates flex-grow: 1, flex-shrink-1, flex-basis: 0.
+          -> For instance- flex: 1 1 auto; means flex-grow: 1, flex-shrink: 1, flex-basis: auto.
+  */
+
 
 
 
