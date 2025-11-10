@@ -1086,32 +1086,14 @@ something to be aware of.
 
 
 /* ------------------------ Alignment --------------------------- */
-/* Keywords: 
+/* 
+N.B: Keywords(From Ex01): 
 1. flex: 1;                               -> on .item,
 2. justify-content: space-between;        -> on .container,
 3. align-items: center;                   -> on .container,
 4. gap: 8px;                              -> on .container,
 
-N.B: 
-  (i) if flex-direction: row;      -> justify-content aligns horizontally &
-                                      align-items aligns vertically.
-
-  (ii) if flex-direction: column;  -> justify-content aligns vertically & 
-                                      align-items aligns horizontally.
-
-
-N.B:
-  (i) justify-content vs align-items:
-      -> there's another property named- align-self, but there's no justify-self.
-      -> why it's not named as justify-items & align-content?
-        Answer:
-        justify — to position something along the primary axis.
-        align — to position something along the cross axis.
-        content — a group of “stuff” that can be distributed.
-        items — single items that can be positioned individually.
-        
-        
-        
+/* Ex01 */
 /* HTML */
 <div class="container">
   <div class="item"></div>
@@ -1138,6 +1120,90 @@ N.B:
   flex: 1 1 0;
 }
 
+/*
+N.B: 
+  (i) if flex-direction: row;      -> justify-content aligns horizontally &
+                                      align-items aligns vertically.
+
+  (ii) if flex-direction: column;  -> justify-content aligns vertically & 
+                                      align-items aligns horizontally.
+
+
+N.B:
+  (i) justify-content vs align-items:
+      -> there's another property named- align-self, but there's no justify-self.
+      -> why it's not named as justify-items & align-content?
+        Answer:
+        justify — to position something along the primary axis.
+        align — to position something along the cross axis.
+        content — a group of “stuff” that can be distributed.
+        items — single items that can be positioned individually.
+        
+        
+N.B:
+  (i) Hypothetical size: key difference in how width is handled between the
+      default web layout and Flexbox. The width property behaves differently 
+      depending on the layout mode used. The difference is the "LAYOUT MODE".
+
+      In the Ex02: 
+      -> In Non-FlexBox, when you set width: 2000px; on a normal, non-Flexbox element, 
+      browser treats it as command. That means, the first element must be 2000px wide.
+      So it's an order/command, not a suggestion.
+      
+      -> But in the flexbox container, the width: 2000px; property is treated as a
+      suggestion (called hypothetical size). That means, if the parent container is too
+      small to fit the 2000px width, the flex item will shrink to fit inside the container.
+      It won't burst out. So it's a suggestion, not a order/command.
+
+
+/* Ex02 */
+/* HTML */
+<style>
+  .flex-wrapper {
+    display: flex;
+  }
+  .item {
+    width: 2000px;
+  }
+</style>
+
+<div class="item"></div>
+
+<div class="flex-wrapper">
+  <div class="item"></div>
+</div>
+
+/* CSS */
+.row {
+  list-style-type: none;
+  padding: 16px;
+}
+.item {
+  height: 50px;
+  border: 2px solid;
+  border-radius: 4px;
+  background: hotpink;
+  margin: 16px;
+}
+
+
+
+/*
+N.B:
+  (i) flex-basis vs width:
+      -> The difference is flex-basis is considered as width for flex-direction: row;
+         but for column, it's considered as height. That means, it can be changed. But
+         width is always fixed. It will always affect the horizontal size.
+*/       
+
+
+/*
+N.B:
+  (i) flex-grow vs flex-shrink 
+      -> flex-grow controls how the extra space is distributed when the items are
+      smaller than their container.
+      -> flex-shrink controls how space is removed when the items are bigger than their 
+      container.
 */
 
 
