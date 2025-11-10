@@ -31,8 +31,10 @@
                                   -> Normal Flow (the way block and inline elements are rendered on a webpage by default)
             -> Flexible Box / Flexbox (grow or shrink) -> Flex Container,
                                                        -> Flex Item,
-            -> Grow, Shrink, Basis,
-            -> Axes,
+                                                       -> Grow, Shrink, Basis,
+                                                       -> Axes (Main Axes (X) & 
+                                                       Cross Axes (Y)),
+                                                       -> Alignment,
 
 
 
