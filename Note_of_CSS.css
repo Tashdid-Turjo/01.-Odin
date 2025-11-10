@@ -10,6 +10,8 @@
                                -> Normal Flow (the way block and inline elements are rendered on a webpage by default. For instance, <button> works as inline by default where <p> works as block by default.) 
          -> Flexible Box / Flexbox (grow or shrink) -> Flex Container,
                             `                       -> Flex Item,
+         -> Grow, Shrink, Basis,
+         -> Axes,
         */
 
 /*----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
@@ -975,13 +977,21 @@ nothing {
   -> Use 'flex-wrap: wrap;' when no longer trying to fit into one line but instead are allowed to wrap when there's no more space available.
   -> Use align-content' when you have flex wrap set to wrap, like this- 'flex-wrap: wrap' & have items wrapping. This property allows us to align everything on the cross axis. The possible values that go here are pretty much the same as with 'justified-content'.
   -> Use 'gap: 1em' when add gaps in between each item.
+  
+
+
+
+
+
+/* ---------------- Growing and Shrinking ---------------- */
+/*
   -> Use 'flex-grow' takes a unitless value and allows the item to grow if there's enough space.
   -> 'flex-grow', 'flex-shrink', 'flex-basis' are 'flex' property's shorthand.
           -> For instance- flex: 1; is the equates flex-grow: 1, flex-shrink-1, flex-basis: 0.
           -> For instance- flex: 1 1 auto; means flex-grow: 1, flex-shrink: 1, flex-basis: auto.
-  */
+*/
 
-/* Type4 (Grow, Shrink) */
+/* Type1 (Grow, Shrink) */
 /* There is a difference between the default value of flex-basis and the way the flex
 shorthand defines it if no flex-basis is given. The actual default value for flex-basis
 is auto, but when you specify flex: 1 on an element, it interprets that as flex: 1 1 0.
@@ -991,14 +1001,25 @@ which is also equivalent to using flex: auto.
 */
 
 
+/* Type02 */
+/* 1. flex: initial;        <-> flex: 0 1 auto;   // doesn't grow but shrink.
+   2. flex: auto;           <-> flex: 1 1 auto;   // can grow & shrink.
+   3. flex: none;           <-> flex: 0 0 auto;   // neither grows nor shrink.
+   4. flex: <number [1,∞]>  <-> flex: <number [1,∞]> 1 0; // main size will be proportional to the number set.
+
+   Link: https://www.w3.org/TR/css-flexbox-1/#flex-common
+*/
 
 
+/* Type03 */
+/* flex-grow -> works while we shorten the browser window then it grows. */
+/* flex-shrink -> works while we shorten the browser window then it shrinks. */
 
-/* ---------------- flex basic study done under growing and shrinking ---------------- */
-
-
-
-
+/* Type04 */
+/* These grow, shrink, basis works as ratio, like giving one class as 2
+   (as grow), & giving another class as 1 (as grow) -> these two will work
+   as ratio.
+ */
 
 
 
