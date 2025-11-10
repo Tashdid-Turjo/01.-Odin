@@ -11,7 +11,8 @@
          -> Flexible Box / Flexbox (grow or shrink) -> Flex Container,
                             `                       -> Flex Item,
                                                     -> Grow, Shrink, Basis,
-                                                    -> Axes (Main Axes(X) & Cross Axes(Y)),
+                                                    -> Axes (Main/Primary Axes & Cross Axes),
+                                                       for row: Main -> X, Cross -> Y.
                                                     -> Alignment,
         */
 
@@ -1037,7 +1038,7 @@ which is also equivalent to using flex: auto.
 
 
 
-/* ------------------------ Axes (Main Axes(X) & Cross Axes(Y)) --------------------------- */
+/* ------------------------ Axes (Main/Primary Axes & Cross Axes) --------------------------- */
 /* Type01 */
 /* By writing flex-direction: column;  -> everything becomes in column/vertically shaped. */
 
@@ -1098,6 +1099,19 @@ N.B:
   (ii) if flex-direction: column;  -> justify-content aligns vertically & 
                                       align-items aligns horizontally.
 
+
+N.B:
+  (i) justify-content vs align-items:
+      -> there's another property named- align-self, but there's no justify-self.
+      -> why it's not named as justify-items & align-content?
+        Answer:
+        justify — to position something along the primary axis.
+        align — to position something along the cross axis.
+        content — a group of “stuff” that can be distributed.
+        items — single items that can be positioned individually.
+        
+        
+        
 /* HTML */
 <div class="container">
   <div class="item"></div>

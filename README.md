@@ -32,8 +32,8 @@
             -> Flexible Box / Flexbox (grow or shrink) -> Flex Container,
                                                        -> Flex Item,
                                                        -> Grow, Shrink, Basis,
-                                                       -> Axes (Main Axes (X) & 
-                                                       Cross Axes (Y)),
+                                                       -> Axes (Main/Primary Axes & Cross Axes),
+                                                       for row: Main -> X, Cross -> Y.
                                                        -> Alignment,
 
 
