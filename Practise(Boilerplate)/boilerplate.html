@@ -7,20 +7,18 @@
   <link rel="stylesheet" href="boilerplate_style.css">
 </head>
 <body>
-  <style>
-  .flex-wrapper {
-    display: flex;
+<style>
+  /* This is the key property: */
+  .item.ball {
+    flex-shrink: 0;
   }
-  .item {
-    width: 2000px;
-  }
-  </style>
+</style>
 
-  <div class="item"></div>
-
-  <div class="flex-wrapper">
-    <div class="item"></div>
-  </div>
+<div class="wrapper">
+  <div class="item ball"></div>
+  <div class="item stretch"></div>
+  <div class="item ball"></div>
+</div>
     
 </body>
 </html>

@@ -1204,11 +1204,75 @@ N.B:
       smaller than their container.
       -> flex-shrink controls how space is removed when the items are bigger than their 
       container.
+      -> This means that only one of these properties can be active at once. If there's
+      extra space, flex-shrink has no effect, since the items don't need to shrink.
+      And if the children are too big for their container, flex-grow has no effect, 
+      because there's no extra space to divvy up.
 */
 
 
 
+/* Ex01 (If you wanna prevent shrinking, just do "flex-shrink: 0;")*/
+/* HTMl */
+<style>
+  /* This is the key property: */
+  .item.ball {
+    flex-shrink: 0;
+  }
+</style>
 
+<div class="wrapper">
+  <div class="item ball"></div>
+  <div class="item stretch"></div>
+  <div class="item ball"></div>
+</div>
+
+/* CSS */
+body {
+  background: hsl(210deg, 30%, 12%);
+  color: hsl(0deg 0% 100%);
+}
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
+.item {
+  height: 32px;
+  border: 2px solid hsl(210deg 8% 50%);
+  background: hsl(210deg 15% 20%);
+}
+.item.stretch {
+  /*
+    Because this item is empty, it
+    has a default hypothetical width
+     of 0px. This isn't realistic,
+     though; in a typical case,
+     there would be content in here!
+     And so we set a width of 300px
+     to simulate it containing stuff.
+  */
+  width: 300px;
+  flex-grow: 1;
+  border-radius: 16px;
+}
+.item.ball {
+  width: 32px;
+  /*
+    NOTE: We could prevent the circle
+    from squishing into an oval by
+    setting border-radius: 16px
+    instead. I'm using percentages
+    because it makes for a better
+    demo. But even with a pixel-based
+    radius, we still need
+    flex-shrink: 0 to prevent the
+    item from shrinking (give it a
+    shot and see the difference!).
+  */
+  border-radius: 50%;
+}
+
+/* Link: https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/ */
 
 
 
