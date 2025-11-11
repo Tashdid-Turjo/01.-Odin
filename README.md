@@ -28,7 +28,7 @@
             -> Box Model(padding, border, margin), 
             -> Block & Inline Box -> display property,
                                   -> 'div' vs 'spans',
-                                  -> Normal Flow (the way block and inline elements are rendered on a webpage by default)
+                                  -> Normal Flow (The reverse of FlexBox) (the way block and inline elements are rendered on a webpage by default)
             -> Flexible Box / Flexbox (grow or shrink) -> Flex Container,
                                                        -> Flex Item,
                                                        -> Grow, Shrink, Basis,

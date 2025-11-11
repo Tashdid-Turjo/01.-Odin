@@ -7,7 +7,7 @@
          -> Box Model(padding, border, margin) 
          -> Block & Inline Box -> display property,
                                -> 'div' vs 'spans',
-                               -> Normal Flow (the way block and inline elements are rendered on a webpage by default. For instance, <button> works as inline by default where <p> works as block by default.) 
+                               -> Normal Flow (The reverse of FlexBox) (the way block and inline elements are rendered on a webpage by default. For instance, <button> works as inline by default where <p> works as block by default.) 
          -> Flexible Box / Flexbox (grow or shrink) -> Flex Container,
                             `                       -> Flex Item,
                                                     -> Grow, Shrink, Basis,
@@ -976,7 +976,7 @@ nothing {
   -> Use 'order' to customize the order of individual elements. It's default value = 0.
   -> Use 'align-self' to vertically align individual items.
   -> Use 'flex' to create flexible boxes that can stretch and shrink.
-  -> Use 'flex-wrap: wrap;' when no longer trying to fit into one line but instead are allowed to wrap when there's no more space available.
+  -> Use 'flex-wrap: wrap;' when no longer trying to fit into one line but instead are allowed to wrap when there's no more space available. Like, if it's row based then it becomes column by wrapping and vice versa.
   -> Use align-content' when you have flex wrap set to wrap, like this- 'flex-wrap: wrap' & have items wrapping. This property allows us to align everything on the cross axis. The possible values that go here are pretty much the same as with 'justified-content'.
   -> Use 'gap: 1em' when add gaps in between each item.
   
@@ -1087,7 +1087,7 @@ something to be aware of.
 
 /* ------------------------ Alignment --------------------------- */
 /* 
-N.B: Keywords(From Ex01): 
+N.B.1: Keywords(From Ex01): 
 1. flex: 1;                               -> on .item,
 2. justify-content: space-between;        -> on .container,
 3. align-items: center;                   -> on .container,
@@ -1121,7 +1121,7 @@ N.B: Keywords(From Ex01):
 }
 
 /*
-N.B: 
+N.B.2: 
   (i) if flex-direction: row;      -> justify-content aligns horizontally &
                                       align-items aligns vertically.
 
@@ -1129,10 +1129,10 @@ N.B:
                                       align-items aligns horizontally.
 
 
-N.B:
+N.B.3:
   (i) justify-content vs align-items:
       -> there's another property named- align-self, but there's no justify-self.
-      -> why it's not named as justify-items & align-content?
+      -> why it's not named as justify-items & align-content(though there's a property named align-content)?
         Answer:
         justify — to position something along the primary axis.
         align — to position something along the cross axis.
@@ -1140,7 +1140,7 @@ N.B:
         items — single items that can be positioned individually.
         
         
-N.B:
+N.B.4:
   (i) Hypothetical size: key difference in how width is handled between the
       default web layout and Flexbox. The width property behaves differently 
       depending on the layout mode used. The difference is the "LAYOUT MODE".
@@ -1189,7 +1189,7 @@ N.B:
 
 
 /*
-N.B:
+N.B.5:
   (i) flex-basis vs width:
       -> The difference is flex-basis is considered as width for flex-direction: row;
          but for column, it's considered as height. That means, it can be changed. But
@@ -1198,7 +1198,7 @@ N.B:
 
 
 /*
-N.B:
+N.B.6:
   (i) flex-grow vs flex-shrink 
       -> flex-grow controls how the extra space is distributed when the items are
       smaller than their container.
@@ -1212,6 +1212,17 @@ N.B:
 
 
 
+/*  
+N.B.7:
+  (i) align-items vs align-content:
+      -> Link: https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/
+         In the link, search this- "But what if we want to align the rows themselves?"
+         You will see what's the difference visually.
+
+*/
+
+/*
+N.B.8:
 /* Ex01 (If you wanna prevent shrinking, just do "flex-shrink: 0;")*/
 /* HTMl */
 <style>
@@ -1275,10 +1286,14 @@ body {
 /* Link: https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/ */
 
 
+/*
+N.B.9: .wrapper  vs  .wrapper *  vs  .wrapper > *
 
-/* start using this: The minimum size gotcha in jos w comeau */
-
-
+  (i)   .wrapper      -> selects only parent container.
+  (ii)  .wrapper *    -> selects both parent and every child element.
+  (iii) .wrapper > *  -> selects only child element.
+  
+*/
 
 
 
