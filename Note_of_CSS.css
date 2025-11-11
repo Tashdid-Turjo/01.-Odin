@@ -908,6 +908,8 @@ CSS Code:
 
 
 /* ---------------------------- Flexible Box / Flexbox ------------------------------ */
+/* Whenever you use flexbox, this code is must- "display: flex;" */
+
 /* 1. Images */
 nothing {
   background-image: url("Flex_Container_&_Flex_Item.png");
