@@ -35,6 +35,7 @@
                                                        -> Axes (Main/Primary Axes & Cross Axes),
                                                        for row: Main -> X, Cross -> Y.
                                                        -> Alignment,
+                                                       -> Did the exercise of "Holy Grail Layout"(A common website layout),
 
 
 

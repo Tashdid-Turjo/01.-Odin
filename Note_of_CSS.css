@@ -14,6 +14,7 @@
                                                     -> Axes (Main/Primary Axes & Cross Axes),
                                                        for row: Main -> X, Cross -> Y.
                                                     -> Alignment,
+                                                    -> Did the exercise of "Holy Grail Layout"(A common website layout),
         */
 
 /*----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
@@ -1134,7 +1135,7 @@ N.B.2:
 N.B.3:
   (i) justify-content vs align-items:
       -> there's another property named- align-self, but there's no justify-self.
-      -> why it's not named as justify-items & align-content(though there's a property named align-content)?
+      -> why it's not named as justify-items & align-content?(though there's a property named align-content.)
         Answer:
         justify — to position something along the primary axis.
         align — to position something along the cross axis.
@@ -1204,8 +1205,18 @@ N.B.6:
   (i) flex-grow vs flex-shrink 
       -> flex-grow controls how the extra space is distributed when the items are
       smaller than their container.
+
+      -> Ex: When to use this- "flex-grow: 1"-- In website, the common layout is-
+      Holy Grail Layout. There, the common pattern is 3 containers- Header, Content, Footer.
+      From these containers, the one that should eat the extra spaces is Content container.
+      Cz, it holds/eats the max amount of space in the website/page. Thus, in the css code,
+      under .container element, we use generally "flex-grow: 1" so that, Content eats/takes
+      most of the spaces. (If you write it under Header/Footer, then that container will
+      eat/take max extra spaces {which is not recommended}.)
+      
       -> flex-shrink controls how space is removed when the items are bigger than their 
       container.
+      
       -> This means that only one of these properties can be active at once. If there's
       extra space, flex-shrink has no effect, since the items don't need to shrink.
       And if the children are too big for their container, flex-grow has no effect, 
