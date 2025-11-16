@@ -3,6 +3,7 @@
 -> Photo Credit:
             -> used The Odin Project's photos for practising.
 
+
 ✅HTML:
 -> Keywords:
             -> boilerplate --> (DOCTYPE, html, head, body) tags {Basic Structure of HTML}
@@ -36,6 +37,13 @@
                                                        for row: Main -> X, Cross -> Y.
                                                        -> Alignment,
                                                        -> Did the exercise of "Holy Grail Layout"(A common website layout),
+
+
+✅JS:
+-> Keywords:
+            -> Variables(using let, const), & Operators(number, string, logical, mathematical)
+            -> Run type -> via browser,
+                        -> outside browser environment (that means it will let the browser execute the code, even if it comes from a a file we created.)
 
 
 

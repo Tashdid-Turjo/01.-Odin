@@ -17,14 +17,14 @@
                                                     -> Did the exercise of "Holy Grail Layout"(A common website layout),
         */
 
-/*----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
+/*!!----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
 * {
     color: Red;
 }
 
 
 
-/*--------------------------------------------------------- Type Selector ---------------------------------------------------------*/
+/*!!--------------------------------------------------------- Type Selector ---------------------------------------------------------*/
 /* HTML Code */
 /* <!-- index.html --> */
 <div>Hello, World!</div>
@@ -40,7 +40,7 @@ div {               /* Don't use .div */
 
 
 
-/*--------------------------------------------------------- Class Selector ---------------------------------------------------------*/
+/*!!--------------------------------------------------------- Class Selector ---------------------------------------------------------*/
 /* <!-- index.html --> */
  <div class="alert-text">Please agree to our terms of service.</div>
                                                   /* This 'alert-text' can't have spaces.
@@ -55,7 +55,7 @@ div {               /* Don't use .div */
 
 
 
-/*---------------------------- Combination of Type & Class Selector ----------------------------*/
+/*!!---------------------------- Combination of Type & Class Selector ----------------------------*/
 /* HTML */
 <div class="card">
     <h2 class="title">Welcome</h2>
@@ -82,7 +82,7 @@ h2.title {
 
 
 
-/*--------------------------------------------------------- ID Selector -------------------------------------------------------------*/
+/*!!--------------------------------------------------------- ID Selector -------------------------------------------------------------*/
 /* <!-- index.html --> */
 <div id="title">My Awesome 90's Page</div>
 
@@ -95,7 +95,7 @@ h2.title {
 
 
 
-/*--------------------------------------------------------- Grouping Selector ------------------------------------------------------*/
+/*!!--------------------------------------------------------- Grouping Selector ------------------------------------------------------*/
 /************* when different elements share the same style. *************/
 /* Wrong one */
 .read {
@@ -139,7 +139,7 @@ the class "unread" (at least one) will be colored. */
 
 
 
-/*------------------------------ Chaining Selector ----------------------------------*/
+/*!!------------------------------ Chaining Selector ----------------------------------*/
 /******** when one element has multiple conditions (like multiple classes). *********/
 /* Type-01: */
 /* HTML */
@@ -179,7 +179,7 @@ the class "unread" (at least one) will be colored. */
 
 
 
-/* ----------------------------------------- Descendant Combinator ----------------------------------------- */
+/*!! ----------------------------------------- Descendant Combinator ----------------------------------------- */
 /* Type-01 */
 /* <!-- index.html --> */
 <div class="ancestor">
@@ -259,7 +259,7 @@ the class "unread" (at least one) will be colored. */
 
 
 
-/*------------- Descendant Combinator + Type & Class Selector's Combination -------------*/
+/*!!------------- Descendant Combinator + Type & Class Selector's Combination -------------*/
 /* HTML */
 <div class="container">
   <p class="text">This should be styled.</p>
@@ -292,7 +292,7 @@ div.container .text {       /* styles here will only apply with class "text"
 
 
 
-/* ----------------------------------------- Color & BG color Property ----------------------------------------- */
+/*!! ----------------------------------------- Color & BG color Property ----------------------------------------- */
 /* Link of all possible legal color values: https://www.w3schools.com/cssref/css_colors_legal.asp */
 p {
   /* hex example: */
@@ -311,7 +311,7 @@ p {
 
 
 
-/* ----------------------------------------- Image Height & Weight Property ----------------------------------------- */
+/* !!----------------------------------------- Image Height & Weight Property ----------------------------------------- */
 img {
   height: auto;
   width: 500px; /* there should be any space between 500 and px */
@@ -375,7 +375,7 @@ p {
 
 
 
-/*---------------------------- Cascade / Specificity --------------------------*/
+/*!!---------------------------- Cascade / Specificity --------------------------*/
 /*********************** Ex01 ***********************/
 /* <!-- HTML --> */ */
 
@@ -508,7 +508,7 @@ h1 {
 
 
 
-/*********************************** Box Model **************************************/
+/*!! ********************************** Box Model **************************************/
 /* CSS(Everything will be boxed shaped, as everything is web page is box shaped.) */
 /* You can manipulate the size of box using padding, border, margin, height, width. */
 /* Ex01 */
@@ -691,7 +691,7 @@ nothing {
 
 
 
-/*------------------- CSS Properties that I learned -------------------*/
+/*!!------------------- CSS Properties that I learned -------------------*/
 /*  
   1.
   top
@@ -755,7 +755,7 @@ nothing {
 
 
 
-/*------------------- CSS values that I learned -------------------*/
+/*!!------------------- CSS values that I learned -------------------*/
 /* 
   1. to horizontally center that element within its container:
   auto;
@@ -765,7 +765,7 @@ nothing {
 
 
 
-/*--------------- Padding, Border, Margin All Types--------------- */
+/*!!--------------- Padding, Border, Margin All Types--------------- */
 /* Padding Type */
 /* 
       padding-top
@@ -862,7 +862,7 @@ CSS Code:
 
 
 
-/*----------------------------------------------------- Block & Inline Box ---------------------------------------------------------*/
+/*!!----------------------------------------------------- Block & Inline Box ---------------------------------------------------------*/
 /* By default, most the elements that I learned is block element. */
 /* Block element -> each new element starting on a new line.
                  -> <div>, <p>, <h1>
@@ -881,7 +881,7 @@ CSS Code:
    <div> is block;
    <span> is inline. */
 
-/*---------------------------------- div(Block) & span(Inline) ----------------------------------*/
+/*!!---------------------------------- div(Block) & span(Inline) ----------------------------------*/
 /* div is by default block-level element. */
 /* span is by default inline-level element. */
 
@@ -908,7 +908,7 @@ CSS Code:
 
 
 
-/* ---------------------------- Flexible Box / Flexbox ------------------------------ */
+/*!! ---------------------------- Flexible Box / Flexbox ------------------------------ */
 /* Whenever you use flexbox, this code is must- "display: flex;" */
 
 /* 1. Images */
@@ -988,7 +988,7 @@ nothing {
 
 
 
-/* ------------------------ Growing and Shrinking --------------------------- */
+/* !!------------------------ Growing and Shrinking --------------------------- */
 /* This works when shorten/broaden the website window as well as when there's any 
 extra/insufficient space within the flex container.
  */
@@ -1041,7 +1041,7 @@ which is also equivalent to using flex: auto.
 
 
 
-/* ------------------------ Axes (Main/Primary Axes & Cross Axes) --------------------------- */
+/*!! ------------------------ Axes (Main/Primary Axes & Cross Axes) --------------------------- */
 /* Type01 */
 /* By writing flex-direction: column;  -> everything becomes in column/vertically shaped. */
 
@@ -1088,7 +1088,7 @@ something to be aware of.
 
 
 
-/* ------------------------ Alignment --------------------------- */
+/* !!------------------------ Alignment --------------------------- */
 /* 
 N.B.1: Keywords(From Ex01): 
 1. flex: 1;                               -> on .item,
@@ -1319,7 +1319,7 @@ N.B.9: .wrapper  vs  .wrapper *  vs  .wrapper > *
 
 
 
-/* Extra Learning(From YT Reels, Link- https://youtube.com/shorts/IZmtyESp89A?si=o6pr1RDLLFX71tsO) */
+/* !!Extra Learning(From YT Reels, Link- https://youtube.com/shorts/IZmtyESp89A?si=o6pr1RDLLFX71tsO) */
 /***************** The cursor changes to a pointing hand *****************/
 /* Type-01 */
 /* HTML */
