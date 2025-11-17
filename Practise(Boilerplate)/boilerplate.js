@@ -29,7 +29,22 @@
 
 
 // 4.
-const birthday = '18.04.1982';
-const age = someCode(birthday);
+// const birthday = '18.04.1982';
+// const age = someCode(birthday);
 
-console.log(age);
+// console.log(age);
+
+
+
+// 5.
+const canvas = document.getElementById("canvas");
+const para = document.querySelector("p");
+const ctx = canvas.getContext("2d");
+
+let x = 50;
+let y = 50;
+
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = "green";
+ctx.fillRect(10, 10, x, y);
+para.textContent = `The rectangle is ${x}px wide and ${y}px high.`;

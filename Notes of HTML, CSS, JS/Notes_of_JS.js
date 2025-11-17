@@ -39,3 +39,50 @@
 // !!    const -> we can't re-assign, thus, it will throw error if we try. //
 // !!    var -> it can be used as let, but now-a-days, this ain't used much. //
 
+// !! -----------------------Ex01 ------------------------------------------------*/
+{/* HTML */}
+<canvas id="canvas" width="400" height="200"></canvas>
+<p></p>
+
+
+{/* JS */}
+const canvas = document.getElementById("canvas");
+const para = document.querySelector("p");
+const ctx = canvas.getContext("2d");
+
+let x = 50;
+let y = 50;
+
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+ctx.fillStyle = "green";
+ctx.fillRect(10, 10, x, y);
+para.textContent = `The rectangle is ${x}px wide and ${y}px high.`;
+
+
+
+// !! -----------------------Ex02 ------------------------------------------------*/
+{/* HTML */}
+<button>Start machine</button>
+<p>The machine is stopped.</p>
+
+
+{/* JS */}
+const btn = document.querySelector("button");
+const txt = document.querySelector("p");
+
+btn.addEventListener("click", updateBtn);
+
+function updateBtn() {
+  if (btn.textContent === "Start machine") {
+    btn.textContent = "Stop machine";
+    txt.textContent = "The machine has started!";
+  } 
+  else {
+    btn.textContent = "Start machine";
+    txt.textContent = "The machine is stopped.";
+  }
+}
+
+
+
+{/*--- Start from the Odin's  variables and operator's and search this- "read through". ---*/}
