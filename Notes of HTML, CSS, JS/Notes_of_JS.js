@@ -85,4 +85,4 @@ function updateBtn() {
 
 
 
-{/*--- Start from the Odin's  variables and operator's and search this- "read through". ---*/}
+{/*--- Start from the Odin's "variables and operators" and search this- "read through". ---*/}
