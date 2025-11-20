@@ -1,7 +1,7 @@
 // ✅JS:
 /* 
 -> Keywords:
-            -> Variables(using let, const), & Operators(number, string, logical, mathematical) (Terms- unary, binary, operand, prefix, postfix),
+            -> Variables(using let, const), & Operators(number, string, logical, mathematical) (Terms- unary, binary, operand, prefix, postfix, comma),
             -> Run type -> via browser,
                         -> outside browser environment (that means it will let the browser execute the code, even if it comes from a a file we created.)
 
@@ -86,7 +86,7 @@ function updateBtn() {
 
 
 // !! ----------------------- Ex03 ------------------------------------------------*/
-// !! prefix, postfix //
+// !! prefix, postfix(increment/decrement) //
 let i = 5;
 let j = 5;
 
@@ -111,9 +111,27 @@ console.log("b:", b); // Output: b: 5 (It took the old value of j)
 let counter = 0;
 alert( ++counter ); // 1
 
+
 // !! ----------------------- Ex05 ------------------------------------------------*/
 let counter = 0;
 alert( counter++ ); // 0
+
+
+// !! ----------------------- Ex06 ------------------------------------------------*/
+let counter = 1;
+alert( 2 * ++counter ); // 4
+
+
+// !! ----------------------- Ex07 ------------------------------------------------*/
+let counter = 1;
+alert( 2 * counter++ ); // 2, because counter++ returns the "old" value
+
+
+// !! Extra //
+Comma has a very low precedence. Note that the comma operator has very low precedence, 
+lower than =, so parentheses are important in the example above. Without them: a = 1 + 2, 3 + 4 
+evaluates + first, summing the numbers into a = 3, 7, then the assignment operator = assigns a = 3, 
+and the rest is ignored. It’s like (a = 1 + 2), 3 + 4.
 
 
 
