@@ -85,10 +85,6 @@ function updateBtn() {
 
 
 
-{/*--- Start from the Odin's "variables and operators" and search this- "read through". ---*/}
-
-
-
 // !! ----------------------- Ex03 ------------------------------------------------*/
 // !! prefix, postfix //
 let i = 5;
@@ -118,3 +114,7 @@ alert( ++counter ); // 1
 // !! ----------------------- Ex05 ------------------------------------------------*/
 let counter = 0;
 alert( counter++ ); // 0
+
+
+
+{/*--- Start from the Odin's "variables and operators" and search this- "read through". ---*/}
