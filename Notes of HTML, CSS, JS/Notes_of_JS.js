@@ -138,4 +138,18 @@ and the rest is ignored. It’s like (a = 1 + 2), 3 + 4.
 
 
 {/* // ------------------------------------- Data types & Conditionals --------------------------------// */}
+{/* Concatenation */}
+{/* HTML */}
+<button>Press me</button>
+<div id="greeting"></div>
 
+{/* JS */}
+const button = document.querySelector("button");
+
+function greet() {
+  const name = prompt("What is your name?");
+  const greeting = document.querySelector("#greeting");
+  greeting.textContent = `Hello ${name}, nice to see you!`;
+}
+
+button.addEventListener("click", greet);
