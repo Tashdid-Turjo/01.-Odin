@@ -41,7 +41,7 @@
 
 ✅JS:
 -> Keywords:
-            -> Variables(using let, const), & Operators(number, string, logical, mathematical)
+            -> Variables(using let, const), & Operators(number, string, logical, mathematical) (Terms- unary, binary, operand, prefix, postfix, comma),
             -> Run type -> via browser,
                         -> outside browser environment (that means it will let the browser execute the code, even if it comes from a a file we created.)
 

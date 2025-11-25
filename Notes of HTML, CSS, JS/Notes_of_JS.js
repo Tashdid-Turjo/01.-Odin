@@ -4,11 +4,11 @@
             -> Variables(using let, const), & Operators(number, string, logical, mathematical) (Terms- unary, binary, operand, prefix, postfix, comma),
             -> Run type -> via browser,
                         -> outside browser environment (that means it will let the browser execute the code, even if it comes from a a file we created.)
-
+            -> Data types & Conditionals
 */
 
 
-
+// ------------------------------------- Variables -----------------------------------------//
 
 //!! 1. Creating HTML file and JS code inside of this HTML file: //
 // By typing ! + Tab, gives you HTML boilerplate, applicable only in HTML file.
@@ -135,4 +135,7 @@ and the rest is ignored. It’s like (a = 1 + 2), 3 + 4.
 
 
 
-{/*--- Start from the Odin's "variables and operators" and search this- "read through". ---*/}
+
+
+{/* // ------------------------------------- Data types & Conditionals --------------------------------// */}
+
