@@ -443,4 +443,4 @@ const myArray = ["I", "love", "chocolate"];
         console.log(madeAnotherString);
 
 
-//  inside function's search- "let's write some functions!"  //
+//   inside function's search- "let's write some functions!"  //
