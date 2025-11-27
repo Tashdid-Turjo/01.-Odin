@@ -5,6 +5,9 @@
             -> Run type -> via browser,
                         -> outside browser environment (that means it will let the browser execute the code, even if it comes from a a file we created.)
             -> Data types & Conditionals
+
+
+            -> Extra: odin didn't add these in basic js [Document Object Model (DOM) and the Canvas API, which are the fundamental ways JavaScript interacts with HTML.]
 */
 
 
@@ -138,7 +141,7 @@ and the rest is ignored. It’s like (a = 1 + 2), 3 + 4.
 
 
 {/* // ------------------------------------- Data types & Conditionals --------------------------------// */}
-{/* Concatenation */}
+{/*Ex01: Concatenation */}
 {/* HTML */}
 <button>Press me</button>
 <div id="greeting"></div>
@@ -156,4 +159,186 @@ button.addEventListener("click", greet);
 
 
 
-{/* Start from conditional */}
+{/* Ex02: website's color changing */}
+{/* HTML */}
+<label for="theme">Select theme: </label>
+<select id="theme">
+  <option value="white">White</option>
+  <option value="black">Black</option>
+</select>
+
+<h1>This is my website</h1>
+
+
+{/* JS */}
+const select = document.querySelector("select");
+const html = document.querySelector("html");
+document.body.style.padding = "10px";
+
+function update(bgColor, textColor) {
+  html.style.backgroundColor = bgColor;
+  html.style.color = textColor;
+}
+
+select.addEventListener("change", () =>
+  select.value === "black"
+    ? update("black", "white")
+    : update("white", "black"),
+);
+
+
+
+{/* Ex03: basic calendar */}
+{/* HTML */}
+<label for="month">Select month: </label>
+<select id="month">
+  <option value="January">January</option>
+  <option value="February">February</option>
+  <option value="March">March</option>
+  <option value="April">April</option>
+  <option value="May">May</option>
+  <option value="June">June</option>
+  <option value="July">July</option>
+  <option value="August">August</option>
+  <option value="September">September</option>
+  <option value="October">October</option>
+  <option value="November">November</option>
+  <option value="December">December</option>
+</select>
+<h1></h1>
+<ul></ul>
+
+
+{/* CSS */}
+html {
+  font-family: sans-serif;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+.a11y-label {
+  margin: 0;
+  text-align: right;
+  font-size: 0.7rem;
+  width: 98%;
+}
+
+body {
+  margin: 10px;
+  background: #f5f9fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  display: block;
+  float: left;
+  width: 25%;
+  border: 2px solid white;
+  padding: 5px;
+  height: 40px;
+  background-color: #4a2db6;
+  color: white;
+}
+
+
+{/* JS */}
+const select = document.querySelector("select");
+const list = document.querySelector("ul");
+const h1 = document.querySelector("h1");
+
+select.addEventListener("change", () => {
+  const choice = select.value;
+  createCalendar(choice);
+});
+
+function createCalendar(month) {
+  let days = 31;
+
+  // ADD CONDITIONAL HERE
+
+  list.textContent = "";
+  h1.textContent = month;
+  for (let i = 1; i <= days; i++) {
+    const listItem = document.createElement("li");
+    listItem.textContent = i;
+    list.appendChild(listItem);
+  }
+}
+
+select.value = "January";
+createCalendar("January");
+
+
+
+{/* Ex04 (from yt vdo- wes bos javascript30)*/}
+{/* JS */}
+{/* // interpolated // */}
+console.log('Hello I am %s string', 'write here something');
+
+{/* styles */}
+console.log('%c I am some great text', 'font-size: 50px; background: red; color: white;');
+
+{/* warning */}
+console.warn('ohh no');
+
+{/* error */}
+console.error('oh no');
+
+{/* info */}
+console.log('shit');
+
+{/* testing */}
+console.log(1 === 1, 'that's true');   // it won't give anything //
+or,
+console.log(1 ===2, 'that's wrong');  // it will give error //
+
+{/* clearing */}
+console.clear();
+
+{/* viewing DOM elements */}
+console.log(p);
+or,
+console.dir(p);
+
+{/* grouping together */}
+dogs.forEach(dog => {
+  console.group(`${dog.name}`);
+  console.log(`This is $ {dog.name}`);
+  console.log(`${dog.name} is ${dog.age} years old`);
+  console.groupEnd(`${dog.name}`);
+});
+or,
+dogs.forEach(dog => {
+  console.groupCollapsed(`${dog.name}`);
+  console.log(`This is $ {dog.name}`);
+  console.log(`${dog.name} is ${dog.age} years old`);
+  console.groupEnd(`${dog.name}`);
+});
+
+{/* counting */}
+console.count('Tur');
+console.count('Tas');
+console.count('Tur');
+console.count('Tas');
+console.count('Tas');
+
+{/* timing */}
+console.time('fetching data');
+fetch('https://api.github.com/users/wesbos')
+  .then(data => data.json())
+  .then(data => {
+    console.timeEnd('fetching data');
+    console.log(data);
+  });
+or,
+const dogs = [{name: 'snicker', age: 2}, {name: 'hugo', age: 20}];
+console.table(dogs);
