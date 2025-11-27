@@ -7,19 +7,19 @@
 </head>
 <body>
     
-
     <!-- JS -->
     <script>
-        function a() {
-            const y = 2;
-            output(x);
+        function ask(question, yes, no) {
+            if (confirm(question)) yes();
+            else no();
         }
 
-        function b() {
-            const z = 3;
-            output(x);
-        }
-        
+        ask(
+            "Do you agree?",
+            () => alert("You agreed."),
+            () => alert("You canceled the execution.")
+        );
+
     </script>
 </body>
 </html>
