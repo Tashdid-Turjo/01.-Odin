@@ -5,7 +5,7 @@
             -> Run type -> via browser,
                         -> outside browser environment (that means it will let the browser execute the code, even if it comes from a a file we created.)
             -> Data types & Conditionals
-
+            -> Functsions
 
             -> Extra: odin didn't add these in basic js [Document Object Model (DOM) and the Canvas API, which are the fundamental ways JavaScript interacts with HTML.]
 */
@@ -342,3 +342,104 @@ fetch('https://api.github.com/users/wesbos')
 or,
 const dogs = [{name: 'snicker', age: 2}, {name: 'hugo', age: 20}];
 console.table(dogs);
+
+
+
+
+
+{/*--------------------- Functions ---------------------*/}
+{/* Ex01 (function declaration(classic way))*/}
+
+{/* JS */}
+function favoriteAnimal(animal) {
+    return animal + " is my favorite animal!"
+}
+
+const message = favoriteAnimal('Goat')
+console.log(message)
+
+
+{/* Ex02 (function expresion) */}
+{/* JS */}
+const multiply = function(a, b) {
+    return a * b;
+};
+
+const product = multiply(3, 2);
+
+{/* Ex03 (Arrow function) */}
+{/* // Example 1: Standard Arrow Function (with braces and return) */}
+const greet = (name) => {
+    return `Hello, ${name}!`;
+};
+
+{/* // Example 2: Concise Arrow Function (implicit return) */}
+const add = (x, y) => x + y;
+
+const sum = add(10, 5); // sum is 15
+
+
+{/* Ex04 (function inside an object) */}
+const dog = {
+    name: "Buddy",
+    
+    // This is a method (a function inside an object)
+    bark() {
+        console.log(`${this.name} says WOOF!`);
+    }
+};
+
+dog.bark(); // Output: Buddy says WOOF!
+
+
+/* Ex05 (see the difference) */
+let userName = 'John';
+
+function showMessage() {
+  userName = "Bob"; // (1) changed the outer variable
+
+  let message = 'Hello, ' + userName;
+  alert(message);
+}
+
+alert( userName ); // John before the function call
+
+showMessage();
+
+alert( userName ); // Bob, the value was modified by the function
+
+--------------------- vs ---------------------
+
+let userName = 'John';
+
+function showMessage() {
+  let userName = "Bob"; // declare a local variable
+
+  let message = 'Hello, ' + userName; // Bob
+  alert(message);
+}
+
+// the function will create and use its own userName
+showMessage();
+
+alert( userName ); // John, unchanged, the function did not access the outer variable
+
+
+
+
+
+
+
+
+
+
+{/* Ex100 (extra) */}
+{/* JS(optional parameters) */}
+const myArray = ["I", "love", "chocolate"];
+        const madeAString = myArray.join("$");
+        console.log(madeAString);
+
+        const madeAnotherString = myArray.join();
+        console.log(madeAnotherString);
+
+
