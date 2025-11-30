@@ -7,14 +7,41 @@
 </head>
 <body>
     
-    <!-- JS -->
+    <input id="numInput" type="number" placeholder="Enter a number">
+    <button onclick="calculate()">Add 7</button>
+
+    <p id="result"></p>
+
     <script>
-        function add7 (number) {
-            return number + 7;
-        };
+        // to add " / " button 
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "/") {
+                event.preventDefault();  // stops "/" from typing on the page
+                document.getElementById("numInput").focus();
+            }
+
         
-        console.log(number);
+        });
+
+        // to add "enter" button
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                calculate();  // run your function
+            }
+        });
+        // takes a number & returns number+7
+        function add7(number) {
+            return number + 7;
+        }
+
+        // gets the number typed in input box
+        function calculate() {
+            const value = Number(document.getElementById("numInput").value); // here, Number converts the text into a number.
+            const answer = add7(value);
+            document.getElementById("result").textContent = answer;
+        }
 
     </script>
+
 </body>
 </html>

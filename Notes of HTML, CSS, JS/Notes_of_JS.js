@@ -426,6 +426,46 @@ alert( userName ); // John, unchanged, the function did not access the outer var
 
 
 
+// Task01: Write a function called add7 that takes one number and returns
+// that number + 7. add7(10) should return 17.
+
+// Inside html, it's html + js. Also added input box, "/", "enter" shortcut.
+<body>
+  <input id="numInput" type="number" placeholder="Enter a number">
+      <button onclick="calculate()">Add 7</button>
+
+      <p id="result"></p>
+
+      <script>
+          // to add " / " button 
+          document.addEventListener("keydown", function(event) {
+              if (event.key === "/") {
+                  event.preventDefault();  // stops "/" from typing on the page
+                  document.getElementById("numInput").focus();
+              }
+          });
+
+          // to add "enter" button
+          document.addEventListener("keydown", function(event) {
+              if (event.key === "Enter") {
+                  calculate();  // run your function
+              }
+          });
+          // takes a number & returns number+7
+          function add7(number) {
+              return number + 7;
+          }
+
+          // gets the number typed in input box
+          function calculate() {
+              const value = Number(document.getElementById("numInput").value); // here, Number converts the text into a number.
+              const answer = add7(value);
+              document.getElementById("result").textContent = answer;
+          }
+
+      </script>
+  </body>
+
 
 
 
