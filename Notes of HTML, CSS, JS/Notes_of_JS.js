@@ -468,8 +468,19 @@ alert( userName ); // John, unchanged, the function did not access the outer var
 
 
 
+// Task02: Write a function called multiply that takes 2 numbers and returns
+// their product. Ex- multiply(3, 2) should return 6
 
+function multiply(num1, num2) {
+            return num1 * num2;
+        };
 
+console.log(multiply(3,2));
+// instead of "console.log", you can write alert.
+// alert vs console.log:
+// alert shows the result in a extra shortbox or something that comes automatically.
+// For "console.log", it doesn't come automatically, rather, in the inspect,
+// inside the console, it shows the result.
 
 
 

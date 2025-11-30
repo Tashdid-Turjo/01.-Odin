@@ -6,42 +6,17 @@
     <title>Boilerplate Document</title>
 </head>
 <body>
-    
-    <input id="numInput" type="number" placeholder="Enter a number">
-    <button onclick="calculate()">Add 7</button>
 
-    <p id="result"></p>
-
+    <!-- <input id="numInput" type="num1" placeholder="Enter first number"> -->
+    <!-- <input id="numInput" type="num2" placeholder="Enter second number"> -->
+    <!-- <button onclick="calculate()">Add 7</button> -->
     <script>
-        // to add " / " button 
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "/") {
-                event.preventDefault();  // stops "/" from typing on the page
-                document.getElementById("numInput").focus();
-            }
-
-        
-        });
-
-        // to add "enter" button
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                calculate();  // run your function
-            }
-        });
-        // takes a number & returns number+7
-        function add7(number) {
-            return number + 7;
+        function multiply(num1, num2) {
+            return num1 * num2;
         }
 
-        // gets the number typed in input box
-        function calculate() {
-            const value = Number(document.getElementById("numInput").value); // here, Number converts the text into a number.
-            const answer = add7(value);
-            document.getElementById("result").textContent = answer;
-        }
-
+        alert(multiply(3, 2));
     </script>
-
+    
 </body>
 </html>
