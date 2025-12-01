@@ -432,38 +432,39 @@ alert( userName ); // John, unchanged, the function did not access the outer var
 // Inside html, it's html + js. Also added input box, "/", "enter" shortcut.
 <body>
   <input id="numInput" type="number" placeholder="Enter a number">
-      <button onclick="calculate()">Add 7</button>
+  <button onclick="calculate()">Add 7</button>
 
-      <p id="result"></p>
+  <p id="result"></p>
 
-      <script>
-          // to add " / " button 
-          document.addEventListener("keydown", function(event) {
-              if (event.key === "/") {
-                  event.preventDefault();  // stops "/" from typing on the page
-                  document.getElementById("numInput").focus();
-              }
-          });
+  <script>
+    // to add " / " button 
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "/") {
+          event.preventDefault();  // stops "/" from typing on the page
+          document.getElementById("numInput").focus();
+      }
+    });
 
-          // to add "enter" button
-          document.addEventListener("keydown", function(event) {
-              if (event.key === "Enter") {
-                  calculate();  // run your function
-              }
-          });
-          // takes a number & returns number+7
-          function add7(number) {
-              return number + 7;
-          }
+    // to add "enter" button
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+          calculate();  // run your function
+      }
+    });
 
-          // gets the number typed in input box
-          function calculate() {
-              const value = Number(document.getElementById("numInput").value); // here, Number converts the text into a number.
-              const answer = add7(value);
-              document.getElementById("result").textContent = answer;
-          }
+    // takes a number & returns number+7
+    function add7(number) {
+      return number + 7;
+    }
 
-      </script>
+    // gets the number typed in input box
+    function calculate() {
+      const value = Number(document.getElementById("numInput").value); // here, Number converts the text into a number.
+      const answer = add7(value);
+      document.getElementById("result").textContent = answer;
+    }
+
+  </script>
   </body>
 
 
@@ -481,6 +482,103 @@ console.log(multiply(3,2));
 // alert shows the result in a extra shortbox or something that comes automatically.
 // For "console.log", it doesn't come automatically, rather, in the inspect,
 // inside the console, it shows the result.
+
+
+// Task03
+// Write a function called capitalize that takes a string and returns 
+// that string with only the first letter capitalized. 
+// Make sure that it can take strings that are lowercase, UPPERCASE or BoTh.
+// Ex- capitalize("abcd") should return "Abcd"
+// Ex- capitalize("ABCD") should return "Abcd"
+// Ex- capitalize("aBcD") should return "Abcd"
+
+<body>
+
+    <input id="stringInput" type="string" placeholder="Enter a string">
+    <button onclick="calculate()">capitalize</button>
+    <p id="result"></p>
+
+    <script>
+        // to add " / " button
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "/") {
+                event.preventDefault();
+                document.getElementById("stringInput").focus();
+            }
+        });
+        
+        // to add "enter" button
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                calculate();
+            }
+        });
+
+        function capitalize(string) {
+            let result = string[0].toUpperCase() + string.slice(1).toLowerCase();
+            return result;
+        };
+        
+        function calculate() {
+            const value = document.getElementById("stringInput").value;
+            const answer = capitalize(value);
+            document.getElementById("result").textContent = answer;
+        };
+          
+    </script>
+    
+</body>
+
+
+
+// Task04:
+// Write a function called lastLetter that takes a string and 
+// returns the very last letter of that string:
+// Ex- lastLetter("abcd") should return "d"
+
+
+// If you add "bro ", then result will be space, as I haven't
+// handled/worked for space here.
+<body>
+
+    <input id="LastStringInput" type="string" placeholder="Enter a string">
+    <button onclick="calculate()">lastletter</button>
+    <p id="result"></p>
+
+    <script>
+        // to add " / " button
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "/") {
+                event.preventDefault();
+                document.getElementById("LastStringInput").focus();
+            }
+        });
+        
+        // to add "enter" button
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                calculate();
+            }
+        });
+
+        function lastletter(string) {
+            let result = string[string.length - 1];
+            return result;
+        }
+        
+        // console.log(lastletter("broz")); // !! Use if you wanna avoid input button & just run directly. !! //
+
+        function calculate() {
+            const value = document.getElementById("LastStringInput").value;
+            const answer = lastletter(value);
+            document.getElementById("result").textContent = answer;
+        };
+        
+    </script>
+    
+</body>
+
+
 
 
 

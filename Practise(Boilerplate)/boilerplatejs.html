@@ -7,15 +7,39 @@
 </head>
 <body>
 
-    <!-- <input id="numInput" type="num1" placeholder="Enter first number"> -->
-    <!-- <input id="numInput" type="num2" placeholder="Enter second number"> -->
-    <!-- <button onclick="calculate()">Add 7</button> -->
-    <script>
-        function multiply(num1, num2) {
-            return num1 * num2;
-        }
+    <input id="LastStringInput" type="string" placeholder="Enter a string">
+    <button onclick="calculate()">lastletter</button>
+    <p id="result"></p>
 
-        alert(multiply(3, 2));
+    <script>
+        // to add " / " button
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "/") {
+                event.preventDefault();
+                document.getElementById("LastStringInput").focus();
+            }
+        });
+        
+        // to add "enter" button
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                calculate();
+            }
+        });
+
+        function lastletter(string) {
+            let result = string[string.length - 1];
+            return result;
+        }
+        
+        // console.log(lastletter("broz")); // !! Use if you wanna avoid input button & just run directly. !! //
+
+        function calculate() {
+            const value = document.getElementById("LastStringInput").value;
+            const answer = lastletter(value);
+            document.getElementById("result").textContent = answer;
+        };
+        
     </script>
     
 </body>
