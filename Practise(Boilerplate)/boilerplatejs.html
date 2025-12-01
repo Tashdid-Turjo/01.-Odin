@@ -7,39 +7,28 @@
 </head>
 <body>
 
-    <input id="LastStringInput" type="string" placeholder="Enter a string">
-    <button onclick="calculate()">lastletter</button>
-    <p id="result"></p>
-
     <script>
-        // to add " / " button
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "/") {
-                event.preventDefault();
-                document.getElementById("LastStringInput").focus();
+        // a popup box appears, so that, the input box that 
+        // we created before don't need for now.
+        let answer = parseInt(prompt("Enter a number:"));
+  
+        for (let i = 1; i <= answer; i++) {
+            if ((i % 3 === 0) && (i % 5 !== 0)) {
+                console.log("Fizz");
             }
-        });
-        
-        // to add "enter" button
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                calculate();
+
+            else if ((i % 5 === 0) && (i % 3 !== 0)) {
+                console.log("Buzz");
             }
-        });
 
-        function lastletter(string) {
-            let result = string[string.length - 1];
-            return result;
-        }
-        
-        // console.log(lastletter("broz")); // !! Use if you wanna avoid input button & just run directly. !! //
+            else if ((i % 3 === 0) && (i % 5 === 0)) {
+                console.log("FizzBuzz");
+            }
 
-        function calculate() {
-            const value = document.getElementById("LastStringInput").value;
-            const answer = lastletter(value);
-            document.getElementById("result").textContent = answer;
+            else {
+                console.log(i);
+            }  
         };
-        
     </script>
     
 </body>

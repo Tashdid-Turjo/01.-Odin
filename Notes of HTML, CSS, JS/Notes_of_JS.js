@@ -1,11 +1,14 @@
 // ✅JS:
 /* 
 -> Keywords:
-            -> Variables(using let, const), & Operators(number, string, logical, mathematical) (Terms- unary, binary, operand, prefix, postfix, comma),
+            -> Variables(using let, var, const), & Operators(number, string, logical, mathematical) (Terms- unary, binary, operand, prefix, postfix, comma),
             -> Run type -> via browser,
                         -> outside browser environment (that means it will let the browser execute the code, even if it comes from a a file we created.)
             -> Data types & Conditionals
-            -> Functsions
+            -> Functions
+            -> Problem Solving
+
+
 
             -> Extra: odin didn't add these in basic js [Document Object Model (DOM) and the Canvas API, which are the fundamental ways JavaScript interacts with HTML.]
 */
@@ -426,7 +429,7 @@ alert( userName ); // John, unchanged, the function did not access the outer var
 
 
 
-// Task01: Write a function called add7 that takes one number and returns
+// !! Task01: Write a function called add7 that takes one number and returns
 // that number + 7. add7(10) should return 17.
 
 // Inside html, it's html + js. Also added input box, "/", "enter" shortcut.
@@ -469,7 +472,7 @@ alert( userName ); // John, unchanged, the function did not access the outer var
 
 
 
-// Task02: Write a function called multiply that takes 2 numbers and returns
+// !! Task02: Write a function called multiply that takes 2 numbers and returns
 // their product. Ex- multiply(3, 2) should return 6
 
 function multiply(num1, num2) {
@@ -484,7 +487,7 @@ console.log(multiply(3,2));
 // inside the console, it shows the result.
 
 
-// Task03
+// !! Task03
 // Write a function called capitalize that takes a string and returns 
 // that string with only the first letter capitalized. 
 // Make sure that it can take strings that are lowercase, UPPERCASE or BoTh.
@@ -531,14 +534,14 @@ console.log(multiply(3,2));
 
 
 
-// Task04:
+// !! Task04:
 // Write a function called lastLetter that takes a string and 
 // returns the very last letter of that string:
 // Ex- lastLetter("abcd") should return "d"
 
 
 // If you add "bro ", then result will be space, as I haven't
-// handled/worked for space here.
+// handled/worked for space here. Hopefully, will do it in future.
 <body>
 
     <input id="LastStringInput" type="string" placeholder="Enter a string">
@@ -579,7 +582,56 @@ console.log(multiply(3,2));
 </body>
 
 
+// Type04:
+// Solving Fizz Buzz
 
+<body>
+
+    <script>
+        // a popup box appears, so that, the input box that 
+        // we created before don't need for now.
+        let answer = parseInt(prompt("Enter a number:"));
+  
+        for (let i = 1; i <= answer; i++) {
+            if ((i % 3 === 0) && (i % 5 !== 0)) {
+                console.log("Fizz");
+            }
+
+            else if ((i % 5 === 0) && (i % 3 !== 0)) {
+                console.log("Buzz");
+            }
+
+            else if ((i % 3 === 0) && (i % 5 === 0)) {
+                console.log("FizzBuzz");
+            }
+
+            else {
+                console.log(i);
+            }  
+        };
+    </script>
+    
+</body>
+
+
+
+// !! See the difference for "for" loop.
+  ////////////// Type01 /////////////
+  let answer = parseInt(prompt("Please enter the number: "));
+  for (let i = 1; i <= answer; i++) {
+      console.log(i);
+  }
+  //////////////////////////////////
+
+
+  ////////////// Type02 /////////////
+  let string = "";
+  for (let i = 1; i <= answer; i++) {
+      string = string + i;
+      //console.log(string); // !! by writing this, it will show output for every loop.
+  };
+  console.log(string);
+  ///////////////////////////////////</head>
 
 
 {/* Ex100 (extra) */}
