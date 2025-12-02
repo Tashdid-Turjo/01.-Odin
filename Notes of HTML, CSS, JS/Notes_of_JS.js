@@ -12,7 +12,7 @@
                 -> "at script.js:4:13" means, line no.4, column/character no.13 gives error,
                 -> stack trace {This helps you understand when the error was thrown in your application, and what functions were called that led up to the error},
                 -> Syntax error {for js, if the syntax is wrongly written},
-                -> Type error {an operation or method is not compatible with that type.},
+                -> Type error {an operation or method that is not compatible with that type},
 
 
 
@@ -35,13 +35,15 @@
 <body>
     {/* i. Inside HTML, write JS: */} 
     <script>
-        console.log("Hello, World!")
+      console.log("Hello, World!")
     </script>
 
 
 
     {/* ii. Through External script: */ }
-    <script src="boiletplate.js"></script>
+    <script src="boiletplate.js">
+      
+    </script>
 
 </body>
 </html>
@@ -650,12 +652,37 @@ const myArray = ["I", "love", "chocolate"];
         console.log(madeAnotherString);
 
 
-/* console:
+
+
+// !! ----------------------- Error Handling ----------------------- !! //
+
+/* Always try to use "console" to solve error:
 console.log()
 console.table()
 console.trace()
+.... 
+N.B: "console" & "window.console" are same thing for all.
 
 */
 
 
-// start from errors vs warnings. topic inside understanding errors.
+// ----------------------- Type Error: ----------------------- //
+// 1. Passing a wrong-type argument to a function
+// Case: Function expects a number, but gets something else.
+function square(x) {
+    return x * x;
+}
+
+square("hello");   // TypeError: "hello" is not a number
+
+
+// 2. Modifying a value that cannot be changed
+// Case: Trying to change a constant variable.
+const x = 10;
+x = 20;    // TypeError: Assignment to constant variable
+
+
+// 3. Using a value in an inappropriate way
+// Case: Trying to call something that is not a function
+let num = 5;
+num();   // TypeError: num is not a function
