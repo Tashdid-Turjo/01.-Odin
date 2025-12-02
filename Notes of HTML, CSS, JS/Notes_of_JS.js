@@ -650,9 +650,12 @@ const myArray = ["I", "love", "chocolate"];
         console.log(madeAnotherString);
 
 
-//   inside function's search- "let's write some functions!"  //
+/* console:
+console.log()
+console.table()
+console.trace()
 
-
+*/
 
 
 // start from errors vs warnings. topic inside understanding errors.
