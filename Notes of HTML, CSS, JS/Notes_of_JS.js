@@ -688,3 +688,7 @@ x = 20;    // TypeError: Assignment to constant variable
 // Case: Trying to call something that is not a function
 let num = 5;
 num();   // TypeError: num is not a function
+
+
+
+// !!!!! Styding- "Read through JavaScript.info’s" !!!!! // 
