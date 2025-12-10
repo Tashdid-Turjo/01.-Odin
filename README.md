@@ -55,7 +55,7 @@
                 -> Type error {an operation or method that is not compatible with that type},
                 -> Array, Loop, TDD,
                 -> 
-
+ 
             -> Extra: odin didn't add these in basic js [Document Object Model (DOM) and the Canvas API, which are the fundamental ways JavaScript interacts with HTML.]
 
 
