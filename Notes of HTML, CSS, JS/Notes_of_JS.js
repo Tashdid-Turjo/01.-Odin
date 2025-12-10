@@ -13,6 +13,8 @@
                 -> stack trace {This helps you understand when the error was thrown in your application, and what functions were called that led up to the error},
                 -> Syntax error {for js, if the syntax is wrongly written},
                 -> Type error {an operation or method that is not compatible with that type},
+                -> Array, Loop, TDD,
+                -> 
 
 
 

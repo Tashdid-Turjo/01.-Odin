@@ -48,7 +48,13 @@
             -> Functions
             -> Problem Solving
             -> Understanding Error
-
+                -> Reference error {variable related, like- not declaring, mispelled},
+                -> "at script.js:4:13" means, line no.4, column/character no.13 gives error,
+                -> stack trace {This helps you understand when the error was thrown in your application, and what functions were called that led up to the error},
+                -> Syntax error {for js, if the syntax is wrongly written},
+                -> Type error {an operation or method that is not compatible with that type},
+                -> Array, Loop, TDD,
+                -> 
 
             -> Extra: odin didn't add these in basic js [Document Object Model (DOM) and the Canvas API, which are the fundamental ways JavaScript interacts with HTML.]
 
