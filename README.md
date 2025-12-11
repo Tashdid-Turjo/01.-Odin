@@ -58,7 +58,7 @@
  
             -> Extra: odin didn't add these in basic js [Document Object Model (DOM) and the Canvas API, which are the fundamental ways JavaScript interacts with HTML.]
 
-
+ 
 
 
 
