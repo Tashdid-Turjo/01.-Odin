@@ -691,4 +691,4 @@ num();   // TypeError: num is not a function
 
 
 
-// !!!!! Styding- "Read through JavaScript.info’s" !!!!! // 
+// !!!!! Styding- "Read through JavaScript.info’s inside that website, task-> "Filter range "in place" is done. " !!!!! //
