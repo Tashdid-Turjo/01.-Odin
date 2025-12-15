@@ -691,4 +691,12 @@ num();   // TypeError: num is not a function
 
 
 
+
+
+// !! ----------------------- Array & Loops ----------------------- !! //
+// 1. Remember:
+// P -> Parameter -> Placeholder
+// A -> Argument  -> Actual Value
+
+
 // !!!!! Styding- "Read through JavaScript.info’s inside that website, task-> "Sort in decreasing order" is done." !!!!! //
