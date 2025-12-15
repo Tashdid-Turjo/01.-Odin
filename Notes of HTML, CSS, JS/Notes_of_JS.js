@@ -699,4 +699,4 @@ num();   // TypeError: num is not a function
 // A -> Argument  -> Actual Value
 
 
-// !!!!! Styding- "Read through JavaScript.info’s inside that website, task-> "Sort in decreasing order" is done." !!!!! //
+// !!!!! Styding- "Read through JavaScript.info’s inside that website, task-> "Map to objects" is done." !!!!! //
