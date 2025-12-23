@@ -13,7 +13,7 @@
                 -> stack trace {This helps you understand when the error was thrown in your application, and what functions were called that led up to the error},
                 -> Syntax error {for js, if the syntax is wrongly written},
                 -> Type error {an operation or method that is not compatible with that type},
-                -> Array, Loop, TDD,
+                -> Array {has 3 powerful methods -> map, filter, reduce method}, Loop, TDD,
                 -> 
 
 
@@ -693,13 +693,140 @@ num();   // TypeError: num is not a function
 
 
 
-// !! ----------------------- Array & Loops ----------------------- !! //
+// !! ----------------------- Array & Loops & TDD ----------------------- !! //
 // 1. Remember:
 // P -> Parameter -> Placeholder
 // A -> Argument  -> Actual Value
 
-//2. map method:
+// 2. 3 powerful array methods -> map, filter, reduce method:
+// all these methods can be considered as foreach/for loop's alternative, used when we want a returned result(new array or single value).
+
+// map method:
 // Instead of for loop, we can do this without changing the original array.
 // see in this link: https://www.theodinproject.com/lessons/foundations-loops-and-arrays#the-map-method
 
-// !!!!! Start from- "Bookmark MDN’s Array documentation. " !!!!! //
+// Ex01(map method):
+function addOne(num) {
+  return num + 1;
+}
+const arr = [1, 2, 3, 4, 5];
+const mappedArr = arr.map(addOne);
+console.log(mappedArr); // Outputs [2, 3, 4, 5, 6]
+
+
+// Ex02(map method with arrow function):
+const arr = [1, 2, 3, 4, 5];
+const mappedArr = arr.map((num) => num + 1);
+console.log(mappedArr); // Outputs [2, 3, 4, 5, 6]
+
+// See the difference betweeen Ex01 & Ex02. Both are collected from Odin Project website's example.
+
+
+
+// filter method:
+// map vs filter:
+map(): length is always the same as the original array (each element becomes one new element).
+filter(): length can be smaller or the same (it keeps only elements where the test is true) Filter runs as true/false, thought it don't show as true/false, rather, it sees codes as true/false.
+
+But filter does not transform values — it selects existing elements. Where map transforms values.
+
+Transformation is map();
+selection is filter().
+
+
+// Ex01:
+function isOdd(num) {
+  return num % 2 !== 0;
+}
+
+const arr = [1, 2, 3, 4, 5];
+const oddNums = arr.filter(isOdd);
+console.log(oddNums); // Outputs [1, 3, 5];
+console.log(arr); // Outputs [1, 2, 3, 4, 5], original array is not affected
+
+
+
+// reduce method:
+reduce(): combines all array elements into one single result (e.g., a number, string, object, or even another array). So the output is not necessarily an array, and it’s not tied to the original length.
+
+
+// Ex01:
+const arr = [1, 2, 3, 4, 5];
+const productOfAllNums = arr.reduce((total, currentItem) => {
+  return total * currentItem;
+}, 1);
+
+console.log(productOfAllNums); // Outputs 120;
+console.log(arr); // Outputs [1, 2, 3, 4, 5]
+
+
+
+// Extra: Example of combined map, filter, reduce methods.
+// Task: Finding even numbers, multiply every even numbers, and finally sum every multiplied even numbers.
+
+// Method: 01: Normal Method(without map, filter, reduce):
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+function sumOfTripledEvens(arr) {
+  let sum = 0;
+  
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[index] % 2 === 0) {
+      sum += arr[index] * 3;
+    }
+  }
+  return sum;
+}
+
+alert(sumOfTripledEvens(arr));
+
+
+// Method: 02: map, filter, reduce method combined(my approach):
+function isEven(num) {
+  return num % 2 === 0;
+}
+
+function multiplyThree(num) {
+  return num * 3;
+}
+
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const evenNums = arr.filter(isEven); // output: [2, 4, 6, 8, 10]
+const mappedArr = evenNums.map(multiplyThree);  // output: [6, 12, 18, 24, 30]
+const sumOfTripledEvenNumbers = mappedArr.reduce((total, currentItem) => {
+  return total + currentItem;
+}, 0);                  // output: 90
+
+alert(sumOfTripledEvenNumbers);
+
+/* Instead of these 3 const "evenNums, mappedArr, sumOfTripledEvenNumbers", we can use this const (only 1 const):
+
+const sumOfTripledEvenNumbers = arr
+  .filter(isEven)
+  .map(multiplyThree)
+  .reduce((total, currentItem) => total + currentItem, 0);
+
+*/
+
+
+// Method: 03: Odin's approach (map, filter, reduce + arrow function):
+function sumOfTripledEvens(array) {
+  return array
+    .filter((num) => num % 2 === 0)
+    .map((num) => num * 3)
+    .reduce((acc, curr) => acc + curr);
+}
+
+
+
+
+// TDD(Test Driven Development):  It refers to the practice of writing automated tests that describe how your code should work before you actually write the code.
+// For example, if you want to write a function that adds a couple of numbers, you would first write a test that uses the function and supplies the expected output. The test will fail before you write your code, and you should be able to know that your code works correctly when the test passes.
+
+// Odin will explain TDD later in the course.
+
+
+
+
+
