@@ -698,5 +698,8 @@ num();   // TypeError: num is not a function
 // P -> Parameter -> Placeholder
 // A -> Argument  -> Actual Value
 
+//2. map method:
+// Instead of for loop, we can do this without changing the original array.
+// see in this link: https://www.theodinproject.com/lessons/foundations-loops-and-arrays#the-map-method
 
 // !!!!! Start from- "Bookmark MDN’s Array documentation. " !!!!! //
