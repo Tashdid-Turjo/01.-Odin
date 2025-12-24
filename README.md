@@ -44,7 +44,7 @@
             -> Variables(using let, var, const), & Operators(number, string, logical, mathematical) (Terms- unary, binary, operand, prefix, postfix, comma),
             -> Run type -> via browser,
                         -> outside browser environment (that means it will let the browser execute the code, even if it comes from a a file we created.)
-            -> Data types & Conditionals
+            -> Data types(must know "!= vs !==" difference) & Conditionals
             -> Functions
             -> Problem Solving
             -> Understanding Error

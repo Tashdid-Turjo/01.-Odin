@@ -4,7 +4,7 @@
             -> Variables(using let, var, const), & Operators(number, string, logical, mathematical) (Terms- unary, binary, operand, prefix, postfix, comma),
             -> Run type -> via browser,
                         -> outside browser environment (that means it will let the browser execute the code, even if it comes from a a file we created.)
-            -> Data types & Conditionals
+            -> Data types(must know "!= vs !==" difference) & Conditionals
             -> Functions
             -> Problem Solving
             -> Understanding Error
@@ -154,6 +154,24 @@ and the rest is ignored. It’s like (a = 1 + 2), 3 + 4.
 
 
 {/* // ------------------------------------- Data types & Conditionals --------------------------------// */}
+{/* V.V.I.------------- != vs !== difference in condition: */}
+const removeFromArray = function(arr, removedValue1, removedValue2) {
+    let result = [];
+
+    for(let i = 0; i < arr.length; i++) {
+        if ((arr[i] !== removedValue1) && (arr[i] !== removedValue2)) {
+            result.push(arr[i]);
+        }
+    }
+    return result;
+};
+
+console.log(removeFromArray([1, 2, 3], "1", 3)); // output: 1, 2
+
+{/* here, inside if condition, !== sees if datatypes are same. Thus, !== is strict in datatype. But if i wrote !=, then it will remove 1 as well from the output, as this doesn't see if it's same datatype. */}
+
+
+
 {/*Ex01: Concatenation */}
 {/* HTML */}
 <button>Press me</button>
