@@ -849,3 +849,8 @@ function sumOfTripledEvens(array) {
 
 
 // !! -------------------- DOM Manipulation & Events // !! -------------------- 
+// Remember this:
+/*
+"It’s important to remember that when using querySelectorAll, the return value is not an array. It looks like an array, and it somewhat acts like an array, but it’s really a “NodeList”. The big distinction is that several array methods are missing from NodeLists. One solution, if problems arise, is to convert the NodeList into an array. You can do this with Array.from() or the spread operator." - Odin's DOM Part.
+*/
+
