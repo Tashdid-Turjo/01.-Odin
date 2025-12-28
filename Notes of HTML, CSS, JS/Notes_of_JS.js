@@ -894,3 +894,48 @@ spread operator." - Odin's DOM Part.
 // Adding HTML content:
 .innerHTML    //don't use this, rather it's preferred to use .textContent() . Cz, it's not safe to inject js.
 
+
+
+// Ex from Odin:
+// HTML:
+<body>
+  <h1>THE TITLE OF YOUR WEBPAGE</h1>
+  <div id="container"></div>
+</body>
+
+
+// JS:
+const container = document.querySelector("#container");     // inside "container" id
+
+const content = document.createElement("div");              // created new element (tag type)
+content.classList.add("content");                           // class name
+content.textContent = "This is the glorious text-content!"; // text
+
+container.appendChild(content);                             // placeholder(.appendChild means -> inside container id's last element{at the end})
+
+
+// <!-- The Final DOM -->
+<body>
+  <h1>THE TITLE OF YOUR WEBPAGE</h1>
+  <div id="container">
+    <div class="content">This is the glorious text-content!</div>
+  </div>
+</body>
+
+
+
+// Usage of defer:
+// When you link your js file with HTML inside HTML file's head, write this:
+
+<head>
+  <script src="js-file.js" defer></script>
+</head>
+
+// N.B: "defer" attribute is ignored if the <script> tag has no src.
+// N.B: In the code, the "defer" keyword is used to load the file after the HTML is parsed.
+// N.B: Deferred scripts keep their order (top to bottom).
+
+
+
+
+// !! Doing Exercise of DOM Manipulation & Events.

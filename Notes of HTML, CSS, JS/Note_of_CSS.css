@@ -709,7 +709,7 @@ nothing {
   3. relative, absolute's work in two different selector's-
   <div class="parent">Parent
     <p class="child"> Child </p>
-  </div>
+</div>
 
   parent {
     position: relative;
