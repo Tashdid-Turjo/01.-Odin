@@ -859,3 +859,38 @@ the NodeList into an array. You can do this with Array.from() or the
 spread operator." - Odin's DOM Part.
 */
 
+// DOM Methods:
+
+// Query selectors:
+.querySelector()
+.querySelectorAll()
+
+// Element creation:
+.createElement()
+
+// Append elements:
+.appendChild()
+.insertBefore()
+
+// Remove elements:
+.removeChild()
+
+// Altering elements:
+.createElement()
+
+// Editing attributes:
+.setAttribute()
+.getAttribute()
+.removeAttribute()
+
+// Working with classes:
+.classList.add()
+.classList.remove()
+.classList.toggle()
+
+// Adding text content:
+.textContent()
+
+// Adding HTML content:
+.innerHTML    //don't use this, rather it's preferred to use .textContent() . Cz, it's not safe to inject js.
+
