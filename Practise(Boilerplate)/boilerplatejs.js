@@ -12,3 +12,6 @@ container.appendChild(content1);
 const content2 = document.createElement("h3");
 content2.textContent = "I'm a blue h3!";
 container.appendChild(content2);
+
+// work remaining: for 1, 2 -> add red, blue color respectively.
+// 3 -> fully remaining.
