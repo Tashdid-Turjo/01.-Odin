@@ -859,39 +859,50 @@ the NodeList into an array. You can do this with Array.from() or the
 spread operator." - Odin's DOM Part.
 */
 
-// DOM Methods:
+// ---------------------- DOM Methods: ----------------------
 
-// Query selectors:
+// 1. Query selectors:
 .querySelector()
 .querySelectorAll()
 
-// Element creation:
+// 2. Element creation:
 .createElement()
 
-// Append elements:
+// 3. Append elements:
 .appendChild()
 .insertBefore()
 
-// Remove elements:
+// 4. Remove elements:
 .removeChild()
 
-// Altering elements:
+// 5. Altering elements:
 .createElement()
 
-// Editing attributes:
+// 6. Adding inline style
+div.style.color = "blue";                                       // adds the indicated style rule to the element in the div variable
+div.style.cssText = "color: blue; background: white;";          // adds several style rules
+div.setAttribute("style", "color: blue; background: white;");   // adds several style rules
+
+// TODO: N.B: dot notation with kebab case: doesn't work as it attempts to subtract color from div.style.background
+div.style.background-color;             // equivalent to: div.style.background - color
+div.style.backgroundColor;              // dot notation with camelCase: works, accesses the div's background-color style
+div.style["background-color"];          // bracket notation with kebab-case: also works
+div.style["backgroundColor"];           // bracket notation with camelCase: also works
+
+// 7. Editing attributes:
 .setAttribute()
 .getAttribute()
 .removeAttribute()
 
-// Working with classes:
+// 8. Working with classes:
 .classList.add()
 .classList.remove()
 .classList.toggle()
 
-// Adding text content:
+// 9. Adding text content:
 .textContent()
 
-// Adding HTML content:
+// 10. Adding HTML content:
 .innerHTML    //don't use this, rather it's preferred to use .textContent() . Cz, it's not safe to inject js.
 
 
