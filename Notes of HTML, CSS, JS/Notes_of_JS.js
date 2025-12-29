@@ -907,7 +907,7 @@ div.style["backgroundColor"];           // bracket notation with camelCase: also
 
 
 
-// Ex from Odin:
+// ---------------------- Ex from Odin: ---------------------- 
 // HTML:
 <body>
   <h1>THE TITLE OF YOUR WEBPAGE</h1>
@@ -949,4 +949,53 @@ container.appendChild(content);                             // placeholder(.appe
 
 
 
-// !! Doing Exercise of DOM Manipulation & Events.
+// ---------------------- Ex from Odin: ----------------------
+TASK:
+// <!-- HTML file: -->
+<body>
+  <h1>THE TITLE OF YOUR WEBPAGE</h1>
+  <div id="container"></div>
+</body>
+
+// Odin DOM task:
+// Inside this HTML file's container id's element, do these-
+// 1) Create a <p> (red) with text: "Hey I'm red!" and append to #container.
+// 2) Create an <h3> (blue) with text: "I'm a blue h3!" and append to #container.
+// 3) Create a <div> (pink background + black border).
+//  3a) Inside that div, append an <h1> "I'm in a div" and a <p> "ME TOO!".
+//  3b) Then append the div to #container. (Use only JS DOM methods.)
+
+
+ANS:
+// <!-- JS file: -->
+// 1) p
+const container = document.querySelector("#container");
+const content1 = document.createElement("p");
+content1.textContent = "Hey I'm red!";
+content1.style.color = "red";
+container.appendChild(content1);
+
+// 2) h3
+// const container = document.querySelector("#container");      // TODO: No need to write this for others.
+const content2 = document.createElement("h3");
+content2.textContent = "I'm a blue h3!";
+content2.style.color = "blue";
+container.appendChild(content2);
+
+// 3) div
+// const container = document.querySelector("#container");      // TODO: No need to write this for others.
+const content3 = document.createElement("div");
+content3.style.cssText = "color: black; background: pink; border: 1px solid black";
+container.appendChild(content3);
+
+// 3a) div -> h1
+const content3a = document.createElement("h1");
+content3a.textContent = "I'm in a div";
+// content3a.style.cssText = "color: black; background: pink";  // TODO: No need to add this, as this is div's child, and color, bg is already instructed there.
+content3.appendChild(content3a);
+
+// 3b) div -> p
+const content3b = document.createElement("p");
+content3b.textContent = "ME TOO!";
+// content3b.style.cssText = "color: black; background: pink";  // TODO: No need to add this, as this is div's child, and color, bg is already instructed there.
+content3.appendChild(content3b);
