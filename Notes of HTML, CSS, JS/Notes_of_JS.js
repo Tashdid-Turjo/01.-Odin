@@ -1013,21 +1013,31 @@ Using JavaScript, we can make our webpage listen to and react to these events.
 // Three ways:
 // 1. You can specify function attributes directly on your HTML elements.
 // Ex: (HTML attribute)
+// HTML file:
 <button onclick="alert('clicked (HTML attribute)')">Click me</button>
 
 // 2. You can set properties in the form of on<eventType>, such as onclick or 
 // onmousedown, on the DOM nodes in your JavaScript.
 // Ex: (DOM property {on<eventType>})
+// HTML file:
+<button id="btn1">Click Me</button>
+
+// JS file:
 const btn1 = document.querySelector("#btn1");
 btn1.onclick = () => alert("clicked (DOM property)");
 
 // 3. You can attach event listeners to the DOM nodes in your JavaScript.
 // Ex: (addEventListener {recommended})
+// HTML file:
+<button id="btn2">Click Me</button>
+
+// JS file:
 const btn2 = document.querySelector("#btn2");
 btn2.addEventListener("click", () => alert("clicked (addEventListener)"));
 
 
-// N.B: Event listeners(3no.) are definitely the preferred method, but others are also 
-// useful.
+// N.B: Event listeners(3no.) are definitely the preferred method, but others 
+// are also useful. Also, 2no. is better than 1 no., but the drawback is that, 
+// a DOM element can only have one “onclick” property.
 
 
