@@ -1005,3 +1005,29 @@ content3.appendChild(content3b);
 
 
 // --------------------- Events: ---------------------
+// Remember this:
+Events are actions that occur on your webpage, such as mouse-clicks or key-presses. 
+Using JavaScript, we can make our webpage listen to and react to these events.
+
+
+// Three ways:
+// 1. You can specify function attributes directly on your HTML elements.
+// Ex: (HTML attribute)
+<button onclick="alert('clicked (HTML attribute)')">Click me</button>
+
+// 2. You can set properties in the form of on<eventType>, such as onclick or 
+// onmousedown, on the DOM nodes in your JavaScript.
+// Ex: (DOM property {on<eventType>})
+const btn1 = document.querySelector("#btn1");
+btn1.onclick = () => alert("clicked (DOM property)");
+
+// 3. You can attach event listeners to the DOM nodes in your JavaScript.
+// Ex: (addEventListener {recommended})
+const btn2 = document.querySelector("#btn2");
+btn2.addEventListener("click", () => alert("clicked (addEventListener)"));
+
+
+// N.B: Event listeners(3no.) are definitely the preferred method, but others are also 
+// useful.
+
+
