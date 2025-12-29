@@ -952,10 +952,12 @@ container.appendChild(content);                             // placeholder(.appe
 // ---------------------- Ex from Odin: ----------------------
 TASK:
 // <!-- HTML file: -->
+/*
 <body>
   <h1>THE TITLE OF YOUR WEBPAGE</h1>
   <div id="container"></div>
 </body>
+*/
 
 // Odin DOM task:
 // Inside this HTML file's container id's element, do these-
@@ -999,3 +1001,7 @@ const content3b = document.createElement("p");
 content3b.textContent = "ME TOO!";
 // content3b.style.cssText = "color: black; background: pink";  // TODO: No need to add this, as this is div's child, and color, bg is already instructed there.
 content3.appendChild(content3b);
+
+
+
+// --------------------- Events: ---------------------
