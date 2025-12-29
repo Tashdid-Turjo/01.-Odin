@@ -1041,3 +1041,4 @@ btn2.addEventListener("click", () => alert("clicked (addEventListener)"));
 // a DOM element can only have one “onclick” property.
 
 
+// !! Start from this- "DOM Manipulation's 'Using named functions can clean up your code considerably,'."
