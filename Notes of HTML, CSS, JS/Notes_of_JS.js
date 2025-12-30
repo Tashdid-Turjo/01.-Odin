@@ -1071,3 +1071,4 @@ keydown
 keyup
 
 
+// !! start from assignment's event delegation of DOM manipulation & event.
