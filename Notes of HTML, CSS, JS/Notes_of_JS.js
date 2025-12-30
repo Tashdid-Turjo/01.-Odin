@@ -859,7 +859,7 @@ the NodeList into an array. You can do this with Array.from() or the
 spread operator." - Odin's DOM Part.
 */
 
-// ---------------------- DOM Methods: ----------------------
+// !! ---------------------- DOM Methods: ----------------------
 
 // 1. Query selectors:
 .querySelector()
@@ -1004,7 +1004,7 @@ content3.appendChild(content3b);
 
 
 
-// --------------------- Events: ---------------------
+// !! --------------------- Events: ---------------------
 // Remember this:
 Events are actions that occur on your webpage, such as mouse-clicks or key-presses. 
 Using JavaScript, we can make our webpage listen to and react to these events.
@@ -1041,4 +1041,33 @@ btn2.addEventListener("click", () => alert("clicked (addEventListener)"));
 // a DOM element can only have one “onclick” property.
 
 
-// !! Start from this- "DOM Manipulation's 'Using named functions can clean up your code considerably,'."
+
+// Usage of target:
+// Case 1: You don't need `target` (you already know which element to change)
+// You attach the listener to one button and you want to change that same button:
+const btn = document.querySelector("#myBtn");
+
+btn.addEventListener("click", () => {
+  btn.style.backgroundColor = "blue"; // direct reference, no target needed
+});
+
+
+// Case 2: `target` is useful (you want “whatever was clicked”)
+// You attach one listener to a parent, but clicks can happen on many children:
+const list = document.querySelector("#list"); // contains many <li>
+
+list.addEventListener("click", (e) => {
+  e.target.style.backgroundColor = "blue"; // whichever <li> you clicked
+});
+
+// In this second case, you can’t write `li.style...` because there are 
+// many `<li>` elements. `e.target` tells you exactly which one was clicked.
+
+
+// Some useful events include:
+click
+dblclick
+keydown
+keyup
+
+
