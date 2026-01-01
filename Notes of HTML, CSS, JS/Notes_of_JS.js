@@ -1071,4 +1071,6 @@ keydown
 keyup
 
 
-// !! start from assignment's event delegation of DOM manipulation & event.
+// Event delegation means-> too many event handlers. 
+
+
