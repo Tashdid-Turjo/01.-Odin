@@ -860,7 +860,7 @@ spread operator." - Odin's DOM Part.
 */
 
 // !! ---------------------- DOM Methods: ----------------------
-
+// TODO: DOM Manipulation:
 // 1. Query selectors:
 .querySelector()
 .querySelectorAll()
@@ -907,7 +907,7 @@ div.style["backgroundColor"];           // bracket notation with camelCase: also
 
 
 
-// ---------------------- Ex from Odin: ---------------------- 
+// TODO: ---------------------- Ex from Odin: ---------------------- 
 // HTML:
 <body>
   <h1>THE TITLE OF YOUR WEBPAGE</h1>
@@ -935,7 +935,7 @@ container.appendChild(content);                             // placeholder(.appe
 
 
 
-// Usage of defer:
+// TODO: Usage of defer:
 // When you link your js file with HTML inside HTML file's head, write this:
 
 <head>
@@ -949,15 +949,14 @@ container.appendChild(content);                             // placeholder(.appe
 
 
 
-// ---------------------- Ex from Odin: ----------------------
+// TODO: ---------------------- Ex from Odin: ----------------------
 TASK:
 // <!-- HTML file: -->
-/*
 <body>
   <h1>THE TITLE OF YOUR WEBPAGE</h1>
   <div id="container"></div>
 </body>
-*/
+
 
 // Odin DOM task:
 // Inside this HTML file's container id's element, do these-
@@ -1005,12 +1004,12 @@ content3.appendChild(content3b);
 
 
 // !! --------------------- Events: ---------------------
-// Remember this:
+// TODO: Remember this:
 Events are actions that occur on your webpage, such as mouse-clicks or key-presses. 
 Using JavaScript, we can make our webpage listen to and react to these events.
 
 
-// Three ways:
+// TODO: Three ways:
 // 1. You can specify function attributes directly on your HTML elements.
 // Ex: (HTML attribute)
 // HTML file:
@@ -1042,7 +1041,7 @@ btn2.addEventListener("click", () => alert("clicked (addEventListener)"));
 
 
 
-// Usage of target:
+// TODO: Usage of target:
 // Case 1: You don't need `target` (you already know which element to change)
 // You attach the listener to one button and you want to change that same button:
 const btn = document.querySelector("#myBtn");
@@ -1064,14 +1063,18 @@ list.addEventListener("click", (e) => {
 // many `<li>` elements. `e.target` tells you exactly which one was clicked.
 
 
-// Some useful events include:
+// TODO: Some useful events include:
 click
 dblclick
 keydown
 keyup
 
 
-// Event delegation means-> too many event handlers(like- when in html, one parent element has multiple child elements.) 
+// TODO: Various Event Tools:
+1. JS events -> event flow, event bubbling, event capturing, DOM level 2 event flow, event object, preventDefault(), stopPropagation().
+2. mouse events -> mousedown, mouseup, click, dblclick, mousemove, mouseover, mouseout, mouseenter, mouseleave, wheel.
+3. keyboard events -> keydown, keyup, keypress.
+4. event delegation -> means too many event handlers (like- when in html, one parent element has multiple child elements.) 
 // Ex:
 // HTML:
 <ul id="menu">
@@ -1118,3 +1121,6 @@ menu.addEventListener('click', (event) => {
 });
 
 
+5. dispatchEvent method ->
+
+6. custom events ->
