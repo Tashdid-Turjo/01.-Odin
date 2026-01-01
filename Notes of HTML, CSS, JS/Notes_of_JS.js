@@ -1071,6 +1071,50 @@ keydown
 keyup
 
 
-// Event delegation means-> too many event handlers. 
+// Event delegation means-> too many event handlers(like- when in html, one parent element has multiple child elements.) 
+// Ex:
+// HTML:
+<ul id="menu">
+    <li><a id="home">home</a></li>
+    <li><a id="dashboard">Dashboard</a></li>
+    <li><a id="report">report</a></li>
+</ul>
+
+
+// JS:
+let home = document.querySelector('#home');
+home.addEventListener('click',(event) => {
+    console.log('Home menu item was clicked');
+});
+
+let dashboard = document.querySelector('#dashboard');
+dashboard.addEventListener('click',(event) => {
+    console.log('Dashboard menu item was clicked');
+});
+
+let report = document.querySelector('#report');
+report.addEventListener('click',(event) => {
+    console.log('Report menu item was clicked');
+});
+
+
+// JS(instead of the upper js code, you can do this, which is the event delegation technique.):
+let menu = document.querySelector('#menu');
+
+menu.addEventListener('click', (event) => {
+    let target = event.target;
+
+    switch(target.id) {
+        case 'home':
+            console.log('Home menu item was clicked');
+            break;
+        case 'dashboard':
+            console.log('Dashboard menu item was clicked');
+            break;
+        case 'report':
+            console.log('Report menu item was clicked');
+            break;
+    }
+});
 
 
