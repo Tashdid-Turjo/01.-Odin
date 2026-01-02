@@ -1173,3 +1173,5 @@ btn.dispatchEvent(clickEvent);
 
 
 6. custom events -> creating custom event & dispatching it.
+// It allow to create your own communication system between different parts of your app.
+
