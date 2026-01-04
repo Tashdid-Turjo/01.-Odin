@@ -1173,5 +1173,61 @@ btn.dispatchEvent(clickEvent);
 
 
 6. custom events -> creating custom event & dispatching it.
-// It allow to create your own communication system between different parts of your app.
+// i. It allow to create your own communication system between different 
+// parts of your app.
+// ii. Custom events allow you to decouple code execution, allowing one piece 
+// of code to run after another completes.
+// iii. For example, you can place event listeners in a separate script file and 
+// have multiple listeners for the same custom event.
+// iv. Use the CustomEvent() constructor to create a custom event and 
+// dispatchEvent() to trigger the event.
+
+
+// Ex:
+// <!-- html -->
+<div class="note">JS Custom Event</div>
+
+<script src="highlight.js"></script>
+<script src="listeners.js"></script>
+
+<script>
+  const div = document.querySelector('.note');
+  highlight(div); // fires the 'mark' event
+</script>
+
+
+// highlight.js
+function highlight(element) {
+  const bgColor = 'yellow';
+  element.style.backgroundColor = bgColor;
+
+  const ev = new CustomEvent('mark', {
+    detail: { backgroundColor: bgColor }
+  });
+
+  element.dispatchEvent(ev);
+}
+
+
+// listeners.js  (separate file with multiple listeners for same event)
+const div = document.querySelector('.note');
+
+// Listener 1: add border
+div.addEventListener('mark', (e) => {
+  e.currentTarget.style.border = '1px solid red';
+});
+
+// Listener 2: log custom info
+div.addEventListener('mark', (e) => {
+  console.log('mark fired, detail:', e.detail);
+});
+
+// Listener 3: do another task (e.g., add padding)
+div.addEventListener('mark', (e) => {
+  e.currentTarget.style.padding = '8px';
+});
+
+// N.B: In all these Listeners, the event name- '(must)' must be same for catching that custom event ( this line- const ev = new CustomEvent('mark', {..... ).
+
+
 
