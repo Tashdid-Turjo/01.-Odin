@@ -1,49 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boilerplate Document</title>
-  <script src="boilerplatejs.js" defer></script>
-</head>
-<body>
-  <div class="note">JS Custom Event</div>
-  <script>
-    function highlight(element) {
-      const bgColor = 'yellow';
-      element.style.backgroundColor = bgColor;
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DOM example</title>
+  </head>
+  <body>
+    <section>
+      <img src="dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+      <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+    </section>
 
-      // create an event
-      let event = new CustomEvent('mark', { 
-        detail: {backgroundColor: bgColor}
-      });
-
-      // dispatch the event
-      element.dispatchEvent(event);
-    }
-
-    // select the div element
-    let div = document.querySelector('.note');
-
-    // add border style
-    function addBorder(elem) {
-      elem.style.border = "solid 1px red";
-    }
-
-    // listen to the hightlight event
-    div.addEventListener('mark', function (e) {
-      addBorder(this);
-
-      // examine the background
-      console.log(e.detail);
-    });
-
-    // highlight div element
-    highlight(div);
-
-  </script>
-</body>
-</html>   
+    <script>
+      const link = document.querySelector("a");
+      link.textContent = "Mozilla Developer Network";
+      link.href = "https://developer.mozilla.org";
+    </script>
+  </body>
+</html>
 
 
 
