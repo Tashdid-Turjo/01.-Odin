@@ -1231,3 +1231,4 @@ div.addEventListener('mark', (e) => {
 
 
 
+// !! Odin's search this- "Doing some basic DOM manipulation", then in the link, this part is done. search this in the mdn link- "That's most of what you need for adding nodes to the DOM — you'll make a lot of use of these"
