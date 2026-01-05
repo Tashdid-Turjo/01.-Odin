@@ -34,7 +34,7 @@
       // Task1,2
       const ul = document.querySelector("ul");
       const input = document.querySelector("input");
-      const button = document.querySelector("button");
+      const addButton = document.querySelector("button");
       const form = document.querySelector("form");
       
       // Task3,4
@@ -43,9 +43,35 @@
         
         // Task5
         const inputValue = input.value.trim();
+        if (!inputValue) return;
 
         // Task6
         input.value = "";
+
+        // Task7
+        const li = document.createElement('li');
+        const span = document.createElement('span');
+        const deleteButton = document.createElement('button');
+      
+        // Task8
+        li.appendChild(span);
+        li.appendChild(deleteButton);
+
+        // Task9
+        span.textContent = inputValue;
+        deleteButton.textContent = "Delete";
+
+        // Task10
+        ul.appendChild(li);
+
+        // Task11
+        deleteButton.addEventListener('click', () => {
+          li.remove();
+        });
+
+        // Task12
+        input.focus();
+
       }
 
       form.addEventListener("submit", addItem);

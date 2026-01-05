@@ -1273,3 +1273,108 @@ div.addEventListener('mark', (e) => {
     </script>
   </body>
 
+
+
+// MDN's Ex. of Creating a dynamic shopping list:
+// Tasks:
+1. Download `shopping-list.html` starter and make a copy. It has CSS, a form (label + input + button), an empty list, and a `<script>`—do all work inside the script.
+2. Create 3 variables referencing: the list (`<ul>`), the input (`<input>`), and the button (`<button>`).
+3. Create a function that runs when the button is clicked.
+4. Inside the function, call `preventDefault()` to stop the form submitting/refreshing (Enter submits the form).
+5. Store the current input value in a variable.
+6. Clear the input by setting `input.value = ""`.
+7. Create 3 elements: `<li>`, `<span>`, `<button>`, and store them in variables.
+8. Append the `span` and the new button inside the `li`.
+9. Set the text content of the span to the input value you saved earlier, and set the text content of the button to Delete.
+10. Append the `li` to the `ul`.
+11. Add a click handler to the Delete button to remove the whole list item (`<li>...</li>`).
+12. Call `input.focus()` so the cursor is ready for the next item.
+
+// Solve:
+// HTML:
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <form>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </form>
+
+    <ul>
+ 
+    </ul>
+
+    <script>
+      {/* // Task1,2 */}
+      const ul = document.querySelector("ul");
+      const input = document.querySelector("input");
+      const addButton = document.querySelector("button");
+      const form = document.querySelector("form"); {/* Extra part */}
+      
+      {/* // Task3,4 */}
+      function addItem(e) {
+        e.preventDefault();
+        
+        // Task5
+        const inputValue = input.value.trim();  {/* Optional Task: .trim() is used for omitting the begin & end spacing from the input's value. */}
+        if (!inputValue) return;                {/* Optional Task: prevent adding empty items. */}
+
+        // Task6
+        input.value = "";
+
+        // Task7
+        const li = document.createElement('li');
+        const span = document.createElement('span');
+        const deleteButton = document.createElement('button');
+      
+        // Task8
+        li.appendChild(span);
+        li.appendChild(deleteButton);
+
+        // Task9
+        span.textContent = inputValue;
+        deleteButton.textContent = "Delete";
+
+        // Task10
+        ul.appendChild(li);
+
+        // Task11
+        deleteButton.addEventListener('click', () => {
+          li.remove();
+        });
+
+        // Task12
+        input.focus();
+
+      }
+
+      form.addEventListener("submit", addItem);
+
+    </script>
+  </body>
+</html>
+
+
+// N.B: Here, only the script's part is the task. rest were pre-written.
+
+
