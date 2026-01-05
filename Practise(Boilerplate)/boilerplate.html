@@ -27,11 +27,26 @@
     </form>
 
     <ul>
-
+ 
     </ul>
 
     <script>
-
+      const ul = document.querySelector("ul");
+      const input = document.querySelector("input");
+      const button = document.querySelector("button");
+      
+      button.addEventListener('click', (e) => {
+        e.preventDefault();  // Prevent from refreshing
+        alert("Button was clicked");
+      });
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault(); // Prevent from refreshing
+          alert("Button was clicked");
+        }
+      });
+       
+      
     </script>
   </body>
 </html>

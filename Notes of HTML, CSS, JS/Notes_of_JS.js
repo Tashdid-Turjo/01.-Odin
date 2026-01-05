@@ -1081,6 +1081,8 @@ keyup
 3. keyboard events -> keydown, keyup, keypress.
 
 4. event delegation -> means too many event handlers (like- when in html, one parent element has multiple child elements.) 
+// N.B: preventDefault() -> It will prevent the form from refreshing the page so a new item can be added to the list instead.
+
 // Ex:
 // HTML:
 <ul id="menu">
