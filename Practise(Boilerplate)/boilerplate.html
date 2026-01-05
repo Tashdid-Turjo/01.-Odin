@@ -31,21 +31,37 @@
     </ul>
 
     <script>
+      // Task1,2
       const ul = document.querySelector("ul");
       const input = document.querySelector("input");
       const button = document.querySelector("button");
       
+      // Task3,4
+      function addItem(e) {
+        e.preventDefault();
+        
+        // Task5
+        const inputValue = input.value.trim();
+
+        // Task6
+        input.value = "";
+      }
+
+      /*
+      // For click (using mouse)
       button.addEventListener('click', (e) => {
         e.preventDefault();  // Prevent from refreshing
         alert("Button was clicked");
       });
-      input.addEventListener('keydown', (e) => {
+
+      // For enter (using keyboard)
+      button.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
           e.preventDefault(); // Prevent from refreshing
           alert("Button was clicked");
         }
       });
-       
+      */
       
     </script>
   </body>
