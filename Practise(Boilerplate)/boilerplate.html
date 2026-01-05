@@ -35,6 +35,7 @@
       const ul = document.querySelector("ul");
       const input = document.querySelector("input");
       const button = document.querySelector("button");
+      const form = document.querySelector("form");
       
       // Task3,4
       function addItem(e) {
@@ -46,6 +47,8 @@
         // Task6
         input.value = "";
       }
+
+      form.addEventListener("submit", addItem);
 
       /*
       // For click (using mouse)
