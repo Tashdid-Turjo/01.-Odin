@@ -1378,3 +1378,5 @@ div.addEventListener('mark', (e) => {
 // N.B: Here, only the script's part is the task. rest were pre-written.
 
 
+
+// !! additional resource's first link- do that link's exercise part.
