@@ -924,6 +924,9 @@ content.textContent = "This is the glorious text-content!"; // text
 
 container.appendChild(content);                             // placeholder(.appendChild means -> inside container id's last element{at the end})
 
+const text = document.createTextNode(" - the premier source for web development knowledge.");   // createTextNode() add the message after the existing message. It doesn't change/remove the existing message.
+const linkPara = document.querySelector("h1");              // add the upper message/text after h1's text/message.
+linkPara.appendChild(text);                                 // makes that message/text a child of h1 element.
 
 // <!-- The Final DOM -->
 <body>
@@ -1230,6 +1233,41 @@ div.addEventListener('mark', (e) => {
 // N.B: In all these Listeners, the event name- '(must)' must be same for catching that custom event ( this line- const ev = new CustomEvent('mark', {..... ).
 
 
+// MDN's Ex:
+// HTML File:
+<body>
+    <section>
+      <img src="dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+      <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+    </section>
 
-// !! Odin's search this- "Doing some basic DOM manipulation", then in the link, this part is done. search this in the mdn link- "That's most of what you need for adding nodes to the DOM — you'll make a lot of use of these"
+    <script>
+      const link = document.querySelector("a");
+      link.textContent = "Mozilla Developer Network";
+      link.href = "https://developer.mozilla.org";
+      
+      const sect = document.querySelector("section");
+      const para = document.createElement("p");
+      para.textContent = "We hope you enjoyed the ride.";
+      sect.appendChild(para);
+      
+      const text = document.createTextNode(
+        " - the premier source for web development knowledge."
+      );
+      const linkPara = document.querySelector("p");
+      linkPara.appendChild(text);
+
+      
+      para.style.color = "white";
+      para.style.backgroundColor = "black";
+      para.style.padding = "10px";
+      para.style.width = "250px";
+      para.style.textAlign = "center";
+
+      // sect.appendChild(linkPara);  // If i uncomment it, then "We hope you enjoyed ..." message will go to the upper.
+
+      // sect.removeChild(linkPara);  // If i uncomment it(as well as commenting the upper portion of the code), then p elements all message will be deleted.
+      
+    </script>
+  </body>
 
