@@ -1378,5 +1378,81 @@ div.addEventListener('mark', (e) => {
 // N.B: Here, only the script's part is the task. rest were pre-written.
 
 
+// Ex. of eloquentjavascript.net website:
+// Task: Build a table (DOM)
 
-// !! additional resource's first link- do that link's exercise part.
+1. You have `MOUNTAINS` = array of objects (`name`, `height`, `place`).
+2. Create a `<table>` element in JS.
+3. Get column names automatically from the first object: `name`, `height`, `place`.
+4. Build **header row**: one `<tr>` containing multiple `<th>` (one per column name).
+5. Build **data rows**: for each mountain object, create one `<tr>` with multiple `<td>` (one per column value).
+6. Append all rows to the table.
+7. Show table on the page by appending it into `<div id="mountains">`.
+8. Extra: if a cell value is a **number** (height), set `cell.style.textAlign = "right"`.
+
+// Output sample:
+Mountains
+
+name	         height	place
+Kilimanjaro   	5895	Tanzania
+Everest	        8848	Nepal
+Mount Fuji	    3776	Japan
+Vaalserberg  	  323	  Netherlands
+Denali	        6168	United States
+Popocatepetl	  5465	Mexico
+Mont Blanc	    4808	Italy/France
+
+// Ans:
+// HTML:
+<body>
+    <h1>Mountains</h1>
+    <div id="mountains"></div>
+  <script>
+    const MOUNTAINS = [
+      {name: "Kilimanjaro",  height: 5895, place: "Tanzania"},
+      {name: "Everest",      height: 8848, place: "Nepal"},
+      {name: "Mount Fuji",   height: 3776, place: "Japan"},
+      {name: "Vaalserberg",  height: 323,  place: "Netherlands"},
+      {name: "Denali",       height: 6168, place: "United States"},
+      {name: "Popocatepetl", height: 5465, place: "Mexico"},
+      {name: "Mont Blanc",   height: 4808, place: "Italy/France"}
+    ];
+    {/* // Here, each -> { name: "Kilimanjaro", height: 5895, place: "Tanzania" } is an object. */}
+    {/* // Here, name, height, place are -> property keys. */}
+    {/* // Here, kilimanjaro, etc. -> values. */}
+
+
+    {/* <!-- TODO: for showing the Table Header. --> */}
+    const mountainsDiv = document.querySelector('#mountains');
+
+    const table = document.createElement('table');
+    const columns = Object.keys(MOUNTAINS[0]);     // Get column names from the first object.
+    const tableRow = document.createElement('tr');
+    
+    for (const col of columns) {
+      const tableHead = document.createElement('th');
+      tableHead.textContent = col;
+      tableRow.appendChild(tableHead);
+    }
+
+    table.appendChild(tableRow);
+    mountainsDiv.appendChild(table);
+    {/* <!-- TODO: ------------------------------------> */}
+
+
+    {/* <!-- TODO: for adding data rows (values). --> */}
+    for (const mountain of MOUNTAINS) {
+      const row = document.createElement('tr');
+
+      for (const col of columns) {
+        const cell = document.createElement('td');
+        cell.textContent = mountain[col];
+        row.appendChild(cell);
+      }
+
+      table.appendChild(row);
+    }
+    {/* <!-- TODO: -------------------------------------></script> */}
+  </script>
+</body>
+

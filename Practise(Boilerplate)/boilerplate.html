@@ -10,19 +10,57 @@
     <div id="mountains"></div>
   <script>
     const MOUNTAINS = [
-      {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
-      {name: "Everest", height: 8848, place: "Nepal"},
-      {name: "Mount Fuji", height: 3776, place: "Japan"},
-      {name: "Vaalserberg", height: 323, place: "Netherlands"},
-      {name: "Denali", height: 6168, place: "United States"},
+      {name: "Kilimanjaro",  height: 5895, place: "Tanzania"},
+      {name: "Everest",      height: 8848, place: "Nepal"},
+      {name: "Mount Fuji",   height: 3776, place: "Japan"},
+      {name: "Vaalserberg",  height: 323,  place: "Netherlands"},
+      {name: "Denali",       height: 6168, place: "United States"},
       {name: "Popocatepetl", height: 5465, place: "Mexico"},
-      {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+      {name: "Mont Blanc",   height: 4808, place: "Italy/France"}
     ];
     // Here, each -> { name: "Kilimanjaro", height: 5895, place: "Tanzania" } is an object.
     // Here, name, height, place are -> property keys.
     // Here, kilimanjaro, etc. -> values.
 
     // Your code here
+    <!-- TODO: for showing the Table Header. -->
+    const mountainsDiv = document.querySelector('#mountains');
+
+    const table = document.createElement('table');
+    const columns = Object.keys(MOUNTAINS[0]);     // Get column names from the first object.
+    const tableRow = document.createElement('tr');
+    
+    for (const col of columns) {
+      const tableHead = document.createElement('th');
+      tableHead.textContent = col;
+      tableRow.appendChild(tableHead);
+    }
+
+    table.appendChild(tableRow);
+    mountainsDiv.appendChild(table);
+    <!-- TODO: ------------------------------------>
+
+    <!-- TODO: for adding data rows (values). -->
+    for (const mountain of MOUNTAINS) {
+      const row = document.createElement('tr');
+
+      for (const col of columns) {
+        const cell = document.createElement('td');
+        cell.textContent = mountain[col];
+        row.appendChild(cell);
+      }
+
+      table.appendChild(row);
+    }
+    <!-- TODO: ------------------------------------->
+
+
+
+
+
+
+    /*
+    const mountains = document.querySelector('#mountains');
     const table = document.createElement('table');    // creating table element.
     const columns = Object.keys(MOUNTAINS[0]);        // getting column names from the first object.
     
@@ -39,10 +77,12 @@
 
     for (const mountain of MOUNTAINS) {
       const values = object.values(mountain);
-      tableData.textContent = values;
-      tableRow.appendChild(tableDa)
+      tableData.textContent = values.join;
+      tableRow.appendChild(tableData);
     }
 
+    mountains.appendChild(table);
+    */
 
 
     /*
