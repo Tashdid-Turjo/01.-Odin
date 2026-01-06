@@ -1,0 +1,10 @@
+Mountains
+
+name	         height	place
+Kilimanjaro 	5895	Tanzania
+Everest	        8848	Nepal
+Mount Fuji	   3776	   Japan
+Vaalserberg  	323	  Netherlands
+Denali	       6168	   United States
+Popocatepetl	5465	Mexico
+Mont Blanc	    4808	Italy/France

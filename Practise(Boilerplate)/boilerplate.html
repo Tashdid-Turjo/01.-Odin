@@ -4,94 +4,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping list example</title>
-    <style>
-      li {
-        margin-bottom: 10px;
-      }
-
-      li button {
-        font-size: 12px;
-        margin-left: 20px;
-        color: #666;
-      }
-    </style>
   </head>
   <body>
+    <h1>Mountains</h1>
+    <div id="mountains"></div>
+  <script>
+    const MOUNTAINS = [
+      {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+      {name: "Everest", height: 8848, place: "Nepal"},
+      {name: "Mount Fuji", height: 3776, place: "Japan"},
+      {name: "Vaalserberg", height: 323, place: "Netherlands"},
+      {name: "Denali", height: 6168, place: "United States"},
+      {name: "Popocatepetl", height: 5465, place: "Mexico"},
+      {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+    ];
 
-    <h1>My shopping list</h1>
+    // Your code here
+    const table = document.createElement('table');    // creating table element.
+    const columns = Object.keys(MOUNTAINS[0]);         // getting column names from the first object.
+    const headerRow = document.createElement('tr');
 
-    <form>
-      <label for="item">Enter a new item:</label>
-      <input type="text" name="item" id="item">
-      <button>Add item</button>
-    </form>
+    for (const col of columns) {
+      const th = document.createElement('th');
+      th.textContent = col;
+      headerRow.appendChild(th);
+    }
 
-    <ul>
- 
-    </ul>
+    table.appendChild(headerRow);
 
-    <script>
-      // Task1,2
-      const ul = document.querySelector("ul");
-      const input = document.querySelector("input");
-      const addButton = document.querySelector("button");
-      const form = document.querySelector("form");
-      
-      // Task3,4
-      function addItem(e) {
-        e.preventDefault();
-        
-        // Task5
-        const inputValue = input.value.trim();
-        if (!inputValue) return;
-
-        // Task6
-        input.value = "";
-
-        // Task7
-        const li = document.createElement('li');
-        const span = document.createElement('span');
-        const deleteButton = document.createElement('button');
-      
-        // Task8
-        li.appendChild(span);
-        li.appendChild(deleteButton);
-
-        // Task9
-        span.textContent = inputValue;
-        deleteButton.textContent = "Delete";
-
-        // Task10
-        ul.appendChild(li);
-
-        // Task11
-        deleteButton.addEventListener('click', () => {
-          li.remove();
-        });
-
-        // Task12
-        input.focus();
-
-      }
-
-      form.addEventListener("submit", addItem);
-
-      /*
-      // For click (using mouse)
-      button.addEventListener('click', (e) => {
-        e.preventDefault();  // Prevent from refreshing
-        alert("Button was clicked");
-      });
-
-      // For enter (using keyboard)
-      button.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault(); // Prevent from refreshing
-          alert("Button was clicked");
-        }
-      });
-      */
-      
-    </script>
+  </script>
   </body>
 </html>
