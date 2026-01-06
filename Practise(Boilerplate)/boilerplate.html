@@ -18,19 +18,42 @@
       {name: "Popocatepetl", height: 5465, place: "Mexico"},
       {name: "Mont Blanc", height: 4808, place: "Italy/France"}
     ];
+    // Here, each -> { name: "Kilimanjaro", height: 5895, place: "Tanzania" } is an object.
+    // Here, name, height, place are -> property keys.
+    // Here, kilimanjaro, etc. -> values.
 
     // Your code here
     const table = document.createElement('table');    // creating table element.
-    const columns = Object.keys(MOUNTAINS[0]);         // getting column names from the first object.
-    const headerRow = document.createElement('tr');
+    const columns = Object.keys(MOUNTAINS[0]);        // getting column names from the first object.
+    
+    const tableHead = document.createElement('th');
+    const tableRow = document.createElement('tr');
+    const tableData = document.createElement('td');
 
+    for (const head of tableHead) {
+      tableHead.textContent = columns;
+      tableRow.appendChild(tableHead);
+    }
+
+    table.appendChild(tableRow);
+
+    for (const mountain of MOUNTAINS) {
+      const values = object.values(mountain);
+      tableData.textContent = values;
+      tableRow.appendChild(tableDa)
+    }
+
+
+
+    /*
     for (const col of columns) {
       const th = document.createElement('th');
       th.textContent = col;
       headerRow.appendChild(th);
     }
 
-    table.appendChild(headerRow);
+    table.appendChild(tableRow);
+    */
 
   </script>
   </body>
