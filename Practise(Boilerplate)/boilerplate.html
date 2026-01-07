@@ -4,39 +4,52 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping list example</title>
+    <style>body { min-height: 200px }</style>
   </head>
   <body>
-    <h1>Heading with a <span>span</span> element.</h1>
-    <p>A paragraph with <span>one</span>, <span>two</span>
-    spans.</p>
+    <img src="cat.png" id="cat" style="position: absolute">
+    <img src="hat.png" id="hat" style="position: absolute">
 
     <script>
-      function byTagName(node, tagName) {
-        // Your code here.
-        const matches = [];
-        tagName = tagName.toUpperCase();  // cz, DOM tagName is usuallly uppercase.
-      
+      let cat = document.querySelector("#cat");
+      let hat = document.querySelector("#hat");
 
-        // nodeType is built-in that tells what kind of node it is.
-        if (node.nodeType === 1 && node.tagName === tagName) { // "1" means -> element node. "node.tagName" is the actual tag name. "tagName" is what the user passed in. So, it means -> If this node is an element and its tag matches the requested tag, collect it.
-          matches.push(node);
+      let angle = 0;
+      let lastTime = null;
+      function animate(time) {
+        if (lastTime != null) {
+          angle += (time - lastTime) * 0.001;
         }
+        
+        lastTime = time;
+        
+        cat.style.top = (Math.sin(angle) * 40 + 40) + "px";
+        cat.style.left = (Math.cos(angle) * 200 + 230) + "px";
 
-        // childNodes is built-in that gives an array-like list of all child nodes.
-        for (const child of node.childNodes) {
-          matches.push(...byTagName(child, tagName));
-        }
+        
+        // Orbit on the opposite side of the same ellipse (180° out of phase):
+        hat.style.top = (Math.sin(angle + Math.PI) * 40 + 40) + "px";
+        hat.style.left = (Math.cos(angle + Math.PI) * 200 + 230) + "px";
 
-        return matches;
+        /*
+        // Cat moves on ellipse
+        const catTop  = Math.sin(angle) * 40 + 40;
+        const catLeft = Math.cos(angle) * 200 + 230;
+
+        cat.style.top  = catTop + "px";
+        cat.style.left = catLeft + "px";
+
+        // Hat circles around the cat
+        const radius = 30;
+        const hatAngle = angle * 3; // speed of hat spin (adjust as you like)
+
+        hat.style.top  = (catTop  + Math.sin(hatAngle) * radius) + "px";
+        hat.style.left = (catLeft + Math.cos(hatAngle) * radius) + "px";
+        */
+
+        requestAnimationFrame(animate);
       }
-
-      console.log(byTagName(document.body, "h1").length);
-      // output → 1
-      console.log(byTagName(document.body, "span").length);
-      // output → 3
-      let para = document.querySelector("p");
-      console.log(byTagName(para, "span").length);
-      // output → 2
+      requestAnimationFrame(animate);
     </script>
   </body>
 </html>
