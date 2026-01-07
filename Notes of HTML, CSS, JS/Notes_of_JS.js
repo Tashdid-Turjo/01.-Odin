@@ -1373,9 +1373,8 @@ div.addEventListener('mark', (e) => {
     </script>
   </body>
 </html>
-
-
 // N.B: Here, only the script's part is the task. rest were pre-written.
+
 
 
 // Ex. of eloquentjavascript.net website:
@@ -1456,3 +1455,57 @@ Mont Blanc	    4808	Italy/France
   </script>
 </body>
 
+
+// Ex. of eloquentjavascript.net website:
+// Task Elements by Tag Name:
+1. Goal: Implement your own version of `document.getElementsByTagName`.
+2. Write a function: `byTagName(node, tagName)`
+   `node` = starting DOM node (search root)
+   `tagName` = tag to search for (e.g., `"h1"`, `"span"`)
+3. The function must **traverse the DOM tree manually** (go through `node` and all descendants).
+4. It must return an **array of all descendant element nodes** whose tag matches `tagName`.
+5. Do **not** use `querySelectorAll` / built-in tag-search methods to solve it.
+6. Use `node.nodeName` / `node.tagName` (usually uppercase) → compare by converting case (`toLowerCase()` or `toUpperCase()`).
+7. Test by checking counts with `.length`, e.g.:
+
+   * `byTagName(document.body, "h1").length` → `1`
+   * `byTagName(document.body, "span").length` → `3`
+   * `byTagName(firstP, "span").length` → `2`
+
+
+// Ans:
+// HTML:
+<body>
+    <h1>Heading with a <span>span</span> element.</h1>
+    <p>A paragraph with <span>one</span>, <span>two</span>
+    spans.</p>
+
+    <script>
+      function byTagName(node, tagName) {
+        // Your code here.
+        const matches = [];
+        tagName = tagName.toUpperCase();  // cz, DOM tagName is usuallly uppercase.
+      
+
+        // nodeType is built-in that tells what kind of node it is.
+        if (node.nodeType === 1 && node.tagName === tagName) { // "1" means -> element node. "node.tagName" is the actual tag name. "tagName" is what the user passed in. So, it means -> If this node is an element and its tag matches the requested tag, collect it.
+          matches.push(node);
+        }
+
+        // childNodes is built-in that gives an array-like list of all child nodes.
+        for (const child of node.childNodes) {
+          matches.push(...byTagName(child, tagName));
+        }
+
+        return matches;
+      }
+
+      console.log(byTagName(document.body, "h1").length);
+      // output → 1
+      console.log(byTagName(document.body, "span").length);
+      // output → 3
+      let para = document.querySelector("p");
+      console.log(byTagName(para, "span").length);
+      // output → 2
+    </script>
+  </body>

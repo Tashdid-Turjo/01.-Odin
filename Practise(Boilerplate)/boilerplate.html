@@ -6,95 +6,37 @@
     <title>Shopping list example</title>
   </head>
   <body>
-    <h1>Mountains</h1>
-    <div id="mountains"></div>
-  <script>
-    const MOUNTAINS = [
-      {name: "Kilimanjaro",  height: 5895, place: "Tanzania"},
-      {name: "Everest",      height: 8848, place: "Nepal"},
-      {name: "Mount Fuji",   height: 3776, place: "Japan"},
-      {name: "Vaalserberg",  height: 323,  place: "Netherlands"},
-      {name: "Denali",       height: 6168, place: "United States"},
-      {name: "Popocatepetl", height: 5465, place: "Mexico"},
-      {name: "Mont Blanc",   height: 4808, place: "Italy/France"}
-    ];
-    // Here, each -> { name: "Kilimanjaro", height: 5895, place: "Tanzania" } is an object.
-    // Here, name, height, place are -> property keys.
-    // Here, kilimanjaro, etc. -> values.
+    <h1>Heading with a <span>span</span> element.</h1>
+    <p>A paragraph with <span>one</span>, <span>two</span>
+    spans.</p>
 
-    // Your code here
-    <!-- TODO: for showing the Table Header. -->
-    const mountainsDiv = document.querySelector('#mountains');
+    <script>
+      function byTagName(node, tagName) {
+        // Your code here.
+        const matches = [];
+        tagName = tagName.toUpperCase();  // cz, DOM tagName is usuallly uppercase.
+      
 
-    const table = document.createElement('table');
-    const columns = Object.keys(MOUNTAINS[0]);     // Get column names from the first object.
-    const tableRow = document.createElement('tr');
-    
-    for (const col of columns) {
-      const tableHead = document.createElement('th');
-      tableHead.textContent = col;
-      tableRow.appendChild(tableHead);
-    }
+        // nodeType is built-in that tells what kind of node it is.
+        if (node.nodeType === 1 && node.tagName === tagName) { // "1" means -> element node. "node.tagName" is the actual tag name. "tagName" is what the user passed in. So, it means -> If this node is an element and its tag matches the requested tag, collect it.
+          matches.push(node);
+        }
 
-    table.appendChild(tableRow);
-    mountainsDiv.appendChild(table);
-    <!-- TODO: ------------------------------------>
+        // childNodes is built-in that gives an array-like list of all child nodes.
+        for (const child of node.childNodes) {
+          matches.push(...byTagName(child, tagName));
+        }
 
-    <!-- TODO: for adding data rows (values). -->
-    for (const mountain of MOUNTAINS) {
-      const row = document.createElement('tr');
-
-      for (const col of columns) {
-        const cell = document.createElement('td');
-        cell.textContent = mountain[col];
-        row.appendChild(cell);
+        return matches;
       }
 
-      table.appendChild(row);
-    }
-    <!-- TODO: ------------------------------------->
-
-
-
-
-
-
-    /*
-    const mountains = document.querySelector('#mountains');
-    const table = document.createElement('table');    // creating table element.
-    const columns = Object.keys(MOUNTAINS[0]);        // getting column names from the first object.
-    
-    const tableHead = document.createElement('th');
-    const tableRow = document.createElement('tr');
-    const tableData = document.createElement('td');
-
-    for (const head of tableHead) {
-      tableHead.textContent = columns;
-      tableRow.appendChild(tableHead);
-    }
-
-    table.appendChild(tableRow);
-
-    for (const mountain of MOUNTAINS) {
-      const values = object.values(mountain);
-      tableData.textContent = values.join;
-      tableRow.appendChild(tableData);
-    }
-
-    mountains.appendChild(table);
-    */
-
-
-    /*
-    for (const col of columns) {
-      const th = document.createElement('th');
-      th.textContent = col;
-      headerRow.appendChild(th);
-    }
-
-    table.appendChild(tableRow);
-    */
-
-  </script>
+      console.log(byTagName(document.body, "h1").length);
+      // output → 1
+      console.log(byTagName(document.body, "span").length);
+      // output → 3
+      let para = document.querySelector("p");
+      console.log(byTagName(para, "span").length);
+      // output → 2
+    </script>
   </body>
 </html>
