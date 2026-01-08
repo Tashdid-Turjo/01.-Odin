@@ -1074,7 +1074,7 @@ keyup
 
 
 // TODO: Various Event Tools:
-1. JS events -> event flow, event bubbling, event capturing, DOM level 2 event flow, event object, preventDefault(), stopPropagation().
+1. JS events -> event flow, event bubbling / propagation, event capturing, DOM level 2 event flow, event object, preventDefault(), stopPropagation().
 
 2. mouse events -> mousedown, mouseup, click, dblclick, mousemove, mouseover, mouseout, mouseenter, mouseleave, wheel.
 
