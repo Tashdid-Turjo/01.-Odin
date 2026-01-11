@@ -59,7 +59,13 @@
             -> Extra: odin didn't add these in basic js [Document Object Model (DOM) and the Canvas API, which are the fundamental ways JavaScript interacts with HTML.]
 
  
-
+✅JSX:
+-> Keyword:
+            -> Loading React external library,
+            -> Setup React & use .render(),
+            -> Used HTML & JS inside script(which is JSX),
+            -> Inserting values into JSX elements,
+            -> 
 
 
 ✅Git/GitHub:
