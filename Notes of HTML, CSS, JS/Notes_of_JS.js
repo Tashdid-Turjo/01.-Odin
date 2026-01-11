@@ -1581,3 +1581,6 @@ Hint: Math.cos and Math.sin measure angles in radians, where a full circle is 2Ï
       requestAnimationFrame(animate);
     </script>
   </body>
+
+
+{/* // !! Foundation course -> DOM manipulation & events -> Additional resources -> start from "eloquent js - handling events" part. */}
