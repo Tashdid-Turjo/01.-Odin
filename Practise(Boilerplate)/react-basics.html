@@ -13,7 +13,7 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-        const paragraph = <p>Current time: {dayjs().format('HH:mm:ss')}</p>;
+        const paragraph = <p>CurrentYOO {dayjs().format('HH:mm:ss')}</p>;
 
         // setInterval(() => {}, 1000);
         
@@ -22,7 +22,7 @@
         root.render(paragraph);
         
         setInterval(() => {
-            const paragraph = <p>Current time: {dayjs().format('HH:mm:ss')}</p>;
+            const paragraph = <p>C {dayjs().format('HH:mm:ss')}</p>;
             root.render(paragraph);
         }, 1000);
     </script>
