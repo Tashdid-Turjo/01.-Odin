@@ -1,4 +1,4 @@
-// From YT: SuperSimpleDev
+// From YT: SuperSimpleDev. Link: https://www.youtube.com/watch?v=TtPXvEcE11E
 
 /*
 -> Keyword:
@@ -98,4 +98,68 @@
 */
 
 
-// !! Start from- 2. Components, props, ...
+
+
+
+// !! 3. Ex:
+// Task: Show a live clock like this- Current Time: 21:51:43
+
+// Ans:
+// HTML:
+/*
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <!-- // TODO: METHOD1(Better for the initial message part):
+    <script type="text/babel">
+      <!-- // TODO: In this method, it will show the very first message before 1s: -->
+
+      <!-- // TODO: This is only for the initial render (show something immediately before 1 second passes). Then this doesn't show after that. -->
+      <!-- // TODO: Here, changed the Current Time into this text for better understanding. -->
+      const paragraph = <p>CurrentYOO {dayjs().format('HH:mm:ss')}</p>;
+
+      const container = document.querySelector('.js-container');
+      const root = ReactDOM.createRoot(container);
+      root.render(paragraph);
+
+      setInterval(() => {
+        <!-- // TODO: Here, changed the Current Time into this text for better understanding. -->
+        const paragraph = <p>CCCC {dayjs().format('HH:mm:ss')}</p>;
+        root.render(paragraph);
+      }, 1000);
+    </script>
+
+
+    <!-- // TODO: ------------------------------------ OR ------------------------------------ -->
+    
+    
+    <!-- // TODO: METHOD2:
+    <script type="text/babel">
+        <!-- // TODO: In this method, the initial message won't show like the previous code. Thus, the first method is better than this one:
+
+        const container = document.querySelector('.js-container');
+        const root = ReactDOM.createRoot(container);
+
+        setInterval(() => {
+        <!-- // TODO: This message will show every time (except for that very first time)
+        root.render(<p>Current time: {dayjs().format('HH:mm:ss')}</p>);
+        }, 1000);
+    </script>
+
+  </body>
+*/
+
+
+
+
+
+
+
+
