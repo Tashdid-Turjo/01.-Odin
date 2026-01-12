@@ -8,10 +8,16 @@
 
 
 
- 
+// ?? React Basics, JSX:
 // !! 1. React & ReactDOM:
-// React    -> Shared features. It's an External Library (other's code that we can use for our website). It's more simpler than DOM of JS. Also, JSX finds errors more easier.
+// React    -> Shared features. 
+//          -> It's an External Library (other's code that we can use for our website). 
+//          -> It's more simpler than DOM of JS. 
+//          -> Also, JSX finds errors more easier.
+//          -> Here, each HTML element has closing tag(like- input, etc.). We can use a shortcut like this {Only when there's nothing to write inside input element}- " <input /> ", instead of this- " <input></input> ".
+
 // ReactDOM -> features specific to websites. For creating websites, React & ReactDOM is used, where for creating mobile apps, React & ReactNative is used.
+
 // JSX      -> JavaScript XML. Enhanced version of JS is- React. We can write HTML directly in our JS code. It's JS with extra features. But web browser doesn't understand JSX, only understands JS. So we need to translate JSX into JS. For that, we use babel external library which is shown in the below Ex.
 
 
@@ -160,6 +166,8 @@
 
 
 
-
+// ?? Components, Props, Start the Chatbot Project:
+// !! Component -> a piece of website. Like- header, footer, navbar, etc. Component name must start with a capital letter, which is PascalCase (each word starts with capital letter, like- ChatInput).
+// !! 
 
 
