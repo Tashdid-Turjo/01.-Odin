@@ -167,7 +167,45 @@
 
 
 // ?? Components, Props, Start the Chatbot Project:
-// !! Component -> a piece of website. Like- header, footer, navbar, etc. Component name must start with a capital letter, which is PascalCase (each word starts with capital letter, like- ChatInput).
-// !! 
+// !! Component: 
+//              -> A piece of website. Like- header, footer, navbar, etc. 
+//              -> Component name must start with a capital letter, which is PascalCase (each word starts with capital letter, like- ChatInput).
 
 
+
+// !! Same Work but different syntax for React(supersimpledev said, but gpt saying- If ChatInput uses hooks, {ChatInput()} becomes invalid):
+/*
+function ChatInput() {
+  .....
+}
+
+<div>
+  {ChatInput()}
+</div>
+
+## vs ##
+
+<div>
+  <ChatInput></ChatInput>
+</div>
+
+*/
+
+
+
+// !! For grouping elements together, without creating extra <div>, React has Fragment(<></>):
+// Ex:
+// instead of this-
+/*
+<div>
+  <input></input>
+  <button>Send</button>
+</div>
+
+// We can do this-
+<>
+  <input></input>
+  <button>Send</button>
+</>
+
+// N.B: Advantage is that- in webpage's inspect, this extra div element won't be created.
