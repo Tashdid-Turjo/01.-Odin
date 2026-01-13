@@ -15,20 +15,45 @@
       function ChatInput() {
         return (
           <>
-            <input></input>
+            <input placeholder="Send a message to Chatbot" size="25" />
             <button>Send</button>
           </>
         );
       }
 
-      const div = (
+      function ChatMessage(props) {
+        const message = props.message;
+        const sender = props.sender;
+
+        if (sender === 'robot') {
+          return (
+            <div>
+              <img src="robot.png" width="50" />
+              {message}
+            </div>
+          );
+        }
+
+        return (
+          <div>
+            {message}
+            <img src="user.png" width="50" />
+          </div>
+        );
+      }
+
+      const app = (
         <>
           <ChatInput />
+          <ChatMessage message="hello chatbot" sender="user" />
+          <ChatMessage message="Hello! How can I help you?" sender="robot" />
+          <ChatMessage message="can you get me date?" sender="user" />
+          <ChatMessage message="today is jan12" sender="robot" />
         </>
       );
 
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(div);
+      ReactDOM.createRoot(container).render(app);
 
     </script>
   </body>

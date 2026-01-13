@@ -14,7 +14,7 @@
 //          -> It's an External Library (other's code that we can use for our website). 
 //          -> It's more simpler than DOM of JS. 
 //          -> Also, JSX finds errors more easier.
-//          -> Here, each HTML element has closing tag(like- input, etc.). We can use a shortcut like this {Only when there's nothing to write inside input element}- " <input /> ", instead of this- " <input></input> ".
+//          -> Here, each HTML element has closing tag(like- input, img, etc.). We can use a shortcut like this {Only when there's nothing to write inside input element}- " <input /> ", instead of this- " <input></input> ".
 
 // ReactDOM -> features specific to websites. For creating websites, React & ReactDOM is used, where for creating mobile apps, React & ReactNative is used.
 
@@ -166,7 +166,7 @@
 
 
 
-// ?? Components, Props, Start the Chatbot Project:
+// ?? Components, Props, Fragment, Start the Chatbot Project:
 // !! Component: 
 //              -> A piece of website. Like- header, footer, navbar, etc. 
 //              -> Component name must start with a capital letter, which is PascalCase (each word starts with capital letter, like- ChatInput).
@@ -202,10 +202,62 @@ function ChatInput() {
   <button>Send</button>
 </div>
 
-// We can do this-
+<!-- We can do this- -->
 <>
   <input></input>
   <button>Send</button>
 </>
 
-// N.B: Advantage is that- in webpage's inspect, this extra div element won't be created.
+<!-- N.B: Advantage is that- in webpage's inspect, this extra div element won't be created. -->
+*/
+
+
+// !! in the below code, size 25 isn't about the input box, rather, 25 means -> 25 characters will be capable to be shown.
+// <input placeholder="Send a message to Chatbot" size="25" />
+
+
+
+// !! props (property): -> makes our component reusable.
+/*
+
+function ChatMessage(props) {       <!-- This props can contains every attributes that we give to this component -> " <ChatMessage message="hello chatbot" /> " -->
+  return (
+    <div>
+      <p>hello chatbot</p>
+      <img src="user.png" width="50"></img>
+    </div>
+  );
+}
+
+const app = (
+  <>
+    <ChatMessage message="hello chatbot" />  <!-- Here, message is an attribute. -->
+  </>
+);
+
+*/
+
+
+
+// !! Shortcuts:
+/* 
+
+<!-- Destructuring: -->
+const message = props.message;
+const sender = props.sender;
+
+vs
+
+const { message, sender } = props;
+
+*/
+
+/*
+
+<!-- Destructuring: -->
+function ChatMessagte
+
+
+*/
+
+// !! First revise the previous lesson + vdo, then go to -> 3. State, event handlers, chatbot project features.
