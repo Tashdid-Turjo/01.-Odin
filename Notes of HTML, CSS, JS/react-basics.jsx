@@ -46,7 +46,7 @@
       
       <!-- // TODO: Inside this JS script, we can write HTML code. -->
       <!-- // TODO: This const button is not the DOM element, rather, it's a React Element. -->
-      <!-- // TODO: Using JS DOM, where we use "createElement". -->
+      <!-- // TODO: In JS DOM, where we use "createElement". This " const button = <button>hello</button>; " is a React Element. -->
       <!-- // TODO: Ex of that JS DOM:  -->
       <!-- // TODO: const button = document.createElement('button'); -->
       <!-- // TODO: button.innerHTML = 'hello'; -->
@@ -88,17 +88,17 @@
 /*
 <!-- // TODO: iii. To add/use multiple elements at a time in the webpage. -->
 <script type="text/babel">
-    const div = (
-        <div>
-            <button>hello</button>
-            <p>paragraph text {2 + 2}</p>   // Here, it will show 4. Cz, inserting JS into JSX elements.
-        </div>
-    );
+  const div = (
+    <div>
+      <button>hello</button>
+      <p>paragraph text {2 + 2}</p>   // Here, it will show 4. Cz, inserting JS into JSX elements.
+    </div>
+  );
     
-    const container = document.querySelector('.js-container');
+  const container = document.querySelector('.js-container');
 
-    <!-- Both 'button', 'p' elements will be inside container's child elements. --> 
-    ReactDOM.createRoot(container).render(div);
+  <!-- Both 'button', 'p' elements will be inside container's child elements. --> 
+  ReactDOM.createRoot(container).render(div);
 </script>
 
 */
@@ -108,7 +108,7 @@
 
 
 // !! 3. Ex:
-// Task: Show a live clock like this- Current Time: 21:51:43
+// Task: Show a live clock like this- Current Time: 21:51:43 (time will be updated like exact live clock)
 
 // Ans:
 // HTML:
