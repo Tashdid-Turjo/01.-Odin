@@ -126,9 +126,8 @@
     <!-- // TODO: METHOD1(Better for the initial message part):
     <script type="text/babel">
       <!-- // TODO: In this method, it will show the very first message before 1s: -->
-
       <!-- // TODO: This is only for the initial render (show something immediately before 1 second passes). Then this doesn't show after that. -->
-      <!-- // TODO: Here, changed the Current Time into this text for better understanding. -->
+      <!-- // TODO: Here, changed the "Current Time" into this text- "CurrentYOO" for better understanding in the webpage. -->
       const paragraph = <p>CurrentYOO {dayjs().format('HH:mm:ss')}</p>;
 
       const container = document.querySelector('.js-container');
@@ -136,7 +135,7 @@
       root.render(paragraph);
 
       setInterval(() => {
-        <!-- // TODO: Here, changed the Current Time into this text for better understanding. -->
+        <!-- // TODO: Here, changed the "Current Time" text into this text- "CCCC" for better understanding in the webpage. -->
         const paragraph = <p>CCCC {dayjs().format('HH:mm:ss')}</p>;
         root.render(paragraph);
       }, 1000);
@@ -148,15 +147,14 @@
     
     <!-- // TODO: METHOD2:
     <script type="text/babel">
-        <!-- // TODO: In this method, the initial message won't show like the previous code. Thus, the first method is better than this one:
+      <!-- // TODO: In this method, the initial message won't show like the previous code. Thus, the first method is better than this one:
+      const container = document.querySelector('.js-container');
+      const root = ReactDOM.createRoot(container);
 
-        const container = document.querySelector('.js-container');
-        const root = ReactDOM.createRoot(container);
-
-        setInterval(() => {
-        <!-- // TODO: This message will show every time (except for that very first time)
-        root.render(<p>Current time: {dayjs().format('HH:mm:ss')}</p>);
-        }, 1000);
+      setInterval(() => {
+      <!-- // TODO: This message will show every time (except for that very first time. So, in the very first time, no text will be shown in the webpage for like kinda 1s.)
+      root.render(<p>Current time: {dayjs().format('HH:mm:ss')}</p>);
+      }, 1000);
     </script>
 
   </body>
@@ -175,6 +173,7 @@
 
 // !! Same Work but different syntax for React(supersimpledev said, but gpt saying- If ChatInput uses hooks, {ChatInput()} becomes invalid):
 /*
+
 function ChatInput() {
   .....
 }
@@ -197,6 +196,7 @@ function ChatInput() {
 // Ex:
 // instead of this-
 /*
+
 <div>
   <input></input>
   <button>Send</button>
@@ -209,10 +209,11 @@ function ChatInput() {
 </>
 
 <!-- N.B: Advantage is that- in webpage's inspect, this extra div element won't be created. -->
+
 */
 
 
-// !! in the below code, size 25 isn't about the input box, rather, 25 means -> 25 characters will be capable to be shown.
+// !! in the below code, size 25 isn't about the input box's size, rather, 25 means -> 25 characters will be capable to be shown in the input box.
 // <input placeholder="Send a message to Chatbot" size="25" />
 
 
@@ -242,22 +243,33 @@ const app = (
 // !! Shortcuts:
 /* 
 
-<!-- Destructuring: -->
-const message = props.message;
-const sender = props.sender;
-
+<!-- Destructuring: (Taking the stuff out of the object.) -->
+function ChatMessage (props) {
+  const message = props.message;
+  const sender = props.sender;
+}
+  
 vs
 
-const { message, sender } = props;
+function ChatMessage (props) {
+  const { message } = props;
+  const { sender } = props;
+}
+
+vs (more shortcut)
+
+function ChatMessage (props) {
+  const { message, sender } = props;
+}
+
+vs (most shortcut {destructuring parameter directly at the top})
+
+function ChatMessage ({ message, sender }) {
+  .....
+}
 
 */
 
-/*
 
-<!-- Destructuring: -->
-function ChatMessagte
-
-
-*/
 
 // !! First revise the previous lesson + vdo, then go to -> 3. State, event handlers, chatbot project features.
