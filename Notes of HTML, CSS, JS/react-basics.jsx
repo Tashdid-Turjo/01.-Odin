@@ -167,6 +167,7 @@
 // ?? Components, Props, Fragment, Start the Chatbot Project:
 // !! Component: 
 //              -> A piece of website. Like- header, footer, navbar, etc. 
+//              -> Create our own HTML elements.
 //              -> Component name must start with a capital letter, which is PascalCase (each word starts with capital letter, like- ChatInput).
 
 
@@ -382,5 +383,148 @@ function App() {
 
 
 
-// !! First revise the previous lesson + vdo, then go to -> 3. State, event handlers, chatbot project features.
-// OFFICIAL WORK
+// !! Some Imp. Exercise of SuperSimpleDev:
+// Ex1 (By seeing the exercise, you will understand more about using props to make it reusable.):
+// HTML:
+
+/*
+
+<script type="text/babel">
+  function ProductDetails({ name, price }) {    // Consider " name, price " as -> props
+    return (
+      <>
+        <p>{name}</p>
+        <p>Price: ${price}</p>
+        <button>Add to Cart</button>
+      </>
+    );
+  }
+
+  function App() {
+    return (
+      <>
+        <ProductDetails
+          name="Cotton socks"
+          price="10.90"
+        />
+        <ProductDetails
+          name="Tennis balls"
+          price="6.00"
+        />
+        <ProductDetails
+          name="Plain T-Shirt"
+          price="7.99"
+        />
+      </>
+    );
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+// Ex2(for only sock part, discount price should be visible, but for tennis, tshirt, there's no discount so no discount price will be shown in the page):
+/*
+
+<script type="text/babel">
+  function ProductDetails({ name, price, discountPrice }) {
+    return (
+      <>
+        <p>{name}</p>
+        <p>Price: ${price}</p>
+        {discountPrice && <p>discount: ${discountPrice}</p>}     <!-- In this if statement, you could write name === 'sock', but if there's other discount for other products, then we have to write other conditions, thus this below condition works for any product -->
+        <button>Add to Cart</button>
+      </>
+    );
+  }
+
+  function App() {
+    return (
+        <>
+            <ProductDetails 
+                name="sock"
+                price="10"
+                discountPrice="5"
+            />
+            <ProductDetails
+                name="tennis"
+                price="6"
+            />
+            <ProductDetails
+                name="tshirt"
+                price="7"
+            />
+        </>
+    );
+  }
+
+
+const container = document.querySelector('.js-container');
+ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+// Ex3(like previous ex, showing discount price. But here, when product has discount price, it will delete the price text):
+/*
+
+<script type="text/babel">
+  function ProductDetails({ name, price, discountPrice }) {
+    return (
+      <>
+        <p>{name}</p>
+
+        <!-- Used ternary operator -->
+        {discountPrice ? (
+          <>
+            <p>
+              <del>Price:${price}</del>
+            </p>
+            <p>
+              discount: ${discountPrice}
+            </p>
+          </>
+        ) : (
+            <p>Price:${price}</p>
+        )}      
+        <button>Add to Cart</button>
+      </>
+    );
+  }
+
+  function App() {
+    return (
+        <>
+            <ProductDetails 
+                name="sock"
+                price="10"
+                discountPrice="5"
+            />
+            <ProductDetails
+                name="tennis"
+                price="6"
+            />
+            <ProductDetails
+                name="tshirt"
+                price="7"
+            />
+        </>
+    );
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+// ?? State, Event Handlers, Chatbot Project Features:
+// !! State -> make our website interactive.
+
+    
