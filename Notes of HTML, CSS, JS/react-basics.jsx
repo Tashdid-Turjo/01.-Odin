@@ -300,7 +300,8 @@ function ChatMessage({ message, sender }) {
 
 
 // !! Using JS's Guard / And Operator (&&) in jsx:
-const result = value1 && value2; // Here, value1 is the condition & value2 is the result; meaning -> if value1 is true then the result is value2.
+const result = value1 && value2;          // Here, value1 is the condition & value2 is the result; meaning -> if value1 is true then the result is value2.
+const result = value1 ? value2 : value3;  // Ternary: Here, if value1 -> result is value 2; else -> result is value3.
 
 // Ex:
 /*
@@ -500,21 +501,21 @@ ReactDOM.createRoot(container).render(<App />);
 
   function App() {
     return (
-        <>
-            <ProductDetails 
-                name="sock"
-                price="10"
-                discountPrice="5"
-            />
-            <ProductDetails
-                name="tennis"
-                price="6"
-            />
-            <ProductDetails
-                name="tshirt"
-                price="7"
-            />
-        </>
+      <>
+        <ProductDetails 
+          name="sock"
+          price="10"
+          discountPrice="5"
+        />
+        <ProductDetails
+          name="tennis"
+          price="6"
+        />
+        <ProductDetails
+          name="tshirt"
+          price="7"
+        />
+      </>
     );
   }
 
@@ -524,7 +525,11 @@ ReactDOM.createRoot(container).render(<App />);
 
 */
 
+
+
+
+
 // ?? State, Event Handlers, Chatbot Project Features:
 // !! State -> make our website interactive.
 
-    
+// !! Start from state, event handlers .....
