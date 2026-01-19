@@ -272,4 +272,115 @@ function ChatMessage ({ message, sender }) {
 
 
 
+// !! Know that, below the code, it's not full jsx, rather, it's js. Only the portion inside of return (...), that's the jsx. So here, if-statement is js, not jsx:
+/*
+
+function ChatMessage({ message, sender }) {
+  if (sender === 'robot') {
+    return (
+      <div>
+        <img src="robot.png" width="50" />
+        {message}
+      </div>
+    )
+  }
+
+  <!-- Inside return (...) is jsx -->
+  return (
+    <div>
+      {message}
+      <img src="user.png" width="50" />
+    </div>
+  )
+}
+
+*/
+
+
+
+// !! Using JS's Guard / And Operator (&&) in jsx:
+const result = value1 && value2; // Here, value1 is the condition & value2 is the result; meaning -> if value1 is true then the result is value2.
+
+// Ex:
+/*
+
+<!-- if this is the if-condition: -->
+if (sender === 'robot') {
+  return (
+    <div>
+      <img src="robot.png" width="50" />
+    </div>
+  )
+}
+
+<!-- Then Inside jsx file, we can write this: -->
+return (
+  <div>
+    {sender === 'robot' && <img src="robot.png" width="50" />}
+  </div>
+)
+
+
+*/
+
+
+
+// !! Instead of variable, best practice is to use component. Bcz, it gives extra features like -> props.
+// Ex:
+/*
+
+<!-- Instead of below code(variable): -->
+const div = (
+  <>
+    <ChatInput />
+    <ChatMessage 
+      message="hello chatbot" 
+      sender="user" 
+    />
+    <ChatMessage 
+      message="hello! How can I help you?"
+      sender="robot" 
+    />
+    <ChatMessage 
+      message="can you get me todays date?" 
+      sender="user" 
+    />
+    <ChatMessage 
+      message="Today is 14 January." 
+      sender="robot" 
+    />
+  </>
+);
+
+
+<!-- Use component(that will give extra feature like- props)(In this below code, there's component{ChatInput, ChatMessage} inside of another component{App}.): -->
+function App() {
+  return (
+    <>
+      <ChatInput />
+      <ChatMessage 
+        message="hello chatbot" 
+        sender="user" 
+      />
+      <ChatMessage 
+        message="hello! How can I help you?"
+        sender="robot" 
+      />
+      <ChatMessage 
+        message="can you get me todays date?" 
+        sender="user" 
+      />
+      <ChatMessage 
+        message="Today is 14 January." 
+        sender="robot" 
+      />
+    </>
+  )
+}
+
+*/
+
+
+
 // !! First revise the previous lesson + vdo, then go to -> 3. State, event handlers, chatbot project features.
+// OFFICIAL WORK
