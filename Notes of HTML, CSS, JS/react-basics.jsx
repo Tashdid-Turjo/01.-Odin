@@ -472,7 +472,7 @@ ReactDOM.createRoot(container).render(<App />);
 
 
 
-// Ex3(like previous ex, showing discount price. But here, when product has discount price, it will delete the price text):
+// Ex3(like previous ex, showing discount price. But here, when product has discount price, it will strike-through the price text):
 /*
 
 <script type="text/babel">
@@ -530,6 +530,99 @@ ReactDOM.createRoot(container).render(<App />);
 
 
 // ?? State, Event Handlers, Chatbot Project Features:
-// !! State -> make our website interactive.
 
-// !! Start from state, event handlers .....
+// !! State -> make our website interactive.
+//          -> data that's connected to the HTML. Thus, when we update the data, it will update the HTML.
+//          -> stores data (numbers, strings, objects, arrays):
+
+
+
+// !! React Documentation:
+// React Documentation Ex:
+// Instead of this below code:
+/*
+
+const chatMessageComponents = chatMessages.map((chatMessage) => {
+  return (
+    <ChatMessage
+      message = {chatMessage.message}
+      sender = {chatMessage.sender}
+    />
+  );
+});
+
+return (
+  <>
+    <ChatInput />
+    {chatMessageComponents}
+  </>
+)
+
+*/
+
+
+
+// We can do this below code (Second return()'s inside part, we put that arrow function directly. that's how React Documentation works.):
+
+/*
+
+return (
+  <>
+    <ChatInput />
+    {chatMessages.map((chatMessage) => {
+      return (
+        <ChatMessage
+          message = {chatMessage.message}
+          sender = {chatMessage.sender}
+        />
+      );
+    })}
+  </>
+);
+
+*/
+
+
+
+// !! Key:
+/*
+  -> helps React track changes in the array. This key for every child must be unique.
+  -> key is a React-only attribute used when rendering lists, so React can track items efficiently.
+  -> It is not passed as a prop to ChatMessage. Inside ChatMessage, you cannot read props.key.
+  -> Ex:
+
+
+
+*/
+
+
+
+// !! Event Handler -> run a function when we interact with the website.
+
+
+
+// !! onClick -> run a function while we click.
+
+
+
+// !! {} -> saves any type of value in a prop (including a function)
+
+
+
+// !! function ChatMessage() vs function chatMessage() difference:
+// first one is treated as react component, we can use it like -> <ChatMessage />. It's called Pascal case / UpperCamelCase.
+// second one is a normal function, thus we can't use it like -> <chatMessage />. Rather, we can call it like -> chatMessage(). It's called camelCase.
+
+
+
+// !! Ex of mistake:
+function sendMessage() {
+  console.log('send message');
+}
+
+return (
+  <>
+    <button onClick={sendMessage}>Send Message</button> {/* If you write sendMessage(), then it will run & console.log('send message') won't work/show in the console. */}
+  </>
+)
+
