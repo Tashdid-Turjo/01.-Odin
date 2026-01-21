@@ -164,7 +164,7 @@
 
 
 
-// ?? Components, Props, Fragment, Start the Chatbot Project(You can see more about chatbot project in my github repo's. Go through the commits from first to last.):
+// ?? Components, Props, Fragment, Start the Chatbot Project(You can see more about chatbot project in my github repo's. Go through the commits from first to last throughly.):
 // !! Component: 
 //              -> A piece of website. Like- header, footer, navbar, etc. 
 //              -> Create our own HTML elements.
@@ -663,34 +663,15 @@ function sendMessage() {                // sendMessage() is the -> Updater Funct
 
 
 
+// !! Array Destructuring:
 
-// in chatbot project file add these comments:
-/*
 
-const array = React.useState([{       // useState gives us two values. First value is the current data which is chatMessages. Second is setChatMessages, which is a function {Updater function} to update this data.
-  message: 'yo',
-  sender: 'user',
-  id: 'id1'
 
-  }, {
-  message: 'yoooo',
-  sender: 'robot',
-  id: 'id2'
-  }
-]);
 
-const chatMessages = array[0];          // array[0] is current data which is first value of useState.
-const setChatMessages = array[1];       // array[1] is the second value which is a function to update this data. This updater function will update the HTML.
 
-function sendMessage() {                // sendMessage() is the -> Updater Function.
-  setChatMessages([
-    ...chatMessages,                    // Will copy that array into this new array.
-    {                                   // Added a new value with some key-value pairs into this new array.
-      message: 'test',                  
-      sender: 'user',
-      id: crypto.randomUUID()
-    }                                    
-  ]);
-}
-*/
+
+
+
+
+
 // !! Start from vdo: 2:02:20
