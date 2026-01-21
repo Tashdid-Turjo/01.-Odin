@@ -650,7 +650,7 @@ return (
 /*
 
 const chatMessages = array[0];        // Lets say array[0] & array[1] has some values inside of these arrays. chatMessages is the current data & setChatMessages is Set / Updater function.
-const setChatMessages = array[1];
+const setChatMessages = array[1];     // Generally, for Set / Updater function, the naming convention starts with " set ".
 
 function sendMessage() {                // sendMessage() is the -> Updater Function.
   setChatMessages([
@@ -674,7 +674,7 @@ function sendMessage() {                // sendMessage() is the -> Updater Funct
 const array = React.useState(
 ...............
 );
-const chatMessages = array[0];
+const chatMessages = array[0];      // There can be max two, such as- current data & updater function.
 const setChatMessages = array[1];
 
 
@@ -686,7 +686,7 @@ const [chatMessages, setChatMessages] = array;   // Here, order matters. Thus, y
 
 
 <!-- More shortcut: -->
-const [chatMessages, setChatMessages] = React.useState(
+const [chatMessages, setChatMessages] = React.useState(         // There can be max two, such as- current data & updater function.
 ...............
 );
 
