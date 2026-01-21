@@ -164,7 +164,7 @@
 
 
 
-// ?? Components, Props, Fragment, Start the Chatbot Project:
+// ?? Components, Props, Fragment, Start the Chatbot Project(You can see more about chatbot project in my github repo's. Go through the commits from first to last.):
 // !! Component: 
 //              -> A piece of website. Like- header, footer, navbar, etc. 
 //              -> Create our own HTML elements.
@@ -531,7 +531,7 @@ ReactDOM.createRoot(container).render(<App />);
 
 // ?? State, Event Handlers, Chatbot Project Features:
 
-// !! State -> make our website interactive.
+// !! State -> makes our website interactive.
 //          -> data that's connected to the HTML. Thus, when we update the data, it will update the HTML.
 //          -> stores data (numbers, strings, objects, arrays):
 
@@ -615,7 +615,7 @@ return (
 
 
 
-// !! Ex of mistake:
+// !! Ex of a common mistake:
 function sendMessage() {
   console.log('send message');
 }
@@ -627,4 +627,70 @@ return (
 )
 
 
+
+// !! React.useState() / State usage:
+// Converting data into state, we use React.useState()
+// It's call- react hook, used to create & manage state in function components.
+// Using React.useState(), if we update its inside data, it will also update the HTML. 
+// React.useState() returns an array.
+// In React, we shouldn't update the data directly, Ex- chatMessages.push(...) -> Here, by " .push ", the updated info will be stored in the last part of the array(as it's an array method). So to update the data using React, we must use function, that function is called- Updater function.
+// In React, we shouldn't modify the data directly. We should always create a copy, and then modify the copy.
+
+
+
+// !! One of JS Feature:
+// Spread Operator()  -> Takes the value in an array & then copies them into a new array. 
+//                    -> It can be use in React Documentation. 
+
+// Ex of Spread Operator()
+/*
+
+const chatMessages = array[0];        // Lets say array[0] & array[1] has some values inside of these arrays.
+const setChatMessages = array[1];
+
+function sendMessage() {                // sendMessage() is the -> Updater Function.
+  setChatMessages([
+    ...chatMessages,                    // Will copy that array into this new array.
+    {                                   // Added a new value with some key-value pairs into this new array.
+      message: 'test',                  
+      sender: 'user',
+      id: crypto.randomUUID()
+    }                                    
+  ]);
+}
+
+*/
+
+
+
+
+// in chatbot project file add these comments:
+/*
+
+const array = React.useState([{       // useState gives us two values. First value is the current data which is chatMessages. Second is setChatMessages, which is a function {Updater function} to update this data.
+  message: 'yo',
+  sender: 'user',
+  id: 'id1'
+
+  }, {
+  message: 'yoooo',
+  sender: 'robot',
+  id: 'id2'
+  }
+]);
+
+const chatMessages = array[0];          // array[0] is current data which is first value of useState.
+const setChatMessages = array[1];       // array[1] is the second value which is a function to update this data. This updater function will update the HTML.
+
+function sendMessage() {                // sendMessage() is the -> Updater Function.
+  setChatMessages([
+    ...chatMessages,                    // Will copy that array into this new array.
+    {                                   // Added a new value with some key-value pairs into this new array.
+      message: 'test',                  
+      sender: 'user',
+      id: crypto.randomUUID()
+    }                                    
+  ]);
+}
+*/
 // !! Start from vdo: 2:02:20
