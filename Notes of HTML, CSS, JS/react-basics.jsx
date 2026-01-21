@@ -686,7 +686,7 @@ const [chatMessages, setChatMessages] = array;   // Here, order matters. Thus, y
 
 
 <!-- More shortcut: -->
-const [chatMessages, setChatMessages] = React.useState(         // There can be max two, such as- current data & updater function.
+const [chatMessages, setChatMessages] = React.useState(         // There can be max two, such as- current data(chatMessages) & updater function(setChatMessages).
 ...............
 );
 
