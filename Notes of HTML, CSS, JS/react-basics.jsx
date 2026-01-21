@@ -605,6 +605,10 @@ return (
 
 
 
+// !! Event -> is an object that contain details about the change. One of that details is " event.target ".
+
+
+
 // !! event.target -> gives us the element that we're typing in.
 
 
@@ -706,6 +710,9 @@ const text = input.value;
 */
 
 
+
+// !! Lifting the State up  -> move State to the closest common parent so multiple child components can share the same state via props (and update it via callbacks).
+//                          -> It’s not just “using a variable in another component”; it’s specifically about shared state ownership in a parent.
 
 
 
