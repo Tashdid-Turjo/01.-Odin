@@ -165,6 +165,7 @@
 
 
 // ?? Components, Props, Fragment, Start the Chatbot Project(You can see more about chatbot project in my github repo's. Go through the commits from first to last throughly.):
+// GitHub Repo Link: https://github.com/Tashdid-Turjo/ChatBot-Project
 // !! Component: 
 //              -> A piece of website. Like- header, footer, navbar, etc. 
 //              -> Create our own HTML elements.
@@ -533,7 +534,8 @@ ReactDOM.createRoot(container).render(<App />);
 
 // !! State -> makes our website interactive.
 //          -> data that's connected to the HTML. Thus, when we update the data, it will update the HTML.
-//          -> stores data (numbers, strings, objects, arrays):
+//          -> stores data (numbers, strings, objects, arrays).
+//          -> save data that changes over time.
 
 
 
@@ -597,11 +599,13 @@ return (
 
 
 
-// !! Event Handler -> run a function when we interact with the website.
+// !! Event Handler -> run a function when we interact with the website. Some Event Handlers:
+// onClick  -> run a function while we click.
+// onChange -> runs a function when we change the text inside an <input>
 
 
 
-// !! onClick -> run a function while we click.
+// !! event.target -> gives us the element that we're typing in.
 
 
 
@@ -645,7 +649,7 @@ return (
 // Ex of Spread Operator()
 /*
 
-const chatMessages = array[0];        // Lets say array[0] & array[1] has some values inside of these arrays.
+const chatMessages = array[0];        // Lets say array[0] & array[1] has some values inside of these arrays. chatMessages is the current data & setChatMessages is Set / Updater function.
 const setChatMessages = array[1];
 
 function sendMessage() {                // sendMessage() is the -> Updater Function.
@@ -663,12 +667,43 @@ function sendMessage() {                // sendMessage() is the -> Updater Funct
 
 
 
-// !! Array Destructuring:
+// !! Array Destructuring (Remember that -> " ORDER MATTERS "):
+// Ex:
+/*
+
+const array = React.useState(
+...............
+);
+const chatMessages = array[0];
+const setChatMessages = array[1];
+
+
+<!-- Shortcut of the upper code is this: -->
+const array = React.useState(
+...............
+);
+const [chatMessages, setChatMessages] = array;   // Here, order matters. Thus, you should add variables inside [] serially.
+
+
+<!-- More shortcut: -->
+const [chatMessages, setChatMessages] = React.useState(
+...............
+);
+
+*/
 
 
 
+// !! How to get the Text in Textbox / inputbox:
+// In JS, we do using DOM to get the text inside textbox:
+/*
 
+<input class="js-input" />
 
+const input = document.querySelector('.js-input');
+const text = input.value;
+
+*/
 
 
 
