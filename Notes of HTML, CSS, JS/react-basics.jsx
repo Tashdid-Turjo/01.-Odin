@@ -878,7 +878,7 @@ function App() {
 
 */
 
-// N.B: Here, added props, such as- count, setCount. Also, put the variable & .useState inside App (parent) component. And inside App's both Counter (child) component, wrote props, value. Such as- count={count}
+// N.B: Here, added props, such as- count, setCount inside Counter component's parameter. Also, put the variable & .useState inside App (parent) component. And inside App's both Counter (child) component, wrote props, value. Such as- count={count}
 
 
 
