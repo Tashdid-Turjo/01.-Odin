@@ -631,7 +631,7 @@ function sendMessage() {
 
 return (
   <>
-    <button onClick={sendMessage}>Send Message</button> {/* If you write sendMessage(), then it will run & console.log('send message') won't work/show in the console. */}
+    <button onClick={sendMessage}>Send Message</button> {/* If you write sendMessage(), then it will directly run & console.log('send message') won't work/show in the console. */}
   </>
 )
 
