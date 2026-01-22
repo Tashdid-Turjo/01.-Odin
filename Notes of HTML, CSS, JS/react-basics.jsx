@@ -536,7 +536,8 @@ ReactDOM.createRoot(container).render(<App />);
 //          -> data that's connected to the HTML. Thus, when we update the data, it will update the HTML.
 //          -> stores data (numbers, strings, objects, arrays).
 //          -> save data that changes over time.
-
+//          -> State doesn't update immediately, it's updated after all of the code is finished. Ex of it can be find from chatbot project's this commit- "That external library's response is now showing in the page. Issue: 'The text that i wrote in the textbox, that's not showing, rather ommiting.It's bcz, state doesn't update immediately,"
+//          -> By updating State, React automatically updates the website. Thus no need to manually update the website.
 
 
 // !! React Documentation:
@@ -646,17 +647,17 @@ return (
 
 
 
-// !! One of JS Feature:
+// !! One of JS Feature- Spread Operator():
 // Spread Operator()  -> Takes the value in an array & then copies them into a new array. 
 //                    -> It can be use in React Documentation. 
 
 // Ex of Spread Operator()
 /*
 
-const chatMessages = array[0];        // Lets say array[0] & array[1] has some values inside of these arrays. chatMessages is the current data & setChatMessages is Set / Updater function.
+const chatMessages = array[0];        // Lets say array[0] & array[1] has some values inside of these arrays. chatMessages is the current data & setChatMessages is Set / Updater / State-Setter function.
 const setChatMessages = array[1];     // Generally, for Set / Updater function, the naming convention starts with " set ".
 
-function sendMessage() {                // sendMessage() is the -> Updater Function.
+function sendMessage() {                // sendMessage() is a normal function.
   setChatMessages([
     ...chatMessages,                    // Will copy that array into this new array.
     {                                   // Added a new value with some key-value pairs into this new array.
@@ -716,4 +717,49 @@ const text = input.value;
 
 
 
-// !! Start from vdo: 2:02:20
+// !! {}  -> We can save any type of value inside a prop.
+//        -> Inside the curly braces, we can save an array.
+// Ex-
+/*
+
+return (
+  <>
+    <ChatInput
+      chatMessages={chatMessages}         // Here, prop is where i stored the data / value / array.
+      setChatMessages={setChatMessages}
+  </>
+)
+
+*/
+
+// N.B: Here in the coding part, ChatInput -> Component name; 
+//            chatMessages -> prop name; 
+//            {chatMessages} -> data / value / array.
+// That's the mandatory naming convention. Thus, don't use chatMessagesProp etc.
+
+
+
+// !! Remember this (when putting props inside component, don't forget to add curly braces inside that):
+/*
+
+function ChatInput({ chatMessages, setChatMessages })   // Here, ChatInput -> Component; chatMessages, setChatMessages -> props.
+
+*/
+
+
+
+// !! Controlled Inputs:
+// Big enough to explain. See chatbot project's commits where i wrote this word-> Controlled Input.
+
+
+
+// !! In this lesson, we learned-
+// -> save the data(using arrays & objects).
+// -> generate HTML (using .map() & key prop).
+// -> make it interactive, using onClick & onChange.
+// -> State = data that changes over time & is connected to the HTML.
+// -> Updater function = update the state & update the HTML
+// -> Array Destructuring.
+// -> Lifting the State up = share state between components.
+// -> Made <ChatInput> interactive.
+// -> Got responses from the Chatbot.
