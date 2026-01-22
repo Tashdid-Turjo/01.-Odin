@@ -651,7 +651,7 @@ return (
 // Spread Operator()  -> Takes the value in an array & then copies them into a new array. 
 //                    -> It can be use in React Documentation. 
 
-// Ex of Spread Operator()
+// Ex of Spread Operator():
 /*
 
 const chatMessages = array[0];        // Lets say array[0] & array[1] has some values inside of these arrays. chatMessages is the current data & setChatMessages is Set / Updater / State-Setter function.
@@ -667,6 +667,27 @@ function sendMessage() {                // sendMessage() is a normal function.
     }                                    
   ]);
 }
+
+*/
+
+// Another Ex of Spread Operator()    {got from gpt}:
+/*
+
+function App() {
+  const [numbers, setNumbers] = React.useState([1, 2, 3]);
+
+  function addNumber() {
+    setNumbers([...numbers, 4]); // spread copies old array, then adds 4
+  }
+
+  return (
+    <>
+      <p>{numbers.join(", ")}</p>
+      <button onClick={addNumber}>Add</button>
+    </>
+  );
+}
+
 
 */
 
@@ -713,7 +734,8 @@ const text = input.value;
 
 
 // !! Lifting the State up  -> move State to the closest common parent so multiple child components can share the same state via props (and update it via callbacks).
-//                          -> It’s not just “using a variable in another component”; it’s specifically about shared state ownership in a parent.
+//                          -> So both components's inside parameter, we need to add props & add that in the parent component's two child components as well. 
+//                          -> It’s not just “using a variable in another component”; it’s specifically about shared state ownership in a parent. Thus, parent component must have this variable & useState like this- " const [count, setCount] = React.useState(0); "
 
 
 
@@ -732,9 +754,9 @@ return (
 
 */
 
-// N.B: Here in the coding part, ChatInput -> Component name; 
-//            chatMessages -> prop name; 
-//            {chatMessages} -> data / value / array.
+// N.B: Here in the coding part,  ChatInput -> Component name; 
+//                                chatMessages -> prop name; 
+//                                {chatMessages} -> data / value / array.
 // That's the mandatory naming convention. Thus, don't use chatMessagesProp etc.
 
 
@@ -758,8 +780,106 @@ function ChatInput({ chatMessages, setChatMessages })   // Here, ChatInput -> Co
 // -> generate HTML (using .map() & key prop).
 // -> make it interactive, using onClick & onChange.
 // -> State = data that changes over time & is connected to the HTML.
-// -> Updater function = update the state & update the HTML
+// -> Updater function = update the state & update the HTML.
 // -> Array Destructuring.
 // -> Lifting the State up = share state between components.
 // -> Made <ChatInput> interactive.
 // -> Got responses from the Chatbot.
+
+
+
+// !! Exercise prac of vdo:
+// Ex01 (State):
+// Task: button counter. for 0 & 1 time of click, it will show "time" as text, but if i click the button more than one times than it will show "times" in the button's text part.
+/*
+
+<script type="text/babel">
+  function Counter(){
+    const [count, setCount] = React.useState(0);
+
+    return(
+      <>
+        <button 
+          onClick={() => {
+            setCount(count + 1);
+          }}
+        >
+          {(count === 1 || count === 0) ? `Clicked ${count} time` : `Clicked ${count} times`}
+          <!-- or, you can write this code instead: Clicked {count} {count === 1 ? 'time' : 'times'} -->
+        </button>
+      </>
+    )
+  };
+  
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<Counter />);
+  
+</script>
+
+*/
+
+// N.B: Here, if i wanna add another counter button, then this Counter (child) {no need to add another Counter component} component will be there as well as, I have to add another App (parent) component, inside that, the code will be this-
+/* 
+
+function App() {
+  return (
+    <>
+      <Counter />
+      <Counter />                             // By typing Counter component two times, it will show two buttons. So that, you don't need to add another Counter component for two separate buttons unless you want to manage both counters state in App.
+    </>
+  )
+}
+
+*/
+
+
+// Ex2:
+// Task: same task. just two buttons, but by clicking any of the two buttons, it will now show same amount in both buttons. like- clicked 0/1/2/3 times in both buttons.
+
+/*
+
+<script type="text/babel">
+  function Counter({ count, setCount }){
+
+    return(
+      <>
+        <button 
+          onClick={() => {
+            setCount(count + 1);
+          }}
+        >
+          {(count === 1 || count === 0) ? `Clicked ${count} time` : `Clicked ${count} times`}
+          </button>
+      </>
+    )
+  };
+  
+  function App() {
+    const [count, setCount] = React.useState(0);
+    
+    return (
+      <>
+        <Counter 
+          count={count}
+          setCount={setCount}
+        />
+        <Counter 
+          count={count}
+          setCount={setCount}
+        />
+      </>
+    )
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+
+</script>
+
+*/
+
+// N.B: Here, added props, such as- count, setCount. Also, put the variable & .useState inside App (parent) component. And inside App's both Counter (child) component, wrote props, value. Such as- count={count}
+
+
+
+// !! Start from exercise 3e.
