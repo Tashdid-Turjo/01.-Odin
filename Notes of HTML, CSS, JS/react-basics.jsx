@@ -386,7 +386,7 @@ function App() {
 
 
 // !! Some Imp. Exercise of SuperSimpleDev:
-// Ex1 (By seeing the exercise, you will understand more about using props to make it reusable.):
+// TODO: Ex1 (By seeing the exercise, you will understand more about using props to make it reusable.):
 // HTML:
 
 /*
@@ -429,7 +429,7 @@ function App() {
 
 
 
-// Ex2(for only sock part, discount price should be visible, but for tennis, tshirt, there's no discount so no discount price will be shown in the page):
+// TODO: Ex2(for only sock part, discount price should be visible, but for tennis, tshirt, there's no discount so no discount price will be shown in the page):
 /*
 
 <script type="text/babel">
@@ -473,7 +473,7 @@ ReactDOM.createRoot(container).render(<App />);
 
 
 
-// Ex3(like previous ex, showing discount price. But here, when product has discount price, it will strike-through the price text):
+// TODO: Ex3(like previous ex, showing discount price. But here, when product has discount price, it will strike-through the price text):
 /*
 
 <script type="text/babel">
@@ -543,6 +543,7 @@ ReactDOM.createRoot(container).render(<App />);
 // !! React Documentation:
 // React Documentation Ex:
 // Instead of this below code:
+
 /*
 
 const chatMessageComponents = chatMessages.map((chatMessage) => {
@@ -735,7 +736,8 @@ const text = input.value;
 
 // !! Lifting the State up  -> move State to the closest common parent so multiple child components can share the same state via props (and update it via callbacks).
 //                          -> So both components's inside parameter, we need to add props & add that in the parent component's two child components as well. 
-//                          -> It’s not just “using a variable in another component”; it’s specifically about shared state ownership in a parent. Thus, parent component must have this variable & useState like this- " const [count, setCount] = React.useState(0); "
+//                          -> It’s not just “using a variable in another component”; it’s specifically about shared state ownership in a parent. Thus, parent component must have this variable & useState like this- " const [count, setCount] = React.useState(0); ". Here, count -> state & setCount -> setter. React state can read-only, but setter can change it cz it only write/update mechanism for that state(which is Count). Thus, if we change anything, then we have to use setter (here, setter -> setCount). Ex of it-
+//                          -> " <button onClick={() => {setCount(0)}></button> " is the correct way. Here, instead of " setCount(0) ", if you write " count(0) ", then this won't work.  
 
 
 
@@ -789,13 +791,15 @@ function ChatInput({ chatMessages, setChatMessages })   // Here, ChatInput -> Co
 
 
 // !! Exercise prac of vdo:
-// Ex01 (State):
+// TODO: Ex01 (State):
 // Task: button counter. for 0 & 1 time of click, it will show "time" as text, but if i click the button more than one times than it will show "times" in the button's text part.
 /*
 
+<div class="js-container"></div>
+
 <script type="text/babel">
   function Counter(){
-    const [count, setCount] = React.useState(0);
+    const [count, setCount] = React.useState(0);                      // Here, count -> React state & setCount -> setter
 
     return(
       <>
@@ -805,12 +809,12 @@ function ChatInput({ chatMessages, setChatMessages })   // Here, ChatInput -> Co
           }}
         >
           {(count === 1 || count === 0) ? `Clicked ${count} time` : `Clicked ${count} times`}
-          <!-- or, you can write this code instead: Clicked {count} {count === 1 ? 'time' : 'times'} -->
+          <!-- or, you can write this code instead: Clicked {count} {(count === 1 || count === 0) ? 'time' : 'times'} -->
         </button>
       </>
     )
   };
-  
+
   const container = document.querySelector('.js-container');
   ReactDOM.createRoot(container).render(<Counter />);
   
@@ -833,13 +837,16 @@ function App() {
 */
 
 
-// Ex2:
+
+// TODO: Ex2:
 // Task: same task. just two buttons, but by clicking any of the two buttons, it will now show same amount in both buttons. like- clicked 0/1/2/3 times in both buttons.
 
 /*
 
+<div class="js-container"></div>
+
 <script type="text/babel">
-  function Counter({ count, setCount }){
+  function Counter({ count, setCount }){                      // Added count, setCount props inside Counter component parameter.
 
     return(
       <>
@@ -848,14 +855,14 @@ function App() {
             setCount(count + 1);
           }}
         >
-          {(count === 1 || count === 0) ? `Clicked ${count} time` : `Clicked ${count} times`}
-          </button>
+         {(count === 1 || count === 0) ? `Clicked ${count} time` : `Clicked ${count} times`}
+        </button>
       </>
     )
   };
   
   function App() {
-    const [count, setCount] = React.useState(0);
+    const [count, setCount] = React.useState(0);              // This variable, .useState was inside Counter component in previous Ex.
     
     return (
       <>
@@ -882,4 +889,75 @@ function App() {
 
 
 
-// !! Start from exercise 3e.
+// TODO: Ex3:
+// Task: Same task as before, but here, you have to add another single reset button that will reset both the " Clicked ... times " buttons into 0 times / reset:
+// N.B: Know that, in the code, if you add the reset button inside Counter component, then this reset button will show two buttons. Thus, you have to add this button inside App component's inside.
+
+/*
+
+  <script type="text/babel">
+    function Counter({ count, setCount }){
+
+      return(
+        <>
+          <button 
+            onClick={() => {
+              setCount(count + 1);
+            }}
+          >
+            {(count === 1 || count === 0) ? `Clicked ${count} time` : `Clicked ${count} times`}
+          </button>
+        </>
+      )
+    };
+    
+    function App() {
+      const [count, setCount] = React.useState(0);
+      
+      return (
+        <>
+          <Counter 
+            count={count}
+            setCount={setCount}
+          />
+          <Counter
+            count={count}
+            setCount={setCount}
+          />
+          <button
+            onClick={() => {
+              setCount(0);                            // If you write count(0), then it won't work, cz React state is read-only & setter(which is setCount) is write/update mechanism for that state.
+              <!-- " setCount(prev => 0); " will also work instead of " setCount(0); " -->
+            }}
+          >
+            Reset
+          </button>
+        </>
+      )
+    }
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
+
+  </script>
+
+*/
+
+// N.B: " setCount(prev => 0); " here, prev is function parameter. See an ex-
+/*
+Ex1:
+
+setCount(prev => prev + 1);
+
+Ex2:
+
+setCount(function (prev) {
+  return prev + 1;
+});
+
+Both does the same work.
+
+*/
+
+
+
