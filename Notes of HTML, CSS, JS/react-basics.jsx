@@ -645,7 +645,12 @@ return (
 // React.useState() returns an array.
 // In React, we shouldn't update the data directly, Ex- chatMessages.push(...) -> Here, by " .push ", the updated info will be stored in the last part of the array(as it's an array method). So to update the data using React, we must use function, that function is called- Updater function.
 // In React, we shouldn't modify the data directly. We should always create a copy, and then modify the copy.
+// Ex-
+/*
 
+const [count, setCount] = React.useState(0);            // Here, count -> State value, setCount -> state setter. Together they called- "state" bcz changing it causes React to re-render the UI.
+
+*/
 
 
 // !! One of JS Feature- Spread Operator():
@@ -736,7 +741,7 @@ const text = input.value;
 
 // !! Lifting the State up  -> move State to the closest common parent so multiple child components can share the same state via props (and update it via callbacks).
 //                          -> So both components's inside parameter, we need to add props & add that in the parent component's two child components as well. 
-//                          -> It’s not just “using a variable in another component”; it’s specifically about shared state ownership in a parent. Thus, parent component must have this variable & useState like this- " const [count, setCount] = React.useState(0); ". Here, count -> state & setCount -> setter. React state can read-only, but setter can change it cz it only write/update mechanism for that state(which is Count). Thus, if we change anything, then we have to use setter (here, setter -> setCount). Ex of it-
+//                          -> It’s not just “using a variable in another component”; it’s specifically about shared state ownership in a parent. Thus, parent component must have this variable & useState like this- " const [count, setCount] = React.useState(0); ". Here, count -> state & setCount -> setter. React state can read-only, but setter can change it cz it only write/update mechanism for that state(which is Count). Thus, if we change anything, then we have to use setter (here, setter -> setCount). When we want to change anything then these two causes React to re-render the UI. Ex of it-
 //                          -> " <button onClick={() => {setCount(0)}></button> " is the correct way. Here, instead of " setCount(0) ", if you write " count(0) ", then this won't work.  
 
 
@@ -800,6 +805,7 @@ function ChatInput({ chatMessages, setChatMessages })   // Here, ChatInput -> Co
 <script type="text/babel">
   function Counter(){
     const [count, setCount] = React.useState(0);                      // Here, count -> React state & setCount -> setter
+                                                                      <!-- Here, 0 means -> initializes state with a number (starting value 0) & if it's "" instead of 0, that means it initializes state with a string(starting value is empty text). -->
 
     return(
       <>
@@ -958,6 +964,46 @@ setCount(function (prev) {
 Both does the same work.
 
 */
+
+
+
+// TODO: Ex4:
+// Task: Whatever you write in the input box, it will show as text after Hello.
+
+/*
+
+<div class="js-container"></div>
+
+<script type="text/babel">
+      function App() {
+        const [text, setText] = React.useState("");
+
+        function saveInputText(e) {                           // Added a function instead of doing it inside onChange. This is done by supersimpledev & this one's code ismore cleaner.
+          setText(e.target.value);
+        }
+
+        return(
+          <>
+            <input
+              value={text}
+              onChange={saveInputText}                        // You can also write the saveInputText function's works inside onChange here that I did in the Ex3.
+              placeholder="Type a name here"
+            />
+            <p>Hello {text}</p>
+          </>
+        )
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+  
+  </script>
+
+*/
+
+// N.B: e.target.value -> current text inside the input.
+// N.B: e.target -> element that fired the event(here, the <input>).
+// N.B: e -> event object. React gives your onChange handler when something changes.
 
 
 
