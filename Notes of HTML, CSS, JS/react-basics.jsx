@@ -1058,7 +1058,7 @@ Both does the same work.
 
   <!----------------------------------------- Method2 (Using one single state.SuperSimpleDev's soln. Here, one difference is that, while clicking example button, turjo name will be
   shown in input box & after hello text. But in method1, input box will become empty & turjo will be shown after hello text. In this Method2, as there's one single state, thus I can't 
-  do this like -> for input box, empty text will be shown & after hello text, turjo will be shown.) ----------------------------------------->
+  do this like -> for input box, empty text will be shown& after hello text, turjo will be shown.) ----------------------------------------->
     function App() {
       const [text, setText] = React.useState("");
 
