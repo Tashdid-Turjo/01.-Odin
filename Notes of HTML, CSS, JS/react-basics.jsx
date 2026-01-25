@@ -968,42 +968,142 @@ Both does the same work.
 
 
 // TODO: Ex4:
-// Task: Whatever you write in the input box, it will show as text after Hello.
+// Task: Whatever you write in the input box, it will show as text after " Hello " text.
 
 /*
 
 <div class="js-container"></div>
 
 <script type="text/babel">
-      function App() {
-        const [text, setText] = React.useState("");
+  function App() {
+    const [text, setText] = React.useState("");
 
-        function saveInputText(e) {                           // Added a function instead of doing it inside onChange. This is done by supersimpledev & this one's code ismore cleaner.
-          setText(e.target.value);
-        }
+    function saveInputText(e) {                           // Added a function instead of doing it inside onChange. This is done by supersimpledev & this one's code ismore cleaner.
+      setText(e.target.value);
+    }
 
-        return(
-          <>
-            <input
-              value={text}
-              onChange={saveInputText}                        // You can also write the saveInputText function's works inside onChange here that I did in the Ex3.
-              placeholder="Type a name here"
-            />
-            <p>Hello {text}</p>
-          </>
-        )
-      }
+    return(
+      <>
+        <input
+          value={text}
+          onChange={saveInputText}                        // You can also write the saveInputText function's works inside onChange here that I did in the Ex3.
+          placeholder="Type a name here"
+        />
+        <p>Hello {text}</p>
+      </>
+    )
+  }
 
-      const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(<App />);
-  
-  </script>
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+
+</script>
 
 */
 
 // N.B: e.target.value -> current text inside the input.
 // N.B: e.target -> element that fired the event(here, the <input>).
 // N.B: e -> event object. React gives your onChange handler when something changes.
+
+
+
+// TODO: Ex5
+// Task: Another 2 buttons -> Reset, Example. When reset clicked, it will reset both input box's text & after Hello text's text. And for example, it will show an example after Hello, such as- " Hello Turjo " & reset input box's text.
+
+/*
+
+<div class="js-container"></div>
+
+<script type="text/babel">
+  <!----------------------------------------- Method1 (Using two different different states.) ----------------------------------------->
+  function App() {
+    const [text, setText] = React.useState("");   // This state for inputbox's value.
+    const [name, setName] = React.useState("");   // This state for displayed name after " Hello " text.
+
+    function saveInputText(e) { 
+      const v = e.target.value;
+      setText(v);
+      setName(v);
+    }
+
+    return(
+      <>
+        <input
+          value={text}
+          onChange={saveInputText}                        // You can also write the saveInputText function's works inside onChange here that I did in the Ex3.
+          placeholder="Type a name here"
+        />
+        <button
+          onClick={() => {
+          setText("");
+          setName("");
+          }}
+        >
+          Reset
+        </button>
+        <button
+          onClick={() => {
+            setText("");
+            setName("Turjo");
+          }}
+        >
+          Example
+        </button>
+        <p>
+          Hello {name}
+        </p>
+      </>
+    )
+  }
+
+  <!----------------------------------------- Method2 (Using one single state.SuperSimpleDev's soln. Here, one difference is that, while clicking example button, turjo name will be
+  shown in input box & after hello text. But in method1, input box will become empty & turjo will be shown after hello text. In this Method2, as there's one single state, thus I can't 
+  do this like -> for input box, empty text will be shown & after hello text, turjo will be shown.) ----------------------------------------->
+    function App() {
+      const [text, setText] = React.useState("");
+
+      function saveInputText(e) { 
+        setText(e.target.value);
+      }
+
+      function resetText(e) {
+        setText('');
+      }
+
+      function exampleText(e) {
+        setText('Turjo');
+      }
+
+      return(
+        <>
+          <input
+            value={text}
+            onChange={saveInputText}                        // You can also write the saveInputText function's works inside onChange here that I did in the Ex3.
+            placeholder="Type a name here"
+          />
+          <button
+            onClick={resetText}
+          >
+            Reset
+          </button>
+          <button
+            onClick={exampleText}
+          >
+            Example
+          </button>
+          <p>
+            Hello {text}
+          </p>
+        </>
+      )
+    }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+
+</script>
+
+*/
 
 
 
