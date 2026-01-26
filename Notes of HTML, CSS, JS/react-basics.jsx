@@ -782,6 +782,66 @@ function ChatInput({ chatMessages, setChatMessages })   // Here, ChatInput -> Co
 
 
 
+// !! .getResponse() vs .getResponseAsync() vs .then()
+// .getResponse()       -> returns the reply immediately.(synchrnnous).
+// .getResponseAsync()  -> returns ther reply later (asunchronous).
+//                      -> Here, have to use await / .then(.....)
+// .then()              -> same as .getResponseAsync().
+// Ex-
+/*
+<!------------------ .getResponse() ------------------>
+function sendMessage() {
+  const response = Chatbot.getResponse(inputText);
+
+  setChatMessages([
+    ...newChatMessages,
+    {
+      message: response,                      
+      sender: 'robot',
+      id: crypto.randomUUID()
+    }
+  ]);
+}
+
+
+<!------------------ .getResponseAsync() ------------------>
+async function sendMessage() {                                          // async is in front bcz, we can only use await inside an async function.
+  const response = await Chatbot.getResponseAsync(inputText);           // This await is to wait for the value to be available before continuing.
+                
+  <!-- Using prev guarantees you append to the most current state. Though omitting prev as parameter & using that old " ...newChatMessages " still works in this case, don't know why. -->
+  <!-- prev is the previous state value (the old chatMessages array). -->
+  setChatMessages((prev) => [
+    ...prev,
+    {
+      message: response,
+      sender: 'robot',
+      id: crypto.randomUUID()
+    }
+  ]);
+}
+
+
+<!------------------ .then() ------------------>
+async function sendMessage() {
+  Chatbot.getResponseAsync(inputText).then((response) => {
+    <!--  prev is the previous state value (the old chatMessages array). -->
+    setChatMessages((prev) => [
+        ...prev,
+        {
+            message: response,
+            sender: 'robot',
+            id: crypto.randomUUID()
+        }
+    ]);
+})
+}
+
+
+
+*/
+
+
+
 // !! In this lesson, we learned-
 // -> save the data(using arrays & objects).
 // -> generate HTML (using .map() & key prop).
