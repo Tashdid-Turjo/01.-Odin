@@ -811,8 +811,8 @@ async function sendMessage() {                                          // async
                 
   <!-- Using prev guarantees you append to the most current state. Though omitting prev as parameter & using that old " ...newChatMessages " still works in this case, don't know why. -->
   <!-- prev is the previous state value (the old chatMessages array). -->
-  setChatMessages((prev) => [
-    ...prev,
+  setChatMessages((prev) => [                                           // If you don't wanna write prev, then no need to add any parameter. So from .getResponse()'s code, just add/change "async", "await", ".getResponseAsync".
+    ...prev,                                                            // Instead of prev, we can write ...newChatMessages
     {
       message: response,
       sender: 'robot',
