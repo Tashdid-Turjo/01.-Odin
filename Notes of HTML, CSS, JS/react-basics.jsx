@@ -822,7 +822,7 @@ async function sendMessage() {                                          // async
 
 
 <!------------------ .then() ------------------>
-async function sendMessage() {
+function sendMessage() {                                                // As i won't use await, thus async in the infront is not needed.
   Chatbot.getResponseAsync(inputText).then((response) => {
     <!--  prev is the previous state value (the old chatMessages array). -->
     setChatMessages((prev) => [
