@@ -786,6 +786,7 @@ function ChatInput({ chatMessages, setChatMessages })   // Here, ChatInput -> Co
 // .getResponse()       -> returns the reply immediately.(synchrnnous).
 // .getResponseAsync()  -> returns ther reply later (asunchronous).
 //                      -> Here, have to use await / .then(.....)
+//                      -> It's a JS feature that's called async / await.
 // .then()              -> same as .getResponseAsync().
 // Ex-
 /*
