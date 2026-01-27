@@ -1261,3 +1261,52 @@ button {
 
 */
 
+
+
+// !! React's feature: Hooks:
+//  -> Insert React features into our component.
+//  -> One of Hook is = React.useState(). Ex- " const [inputText, setInputText] = React.useState(''); " It inserts state into our component.
+//  -> State = automatically updates the HTML when the data changes.
+//  -> Other Hooks = useState(), useEffect(), useRef(), etc. All starts with the word - use.
+//  -> useEffect = run some code after the component is created or updated,
+//               = & every time the component is updated.
+//  -> For autoscrolling, Hooks is needed.
+//  -> It's Mandatory to put Hooks at the top of the component.
+//  -> Hooks should not be inside anything. So don't put Hooks inside if-statement/condition or inside a function. But it can be put inside component.
+//  -> Arrow function = Inside a function, if we wanna add another function, then it should be an Arrow function for better understanding.
+
+
+
+// !! React.useEffect:
+/*
+
+function ChatMessages({ chatMessages }) {
+            <!-- React will run this useEffect's function -> after the component is created or updated & every time the component is updated. -->
+            React.useEffect(() => {
+                console.log('updated');
+            }, [chatMessages])                          <!-- This array controls when useEffect runs. -->
+                                                        <!-- If it's empty array, useEffect only run once after the component is created. -->
+                                                        <!-- We can also put value such as "[chatMessages]". In that case, [chatMessages] will run this function every time chatMessages changes. This array is called- Dependency Array. It controls when useEffect runs. -->
+                                                        <!-- Thus best practice is give useEffect a dependency array to avoid running too often. -->
+
+*/
+
+
+
+// !! JS DOM vs React:
+// JS:
+/*
+
+document.querySelector(
+  '.chat-messages-container'
+);
+
+*/
+
+/*
+<!-- React (don't use DOM manually. Instead, use React features to get the element. For that, we will use React Hooks .useRef(). ) -->
+
+
+*/
+
+For autoscrolling feature, get the HTML element we want to scroll into our JS.

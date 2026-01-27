@@ -399,12 +399,14 @@ const multiply = function(a, b) {
 const product = multiply(3, 2);
 
 {/* Ex03 (Arrow function) */}
+{/* Inside a function, if we wanna add another function, then it should be an Arrow function for better understanding. */}
 {/* // Example 1: Standard Arrow Function (with braces and return) */}
 const greet = (name) => {
     return `Hello, ${name}!`;
 };
 
 {/* // Example 2: Concise Arrow Function (implicit return) */}
+{/* Inside a function, if we wanna add another function, then it should be an Arrow function for better understanding. */}
 const add = (x, y) => x + y;
 
 const sum = add(10, 5); // sum is 15
@@ -733,6 +735,7 @@ console.log(mappedArr); // Outputs [2, 3, 4, 5, 6]
 
 
 // Ex02(map method with arrow function):
+// Inside a function, if we wanna add another function, then it should be an Arrow function for better understanding.
 const arr = [1, 2, 3, 4, 5];
 const mappedArr = arr.map((num) => num + 1);
 console.log(mappedArr); // Outputs [2, 3, 4, 5, 6]
@@ -829,6 +832,7 @@ const sumOfTripledEvenNumbers = arr
 
 
 // Method: 03: Odin's approach (map, filter, reduce + arrow function):
+// Inside a function, if we wanna add another function, then it should be an Arrow function for better understanding.
 function sumOfTripledEvens(array) {
   return array
     .filter((num) => num % 2 === 0)
