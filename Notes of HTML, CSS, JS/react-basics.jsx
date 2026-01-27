@@ -540,6 +540,7 @@ ReactDOM.createRoot(container).render(<App />);
 //          -> By updating State, React automatically updates the website. Thus no need to manually update the website.
 
 
+
 // !! React Documentation:
 // React Documentation Ex:
 // Instead of this below code:
@@ -632,13 +633,13 @@ function sendMessage() {
 
 return (
   <>
-    <button onClick={sendMessage}>Send Message</button> {/* If you write sendMessage(), then it will directly run & console.log('send message') won't work/show in the console. */}
+    <button onClick={sendMessage}>Send Message</button>                {/* If you write sendMessage(), then it will directly run & console.log('send message') won't work/show in the console. */}
   </>
 )
 
 
 
-// !! React.useState() / State usage:
+// !! React.useState() / State usage: (Know that, useState, useRef & others -> these are under React Hook)
 // Converting data into state, we use React.useState()
 // It's call- react hook, used to create & manage state in function components.
 // Using React.useState(), if we update its inside data, it will also update the HTML. 
@@ -680,10 +681,10 @@ function sendMessage() {                // sendMessage() is a normal function.
 /*
 
 function App() {
-  const [numbers, setNumbers] = React.useState([1, 2, 3]);
+  const [numbers, setNumbers] = React.useState([1, 2, 3]);              // Here, numbers -> holds that array- [1, 2, 3]
 
   function addNumber() {
-    setNumbers([...numbers, 4]); // spread copies old array, then adds 4
+    setNumbers([...numbers, 4]);                                        // spread copies old array, then adds 4. setNumbers -> holds the new array- [1, 2, 3, 4]
   }
 
   return (
@@ -706,7 +707,7 @@ function App() {
 const array = React.useState(
 ...............
 );
-const chatMessages = array[0];      // There can be max two, such as- current data & updater function.
+const chatMessages = array[0];                                  // There can be max two, such as- current data & updater function.
 const setChatMessages = array[1];
 
 
@@ -714,7 +715,7 @@ const setChatMessages = array[1];
 const array = React.useState(
 ...............
 );
-const [chatMessages, setChatMessages] = array;   // Here, order matters. Thus, you should add variables inside [] serially.
+const [chatMessages, setChatMessages] = array;                  // Here, order matters. Thus, you should add variables inside [] serially.
 
 
 <!-- More shortcut: -->
@@ -742,7 +743,32 @@ const text = input.value;
 // !! Lifting the State up  -> move State to the closest common parent so multiple child components can share the same state via props (and update it via callbacks).
 //                          -> So both components's inside parameter, we need to add props & add that in the parent component's two child components as well. 
 //                          -> It’s not just “using a variable in another component”; it’s specifically about shared state ownership in a parent. Thus, parent component must have this variable & useState like this- " const [count, setCount] = React.useState(0); ". Here, count -> state & setCount -> setter. React state can read-only, but setter can change it cz it only write/update mechanism for that state(which is Count). Thus, if we change anything, then we have to use setter (here, setter -> setCount). When we want to change anything then these two causes React to re-render the UI. Ex of it-
-//                          -> " <button onClick={() => {setCount(0)}></button> " is the correct way. Here, instead of " setCount(0) ", if you write " count(0) ", then this won't work.  
+//                          -> " <button onClick={() => {setCount(0)}></button> " is the correct way. Here, instead of " setCount(0) ", if you write " count(0) ", then this won't work.
+//                          -> useState, props is mandatory for using this.
+// Ex(useState, props is used in the Ex here as well)-
+
+/*
+
+function CounterButton({ count, setCount }) {
+  return <button onClick={() => setCount(count + 1)}>Count: {count}</button>;
+}
+
+function CounterText({ count }) {
+  return <p>The count is {count}</p>;
+}
+
+function App() {
+  const [count, setCount] = React.useState(0); // state lifted to parent
+
+  return (
+    <>
+      <CounterButton count={count} setCount={setCount} />
+      <CounterText count={count} />
+    </>
+  );
+}
+
+*/
 
 
 
@@ -764,7 +790,7 @@ return (
 // N.B: Here in the coding part,  ChatInput -> Component name; 
 //                                chatMessages -> prop name; 
 //                                {chatMessages} -> data / value / array.
-// That's the mandatory naming convention. Thus, don't use chatMessagesProp etc.
+// That's the mandatory naming convention. Thus, don't use this type of naming- chatMessagesProp etc.
 
 
 
@@ -777,8 +803,30 @@ function ChatInput({ chatMessages, setChatMessages })   // Here, ChatInput -> Co
 
 
 
-// !! Controlled Inputs:
+// !! Controlled Inputs:(For using this, React state, like React Hook {useState} is mandatory. Cz without state, it's not controlled.)
 // Big enough to explain. See chatbot project's commits where i wrote this word-> Controlled Input.
+// Ex-
+
+/*
+
+function App() {
+  const [text, setText] = React.useState("");
+
+  return (
+    <>
+      <input
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Type..."
+      />
+      <p>You typed: {text}</p>
+    </>
+  );
+}
+
+*/
+
+// N.B: Here, Controlled Input is the <input> because its value is controlled by React via value={text}.
 
 
 
@@ -1166,3 +1214,52 @@ Both does the same work.
 
 
 
+
+
+// ?? CSS with React, Hooks, Finish Chatbot Project:
+
+// !! HTML's element is -> CSS's selector. Ex- button -> HTML's element & CSS's selector.
+
+
+
+// !! CSS style, CSS Property, CSS value Ex-
+/*
+<!-- React inside HTML file -->
+<button
+  onClick={sendMessage}
+  className="send-button"                 // For HTML, we use class, but for React, we will use className, cz JS already has a feature called class. Thus it's a reserved word for React. But when you go to the webpage's console, you will see it's written as class. Bcz, className in React is converted to class in HTML.
+
+<!-- CSS -->
+
+button {
+  background-color: green;              // bg-color -> CSS Property, green -> CSS value. Combining both is called -> CSS styles.
+}
+
+*/
+
+
+
+// !! We can't style fragment with CSS. thus, instead of <></>, you have to use div, like- <div></div>
+
+
+
+// !! When a block element(like <div>) is inside a flexbox -> it no longer takes up the entire line. It only takes as much space as it needs to.
+// Ex-
+/*
+<!-- HTML/React -->
+
+<div className="chat-message-text">
+  Hello
+</div>
+
+<!-- CSS -->
+
+.chat-message-text{
+  background-color: grey;       // without flexbox, this will take the entire area.
+  display: flex;
+}
+
+*/
+
+
+Made the chat messages scrollable using overflow property as scroll value inside chat-messages-container. But on windows computers, we see thick the scrollbars which is not good to look.

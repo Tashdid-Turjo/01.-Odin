@@ -17,6 +17,21 @@
                                                     -> Did the exercise of "Holy Grail Layout"(A common website layout),
         */
 
+
+
+/* !! HTML's element is -> CSS's selector. Ex- button -> HTML's element & CSS's selector. */
+
+
+
+/* !! CSS style, CSS Property, CSS value Ex-
+button {
+  background-color: green;              // bg-color -> CSS Property, green -> CSS value. Combining both is called -> CSS styles.
+}
+
+*/
+
+
+
 /*!!----------------------------------------------------- Universal Selector ---------------------------------------------------------*/
 * {
     color: Red;
@@ -1376,3 +1391,7 @@ button:hover > .icon {
 
 
 
+/* !! height: 100vh;
+Here, vh = viewport height. Means -> the height of the browser.
+   100vh = 100% of the height of the browser.
+*/
