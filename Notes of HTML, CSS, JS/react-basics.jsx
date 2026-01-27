@@ -1293,7 +1293,13 @@ function ChatMessages({ chatMessages }) {
 
 
 
-// !! JS DOM vs React:
+// !! React.useRef:
+// useRef -> automatically save an HTML element from the component.
+//        -> it's special feature is we can give this ref or this container to React & React can automatically save an HTML element inside ref / container.
+// ref    -> means = container with special React features.
+
+
+// JS DOM vs React:
 // JS:
 /*
 
@@ -1310,3 +1316,6 @@ document.querySelector(
 */
 
 For autoscrolling feature, get the HTML element we want to scroll into our JS.
+
+
+// !! Start from vdo-> 3:40:00
