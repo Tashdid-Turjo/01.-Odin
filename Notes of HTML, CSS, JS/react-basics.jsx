@@ -1261,5 +1261,3 @@ button {
 
 */
 
-
-Made the chat messages scrollable using overflow property as scroll value inside chat-messages-container. But on windows computers, we see thick the scrollbars which is not good to look.
