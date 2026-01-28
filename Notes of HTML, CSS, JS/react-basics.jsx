@@ -22,6 +22,26 @@
 
 
 
+// !! JSX / React JSX Ex (It syntax looks like HTML but is' actually JS cod that React can render to the DOM)-
+/*
+
+return (
+  <div
+      className="chat-messages-container">
+      {chatMessages.map((chatMessage) => {
+          return (
+              <ChatMessage
+                  message={chatMessage.message}   // Here, these " message, sender, key " are attributes. " message, sender " name must be same like chatMessages function's props.
+                  sender={chatMessage.sender}
+                  key={chatMessage.id}            // Here, key is a mandatory name in this context. key is a special React attribute used for list items. You cannot rename it to id or anything else and expect React to treat it as the list key.
+              />
+          );
+      })}
+  </div>
+);
+
+*/
+
 
 
 // !! 2. Ex:
@@ -1305,12 +1325,137 @@ Dependency Array [] -> Not mandatory but important.
 
 
 // !! React.useRef:
-// useRef -> automatically save an HTML element from the component.
-//        -> it's special feature is we can give this ref or this container to React & React can automatically save an HTML element inside ref / container.
 // ref    -> means = container with special React features.
+// useRef -> automatically save an HTML element from the component.
+//        -> it's special feature is we can give this ref / container to React & React can automatically save an HTML element inside this ref / container.
+//        -> Generally, we put a null inside the parameter which is initial value, such as- " React.useRef(null); ".
+//        -> Save an HTML element from the component.
+// Ex-
+
+/*
+
+function App() {
+  const inputRef = React.useRef(null);                            // Creates the ref object.
+
+  function focusInput() {
+    inputRef.current.focus();
+  }
+
+  return (
+    <>
+      <input ref={inputRef} placeholder="Type here" />            // Here, ref will take the variable name- inputRef. Thus, this {inputRef} is a container that holds this .useRef.
+                                                                  <!-- Here, ref={inputRef} is a React feature that connects the ref to the element. -->
+      <button onClick={focusInput}>Focus input</button>
+    </>
+  );
+}
+
+*/
+
+// N.B:
+/*
+Here, useRef does not stop a re-render. It just means changing ref.current does not trigger a re-render. But re-renders still happen for other reasons (state/props changes).
+*/
 
 
-// JS DOM vs React:
+
+// !! useRef vs useState:
+// Updating useRef does not re-render the component.
+// Updating useState does re-render the component.
+
+
+
+// !! .useState() vs .useEffect() vs .useRef():
+/* // .useState() -> causes re-render:
+
+function App() {
+  const [text, setText] = React.useState("");
+
+  return (
+    <>
+      <input
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <p>{text}</p>
+    </>
+  );
+}
+
+
+<!-- Here,  text is state,
+            Typing updates state,
+            React re-renders the component,
+            UI updates automatically,
+            Updates the visible UI (DOM) to reflect new data, like showing what you type in the paragraph,
+            This is a visible on the webpage, the text you type will be shown inside <p></p> element, so live UI update. --> 
+*/
+
+
+
+/* // .useEffect() -> runs side-effects after render:
+
+function App() {
+  const [text, setText] = React.useState("");
+
+  React.useEffect(() => {
+    console.log("Text changed:", text);
+  }, [text]);
+
+  return (
+    <input onChange={(e) => setText(e.target.value)} />
+  );
+}
+
+
+<!-- Here,  useEffect runs after render,
+            [text] → runs only when text changes,
+            Used for side-effects (logging, fetch, DOM ops),
+            Typing does not show anything new on the page,
+            The effect runs in the background (e.g., logs to the console),
+            This is about side-effects, not UI display. --> 
+*/
+
+
+
+/* // .useRef() -> no re-render:
+
+function App() {
+  const inputRef = React.useRef(null);
+
+  function showValue() {
+    alert(inputRef.current.value);
+  }
+
+  return (
+    <>
+      <input ref={inputRef} />
+      <button onClick={showValue}>Show</button>
+    </>
+  );
+}
+
+
+<!-- Here,  useRef holds a DOM reference,
+            Changing .current does not re-render,
+            Used for direct DOM access,
+            Typing does not auto-show text anywhere,
+            Clicking the button shows the input value (e.g., via alert),
+            Value is accessed only when you explicitly read it (e.g., button click),
+            No re-render happens when typing. --> 
+*/
+
+
+// FINAL REVIEW BETWEEN THESE 3:
+/*
+For usestate()  -> live UI update like the text i write will be shown in the webpage.
+For useEffect   -> React does something automatically after render.
+ForuseRef       -> It needs a manual trigger (like a button click) to read or use its value. You manually read/write a value without re-render.
+*/
+
+
+
+// !!JS DOM vs React DOM:
 // JS:
 /*
 
@@ -1322,11 +1467,38 @@ document.querySelector(
 
 /*
 <!-- React (don't use DOM manually. Instead, use React features to get the element. For that, we will use React Hooks .useRef(). ) -->
+function ChatMessages() {
+  const containerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    <!-- same idea as querySelector result -->
+    console.log(containerRef.current);               // the <div> DOM element
+  }, []);
+
+  return <div className="chat-messages-container" ref={containerRef}></div>;
+}
 
 
 */
 
-After the ChatMessages changes, we want to automatically scroll to the bottom. To scroll to the bottom, first we need to get the HTML element that we want to scroll into our JS. 
 
 
-// !! Start from vdo-> 3:40:00
+// !! In a variable, when it has Elem, then it indicates that this variable contains an HTML element.
+
+
+
+// !! scrollTop, scrollHeight
+// scrollTop    -> how far from the top should we scroll.
+// scrollHeight -> gives us the total height of the element.
+// Ex-
+/*
+
+containerElem.scrollTop = containerElem.scrollHeight;       // Here, if we set the scroll top to the total height, it's gonna scroll all the way down to the bottom.
+
+*/
+
+
+
+
+
+// ?? Proper React setup with Vite -> Organizing code into different files & folders instead of putting everything into one HTML file.
