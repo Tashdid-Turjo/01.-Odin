@@ -1499,6 +1499,16 @@ containerElem.scrollTop = containerElem.scrollHeight;       // Here, if we set t
 
 
 
+// !! Reason behind learn Hook with CSS is -> Hooks (like useState) are often used to change CSS dynamically (show/hide, active states, loading styles). Teaching CSS alongside hooks lets you immediately see visual effects of state changes, which makes hooks easier to understand.
+
+
+
+// !! Ex1-
+
+
+
 
 
 // ?? Proper React setup with Vite -> Organizing code into different files & folders instead of putting everything into one HTML file.
+
+// !! 
