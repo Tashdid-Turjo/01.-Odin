@@ -1400,7 +1400,7 @@ function App() {
 
   React.useEffect(() => {
     console.log("Text changed:", text);
-  }, [text]);
+  }, [text]);                                                       // Whenever this text changes, this .useEffect() will be run. 
 
   return (
     <input onChange={(e) => setText(e.target.value)} />
@@ -1503,7 +1503,264 @@ containerElem.scrollTop = containerElem.scrollHeight;       // Here, if we set t
 
 
 
-// !! Ex1-
+// TODO: Ex1-
+// Task: Using React.useState(), save a boolean isButtonOn. This will switch between true & false when clicking the button. Using isButtonOn & the Ternary Operator(?:), switch the text between "ON" & "OFF" when clicking the button.
+// Ans:
+/*
+<style>
+  .on-button,
+  .off-button {
+    background-color: rgb(25, 135, 84);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+
+<script type="text/babel">
+  function App() {
+    const [isButtonOn, setIsOn] = React.useState(true);
+
+    const getButtonClass = function getButtonClass () {
+      return isButtonOn === true
+      ? "on-button"                           // className is declared here
+      : "off-button"
+    }
+
+    const toggleButton = function toggleButton () {
+      setIsOn(!isButtonOn)
+    }
+
+    const onOff = function onOff () {
+      return isButtonOn === true
+      ? "ON" 
+      : "OFF"
+    }
+    
+    return (
+      <button 
+        className={getButtonClass()}          // Calling the function
+        onClick={toggleButton}
+      >
+        {onOff()}                             // Calling the function
+      </button>
+    );
+  }
+</script>
+
+*/
+
+
+
+// TODO: Ex2-
+// Task: from the code below- 'Add a button beside the password to show/hide the password. (using State, save a boolean 'showPassord' that switches between true & false when clicking the button. To show/hide the password, switch the password <input>'s type prop between 'password' & 'text').'
+/*
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .text {
+    font-weight: bold;
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email, .password {
+    margin-bottom: 10px;
+    padding: 5px 16px;
+  }
+
+  .button {
+    display: flex;
+    gap: 10px;
+  }
+
+  .login-button,
+  .signup-button {
+    background-color: rgb(0, 123, 255);
+    color: white;
+    border-radius: 10px;
+    padding: 10px 16px;
+    border: 0;
+    cursor: pointer;
+  }
+</style>
+
+<script type="text/babel">
+  function LoginForm() {
+    return (
+      <div className="login-container">
+        <div>
+          <input className="email" placeholder="Email" />
+        </div>
+        <div>
+          <input className="password" placeholder="Password" type="password" />
+        </div>
+        <div className="button">
+          <button className="btn login-button">Login</button>
+          <button className="btn signup-button">Sign up</button>
+        </div>
+      </div>
+    );
+  }
+
+  function App() {
+    return (
+      <div className="app-container">
+        <p className="text">Hello, welcome to my website</p>
+        <LoginForm />
+      </div>
+    );
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+
+
+*/
+
+// Ans: (Know For showing the Hide/Show button, used Ex1's function, jsx etc. Then did the <input>'s type prop between 'password' & 'text'.)
+
+/*
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .text {
+    font-weight: bold;
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email, .password {
+    margin-bottom: 10px;
+    padding: 5px 16px;
+  }
+
+  .button {
+    display: flex;
+    gap: 10px;
+  }
+
+  .login-button,
+  .signup-button {
+    background-color: rgb(0, 123, 255);
+    color: white;
+    border-radius: 10px;
+    padding: 10px 16px;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .password-button {
+    display: flex;
+    gap: 10px;
+  }
+
+  .show-button,
+  .hide-button {
+    border: 0;
+    background-color: skyblue;
+    border-radius: 5px;
+    margin-bottom: 7px;
+    cursor: pointer;
+  }
+</style>
+
+<script type="text/babel">
+  function LoginForm() {
+    const [showPassword, setShowPassword] = React.useState(true);           // For Hide/Show button.
+
+    const getButtonClass = function getButtonClass () {                     // For Hide/Show button's className.
+      return showPassword === true
+      ? "show-button"                                                       // className is declared here.
+      : "hide-button"
+    }
+
+    const toggleButton = function toggleButton () {                         // For Hide/Show button's toggle by using onClick.
+      setShowPassword(!showPassword)
+    }
+
+    const hideShow = function hideShow () {                                 // For Hide/Show button's text showing.
+      return showPassword === true
+      ? "Hide"                                                              // className is declared here.
+      : "Show"
+    }
+
+    const inputType = function inputType () {                               // For input type="text"/"password"
+      return {
+        type: showPassword                                                  // In jsx, where we write- <input type="text" or type="password", but instead of that, We used this '{}' is an object & used spread in jsx.
+              ? "text"                                                      // <input type="text"/"password".
+              : "password"
+      }
+    }
+
+    return (
+      <div className="login-container">
+        <div>
+          <input 
+            className="email" 
+            placeholder="Email" 
+          />
+        </div>
+        <div className="password-button">
+          <input 
+            className="password" 
+            placeholder="Password" 
+            {...inputType()}                                                // Uses spread as I returned an object {which is inside inputType function}.
+          />
+          <button 
+            className={getButtonClass()}
+            onClick={toggleButton}
+          >
+            {hideShow()}
+          </button>
+        </div>
+        <div className="button">
+          <button className="btn login-button">Login</button>
+          <button className="btn signup-button">Sign up</button>
+        </div>
+      </div>
+    );
+  }
+
+  function App() {
+    return (
+      <div className="app-container">
+        <p className="text">Hello, welcome to my website</p>
+        <LoginForm />
+      </div>
+    );
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+
+
+
+
+
+
+
 
 
 
