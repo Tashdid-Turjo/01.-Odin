@@ -1299,7 +1299,7 @@ button {
 // !! React.useEffect:
 //  -> useEffect = run some code after the component is created or updated,
 //               = run some code every time the component is updated.
-// Ex-
+// TODO: Ex1-
 /*
 
 function ChatMessages({ chatMessages }) {
@@ -1319,6 +1319,305 @@ Dependency Array [] -> Not mandatory but important.
                     -> No array = runs after every render.
                     -> []       = runs once on mount.
                     -> [x, y]   = runs when x or y changes.
+
+*/
+
+
+// TODO: Collected Ex2-10 from web dev simplified Learn useEffect in 13mins Video.
+// TODO: Ex2(for two states) {Ex2,3,4,5 are same type's different different usage}-
+/*
+
+<script type="text/babel">
+  function App() {
+    const [resourceType, setResourceType] = React.useState('posts');
+    const [count, setCount] = React.useState(0); // NEW: extra state (causes re-render)
+
+    React.useEffect(() => {
+    console.log('effect ran (no deps)');
+    });                                                                     // Here, if you add an array, like- [resourceType], then effect runs only when resourceType changes. That means,only clicking posts/users/comments button, the re-render & print message will be shown in the console & increase the print message whenever you click these 3 buttons. But clicking count button, it won't re-render in the console part & won't show the print message.
+                                                                            <!-- But the code is as it is or if you add an array, like- [resourceType, count], in that case, the re-render will be shown in the console part whenever & whatever button you click. -->
+    return (
+    <>
+      <div>
+      <button onClick={() => setResourceType('posts')}>Posts</button>           // Adding setResourceType as 'posts'/'users'/'comments', this setting is the reason that when you click Posts/Users/Comments more than one time, then in the console, it doesn't re-render / don't increase the print message.
+      <button onClick={() => setResourceType('users')}>Users</button>
+      <button onClick={() => setResourceType('comments')}>Comments</button>
+      </div>
+
+      <h1>{resourceType}</h1>
+
+      <div>
+      <button onClick={() => setCount(count + 1)}>Increase Count</button>     // Like posts/users/comments button, it's not set as setCount('count'), thus whenever you click the button, it will re-render & print the message in the console part.
+      <p>Count: {count}</p>
+      </div>
+    </>
+    );
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+// TODO: Ex3(for single state)-
+/*
+
+<script type="text/babel">
+  function App() {
+    const [resourceType, setResourceType] = React.useState('posts')   // As i wrote 'posts', thus in the console part, clicking posts button, it won't show re-render. But when it's empty like this- '', in that case, clicking any of the 3 button will show render.
+
+    console.log('render');                                    // Here, when clicking any of the 3 button, it will show as well as useEffect's message will be shown. But clicking a button two times in a row, in that case, in 2nd time clicking- just this message will be print. But for the 3rd time clicking a button in a row, no re-render / no message will be shown in the console.
+
+    React.useEffect(() => {
+      console.log('resource type changed');                   // Here, clicking a specific button more than one in a row, it won't increase render. But when a specific button is clicked, then clicking another button, it will re-render & will increase in console. It's bcz of in the jsx code's setResourceType('posts'/'users'/'comments').
+    }, [resourceType])
+
+    return (
+      <>
+        <div>
+          <button onClick={() => setResourceType('posts')}>Posts</button>
+          <button onClick={() => setResourceType('users')}>Users</button>
+          <button onClick={() => setResourceType('comments')}>Comments</button>
+        </div>
+        <h1>{resourceType}</h1>
+      </>
+    )
+  }
+  
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+// TODO: Ex4-
+/*
+
+<script type="text/babel">
+  function App() {
+    const [resourceType, setResourceType] = React.useState('posts')
+
+    console.log('render');                                    // Here, as inside useEffect is empty array, thus that useEffect's message won't be printed. Just this message will be printed like- clicking a button, it will print, then clicking that button again, it will again print.
+
+    React.useEffect(() => {
+      console.log('resource type changed');                   // Here, this message won't be shown even for a single time as the array is empty array. Bcz,[] means React depends on nothing. Button clicks do cause re-renders, but the rule says: don’t run again. Also for [1, 2, 3] array -> these nubmers never change. So react sees nothing changed again. Thus effect still runs only once in both empty or number array cases.
+    }, [])                                                    // Here, this empty array- [] or [1, 2, 3] or [1] or [1, 2, 3, 4] whatever the array has these numbers, both work same.
+
+    return (
+      <>
+        <div>
+          <button onClick={() => setResourceType('posts')}>Posts</button>
+          <button onClick={() => setResourceType('users')}>Users</button>
+          <button onClick={() => setResourceType('comments')}>Comments</button>
+        </div>
+        <h1>{resourceType}</h1>
+      </>
+    )
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+// TODO: Ex5-
+/*
+
+<script type="text/babel">
+  function App() {
+    const [resourceType, setResourceType] = React.useState('posts')
+
+    React.useEffect(() => {
+      console.log('resource changed')
+
+      return () => {
+        console.log('return from resource change')                                  // Here, this message will be shown before 'resource changed' message. Bcz, to clean-up whatever we did last time. Also know that, after clicking a button, then 2nd time clicking that particular button, it won't show anything in the console.
+      }
+    }, [resourceType])
+
+    return (
+      <>
+        <div>
+          <button onClick={() => setResourceType('posts')}>Posts</button>
+          <button onClick={() => setResourceType('users')}>Users</button>
+          <button onClick={() => setResourceType('comments')}>Comments</button>  
+        </div>
+      </>
+    )
+  
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+  </script>
+
+*/
+
+
+
+// TODO: Ex6{Ex6,7 same type}-
+/*
+
+<script type="text/babel">
+  function App() {
+    const [resourceType, setResourceType] = React.useState('posts')
+
+    console.log('render');                                    // Here, after clicking a button for first time, it will be printed & show the 100 posts, then clicking that particular button for the second time, only this printed message will be shown but 100 posts won't be shown. And for 3rd time clicking the same button, nothing will occur. But know that, here, different different button has different things, like- 100 posts, 10 users, 500 commments will be shown.
+
+    React.useEffect(() => {
+      fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
+        .then(response => response.json())
+        .then(json => console.log(json))
+    }, [resourceType])
+
+    return (
+      <>
+        <div>
+          <button onClick={() => setResourceType('posts')}>Posts</button>
+          <button onClick={() => setResourceType('users')}>Users</button>
+          <button onClick={() => setResourceType('comments')}>Comments</button>
+        </div>
+        <h1>{resourceType}</h1>
+      </>
+    )
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+// TODO: Ex7-
+/*
+
+<script type="text/babel">
+  function App() {
+    const [resourceType, setResourceType] = React.useState('posts')
+    const [items, setItems] = React.useState([])
+
+    React.useEffect(() => {
+      fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
+        .then(response => response.json())
+        .then(json => setItems(json))
+    }, [resourceType])
+
+    return (
+      <>
+        <div>
+          <button onClick={() => setResourceType('posts')}>Posts</button>
+          <button onClick={() => setResourceType('users')}>Users</button>
+          <button onClick={() => setResourceType('comments')}>Comments</button>
+        </div>
+        <h1>{resourceType}</h1>
+        {items.map(item => {
+          return <pre>{JSON.stringify(item)}</pre>                                      // Here, the posts/users/comments will be shown in the webpage.
+        })}
+      </>
+    )
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+// TODO: Ex8 (Ex8,9,10 similar type) {Window's size will be shown in the webpage, but it won't update/change whenever we resize the tab.}-
+
+/*
+
+<script type="text/babel">
+  function App() {
+    const [windowWidth, setwindowWidth] = React.useState(window.innerWidth)
+    
+    return (
+      <div>
+        {windowWidth}
+      </div>
+    )
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+// TODO: Ex9 {Window's size will be shown as well as will be updated/changed whenever we resize the tab.}
+/*
+
+<script type="text/babel">
+  function App() {
+    const [windowWidth, setWindowWidth] = React.useState(window.innerWidth)
+    
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+
+    React.useEffect(() => {
+      window.addEventListener('resize', handleResize)
+    }, [])
+
+    return (
+      <div>
+        {windowWidth}
+      </div>
+    )
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+// TODO: Ex10-
+/*
+
+<script type="text/babel">
+  function App() {
+    const [windowWidth, setWindowWidth] = React.useState(window.innerWidth)
+    
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+
+    React.useEffect(() => {
+      window.addEventListener('resize', handleResize)
+  
+      return () => {                                                              // It prevents the resize listener from staying active after the component is removed (or remounted), which avoids memory leaks and avoids multiple duplicate listeners that would cause extra setWindowWidth calls and unnecessary re-renders later.
+        window.removeEventListener('resize', handleResize)
+      }
+    }, [])
+
+    return (
+      <div>
+        {windowWidth}
+      </div>
+    )
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+
+</script>
 
 */
 
@@ -1754,16 +2053,66 @@ containerElem.scrollTop = containerElem.scrollHeight;       // Here, if we set t
 
 
 
+// TODO: Ex3-
+// Task:
+/*
+1. Load the DayJS library (external script) -> https://unpkg.com/supersimpledev/dayjs.js
+2. Use React.useState() to store the current time as a string (you can get it with dayjs().format('HH:mm:ss')).
+3. Use React.useEffect() to run code once after the component mounts: start a setInterval(() => { ... }, 1000) (runs every 1000 ms = 1 second).
+4. Inside the setInterval callback, get the time again with dayjs().format('HH:mm:ss') and update state with the setter (e.g., setTime(...)).
+5. Add console.log('run code', currentTIme); inside setInterval & check how many times it runs. Then remove the dependency array([]) from React.useEffect() & check how many times it runs.
+*/
+
+// Ans:
+/*
+
+<script type="text/babel">
+  function App() {
+    const [time, setTime] = React.useState(() =>
+      dayjs().format('HH:mm:ss')
+    )
+
+    React.useEffect(() => {
+    const id = setInterval (() => {
+      const currentTime = dayjs().format('HH:mm:ss');
+      setTime(currentTime);
+      console.log('run code', currentTime)
+    }, 1000);
+
+
+    <!-- Clean-up part (stopping the interval) -->
+    return () => clearInterval(id);
+    }, []);                                                           // Important: make sure to give React.useEffect() a dependency array of [] so it only runs once.
+
+    return (
+      <>
+        {time}
+      </>
+    );
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+
+</script>
+
+*/
 
 
 
+// TODO: Ex4-
+// Task:
+
+// Ans:
+/*
 
 
 
+*/
 
 
 
-
+You have to add that last 4h exercise in this Node.
 
 
 // ?? Proper React setup with Vite -> Organizing code into different files & folders instead of putting everything into one HTML file.
