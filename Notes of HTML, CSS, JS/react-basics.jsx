@@ -1664,6 +1664,12 @@ Here, useRef does not stop a re-render. It just means changing ref.current does 
 
 
 
+// !! useRef vs useEffect:
+// useEffect: run side effects (timers, fetch, subscriptions, DOM events) after render.
+// useRef: store / save a value that persists across renders (often a DOM element or an interval id) without triggering re-renders.
+
+
+
 // !! .useState() vs .useEffect() vs .useRef():
 /* // .useState() -> causes re-render:
 
@@ -1798,7 +1804,57 @@ containerElem.scrollTop = containerElem.scrollHeight;       // Here, if we set t
 
 
 
-// !! Reason behind learn Hook with CSS is -> Hooks (like useState) are often used to change CSS dynamically (show/hide, active states, loading styles). Teaching CSS alongside hooks lets you immediately see visual effects of state changes, which makes hooks easier to understand.
+// !! (count + 1) vs ((prevCount) => preCount + 1) difference:
+/* (count + 1):
+
+let count = 0;
+
+setInterval(() => {
+  count = count + 1;
+  console.log(count);
+}, 1000);
+
+setTimeout(() => {
+  count = 10;                 // After 2.5s, count should become 10. But instead, it will take that previous 3, so after 3s, it will print 3, not 11.
+}, 2500);
+
+
+The output: 
+1
+2
+3
+4
+...
+
+*/
+
+/* ((prevCount) => preCount + 1)        or           ((count) => count + 1):
+
+let count = 0;
+
+setInterval(() => {
+  count = getLatestCount(count => count + 1);           // You can write this as well- ((prevCount) => preCount + 1)
+  console.log(count);
+}, 1000);
+
+setTimeout(() => {
+  count = 10;                                           // After 2.5s, count will become 10, thus after 3s, it will print 11.
+}, 2500);
+
+
+The output: 
+1
+2
+11
+12
+13
+...
+
+*/
+
+
+
+// !! Reason behind learning Hook with CSS is -> Hooks (like useState) are often used to change CSS dynamically (show/hide, active states, loading styles). Teaching CSS alongside hooks lets you immediately see visual effects of state changes, which makes hooks easier to understand.
 
 
 
@@ -2102,17 +2158,208 @@ containerElem.scrollTop = containerElem.scrollHeight;       // Here, if we set t
 
 // TODO: Ex4-
 // Task:
+/*
+Goal: Build a counter app.
+Requirements:
+1. Do not put the counter in a separate component (keep everything in one App component for now).
+2. Create a Reset button that sets the count back to 0.
+3. Create an Auto Click button:
+4. When clicked, it should automatically “click” the counter button once per second.
+5. Use setInterval(..., 1000) to run something every second.
+6. To “click the button with code”:
+7. Store the counter button element in JavaScript using & without using useRef{for without useRef, you would just update the count directly using state}. 
+8. Then call buttonElem.click() inside the interval.
+*/
 
-// Ans:
+
+
+// Ans: (without useRef, used another useState):
 /*
 
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .on-button,
+    .off-button {
+      background-color: rgb(25, 135, 84);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
 
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    
+    <script type="text/babel">
+      function App() {
+        const [count, setCount] = React.useState(0);
+
+        const [isAutoClickOn, setIsAutoClickOn] = React.useState(false);
+
+        React.useEffect(() => {
+          if (!isAutoClickOn) return;
+          
+          const id = setInterval(() => {
+            setCount((prevCount) => prevCount + 1);
+          }, 1000);
+
+          return () => {
+            clearInterval(id);
+          };
+        }, [isAutoClickOn])
+
+        return (
+          <>
+            <button
+              onClick={() => {
+                setCount((prevCount) => prevCount + 1);
+              }}
+            >
+              {(count === 1 || count === 0) ? `Clicked ${count} time` : `Clicked ${count} times`}
+            </button>
+            <button
+              onClick={() => {
+                setIsAutoClickOn(false);
+                setCount(0);
+              }}
+            >
+              Reset
+            </button>
+            <button
+              onClick={() => {
+                setIsAutoClickOn(prev => !prev)     // Instead of another Stop button, used this single Auto Click button to work for both start & stop the Counting.
+              }}
+            >
+              Auto Click
+            </button>
+
+            <!--------------------------- Extra  ------------------>
+            <button
+              onClick={() => setIsAutoClickOn(false)}         // Auto click button will work for both start & stop feature, thus removed this Stop button.
+            >
+              Stop
+            </button>
+            <!--------------------------- Extra  ------------------>
+          </>
+        ) 
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
 
 */
 
 
 
-You have to add that last 4h exercise in this Node.
+// Ans(Using useRef {almost same in the coding part.}):
+/*
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .on-button,
+    .off-button {
+      background-color: rgb(25, 135, 84);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    
+    <script type="text/babel">
+      function App() {
+        const [count, setCount] = React.useState(0);
+
+        const [isAutoClickOn, setIsAutoClickOn] = React.useState(false);
+
+        const counterBtnRef = React.useRef(null);                                    // Used useRef
+
+        React.useEffect(() => {
+          if (!isAutoClickOn) return;
+          
+          const id = setInterval(() => {
+            counterBtnRef.current.click();                                          // auto-press the counter button
+          }, 1000);
+
+          return () => {
+            clearInterval(id);
+          };
+        }, [isAutoClickOn]);
+
+        return (
+          <>
+            <button
+              ref={counterBtnRef}
+              onClick={() => {
+                setCount((prevCount) => prevCount + 1);
+              }}
+            >
+              {(count === 1 || count === 0) ? `Clicked ${count} time` : `Clicked ${count} times`}
+            </button>
+            <button
+              onClick={() => {
+                setIsAutoClickOn(false);
+                setCount(0);
+              }}
+            >
+              Reset
+            </button>
+            <button
+              onClick={() => {
+                setIsAutoClickOn(prev => !prev);
+              }}
+            >
+              Auto Click
+            </button>
+
+            <!--------------------------- Extra  ------------------>
+            <button
+              onClick={() => setIsAutoClickOn(false)}                           // Auto click button will work for both start & stop feature, thus removed this Stop button.
+            >
+              Stop
+            </button>
+            <!--------------------------- Extra  ------------------>
+          </>
+        ) 
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script> 
+  </body>
+</html>
+
+*/
+
 
 
 // ?? Proper React setup with Vite -> Organizing code into different files & folders instead of putting everything into one HTML file.
