@@ -1310,6 +1310,7 @@ function ChatMessages({ chatMessages }) {
                                             <!-- If it's empty array, useEffect only run once after the component is created. -->
                                             <!-- We can also put value such as "[chatMessages]". In that case, [chatMessages] will run this function every time chatMessages changes. This array is called- Dependency Array. It controls when useEffect runs. -->
                                             <!-- Thus best practice is give useEffect a dependency array to avoid running too often. -->
+                                            <!-- Whenever this array's thing changes, it will render again after that. That means, it triggers a re-render,-->
 
 */
 
@@ -1654,6 +1655,43 @@ function App() {
 // N.B:
 /*
 Here, useRef does not stop a re-render. It just means changing ref.current does not trigger a re-render. But re-renders still happen for other reasons (state/props changes).
+*/
+
+
+
+// Another Ex-
+/*
+
+<script type="text/babel">
+  function App() {
+    const [name, setName] = React.useState('');
+    const inputRef = React.useRef();
+
+    function focus() {
+      inputRef.current.focus()
+      inputRef.current.value = 'Some value'                  // By clicking the Focus button, it will write this text in the input box.
+    }
+
+    return (
+      <>
+        <input
+          ref={inputRef} 
+          value={name} 
+          onChange={e => setName(e.target.value)} />
+        <div>My name is {name}</div>
+        <button
+          onClick={focus}
+        >
+          Focus
+        </button>
+      </>
+    );
+  }
+
+  const container = document.querySelector('.js-container');
+  ReactDOM.createRoot(container).render(<App />);
+</script>
+
 */
 
 
