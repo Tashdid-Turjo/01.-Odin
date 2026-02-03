@@ -659,9 +659,9 @@ return (
 
 
 
-// !! React.useState() / State usage: (Know that, useState, useRef & others -> these are under React Hook)
+// !! React.useState() / State usage: (Know that, useState, useRef & others -> these are under React Hooks)
 // Converting data into state, we use React.useState()
-// It's call- react hook, used to create & manage state in function components.
+// It's call- react hooks, used to create & manage state in function components.
 // Using React.useState(), if we update its inside data, it will also update the HTML. 
 // React.useState() returns an array.
 // In React, we shouldn't update the data directly, Ex- chatMessages.push(...) -> Here, by " .push ", the updated info will be stored in the last part of the array(as it's an array method). So to update the data using React, we must use function, that function is called- Updater function.
@@ -823,7 +823,7 @@ function ChatInput({ chatMessages, setChatMessages })   // Here, ChatInput -> Co
 
 
 
-// !! Controlled Inputs:(For using this, React state, like React Hook {useState} is mandatory. Cz without state, it's not controlled.)
+// !! Controlled Inputs:(For using this, React state, like React Hooks {useState} is mandatory. Cz without state, it's not controlled.)
 // Big enough to explain. See chatbot project's commits where i wrote this word-> Controlled Input.
 // Ex-
 
@@ -1286,7 +1286,7 @@ button {
 
 // !! React's feature: Hooks:
 //  -> Insert React features into our component.
-//  -> One of Hook is = React.useState(). Ex- " const [inputText, setInputText] = React.useState(''); " It inserts state into our component.
+//  -> One of Hooks is = React.useState(). Ex- " const [inputText, setInputText] = React.useState(''); " It inserts state into our component.
 //  -> State = automatically updates the HTML when the data changes.
 //  -> Other Hooks = useState(), useEffect(), useRef(), etc. All starts with the word - use.
 //  -> For autoscrolling, Hooks is needed.
@@ -1630,8 +1630,7 @@ Dependency Array [] -> Not mandatory but important.
 //        -> it's special feature is we can give this ref / container to React & React can automatically save an HTML element inside this ref / container.
 //        -> Generally, we put a null inside the parameter which is initial value, such as- " React.useRef(null); ".
 //        -> Save an HTML element from the component.
-// Ex-
-
+// TODO: Ex1-
 /*
 
 function App() {
@@ -1659,10 +1658,12 @@ Here, useRef does not stop a re-render. It just means changing ref.current does 
 
 
 
-// Another Ex-
+// TODO: Ex2 {Ex2 vs Ex3 see the difference}-
 /*
 
 <script type="text/babel">
+
+  <!-- Getting the current value of state: -->
   function App() {
     const [name, setName] = React.useState('');
     const inputRef = React.useRef();
@@ -1690,6 +1691,45 @@ Here, useRef does not stop a re-render. It just means changing ref.current does 
 
   const container = document.querySelector('.js-container');
   ReactDOM.createRoot(container).render(<App />);
+</script>
+
+*/
+
+
+
+// TODO: Ex3 {Ex2 vs Ex3 see the difference}-
+/*
+
+<script type="text/babel">
+
+  <!-- Getting previous value of state: -->
+  function App() {
+    const [name, setName] = React.useState('');
+    const prevName = React.useRef('');
+
+    React.useEffect (() => {
+      prevName.current = name;
+    }, [name])
+
+    return (
+      <>
+        <input
+          ref={prevName} 
+          value={name} 
+          onChange={e => setName(e.target.value)}
+        />
+        <div>My name is {name} and it used to be {prevName.current}</div>
+        <button
+          onClick={focus}
+        >
+          Focus
+        </button>
+      </>
+    );
+  }
+
+const container = document.querySelector('.js-container');
+ReactDOM.createRoot(container).render(<App />);
 </script>
 
 */
@@ -1892,7 +1932,31 @@ The output:
 
 
 
-// !! Reason behind learning Hook with CSS is -> Hooks (like useState) are often used to change CSS dynamically (show/hide, active states, loading styles). Teaching CSS alongside hooks lets you immediately see visual effects of state changes, which makes hooks easier to understand.
+// !! Reason behind learning Hooks with CSS is -> Hooks (like useState) are often used to change CSS dynamically (show/hide, active states, loading styles). Teaching CSS alongside hooks lets you immediately see visual effects of state changes, which makes hooks easier to understand.
+
+
+
+// !! [...chatMessages, userMessage] means:
+/*
+-> Make a new array
+-> Copy all the old messages from chatMessages into it (...chatMessages)
+-> Then add the new userMessage at the end
+-> So it’s basically the same as saying: “Keep everything that was already in the chat, then append this new message.”
+*/
+
+
+
+// !! Custom Hooks-> 
+/*
+A custom hook is just a normal JavaScript function that:
+          -> starts with use (e.g., useAutoScroll)
+          -> uses other hooks inside it (useEffect, useRef, etc.)
+          -> packages a reusable behavior so you can use it in multiple components.
+
+Why you create one:
+          -> You wrote the same hook logic in multiple places (copy-paste).
+          -> You want cleaner components (move hook logic out).
+*/
 
 
 
