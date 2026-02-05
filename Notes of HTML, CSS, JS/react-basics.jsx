@@ -1952,11 +1952,89 @@ A custom hook is just a normal JavaScript function that:
           -> starts with use (e.g., useAutoScroll)
           -> uses other hooks inside it (useEffect, useRef, etc.)
           -> packages a reusable behavior so you can use it in multiple components.
+          -> it's just a js function.
+          -> to identify a custom hook, seeing atleast a react hook inside a function(not component), that's custom hook.
+          -> custom hook shouldn't be put inside a component.
 
 Why you create one:
           -> You wrote the same hook logic in multiple places (copy-paste).
           -> You want cleaner components (move hook logic out).
+
+Must thing to do in the coding part:
+          -> 1. Create a custom hook function outside of any component. This keeps the logic clean and allows multiple components to use it.
+          -> 2. Return the value so that other component can use it. If the hook calculates a value (like width) or creates a reference (like ref), you must return it.
+          -> 3. Call (use) the custom hooks function inside the component that actually needs the data.
 */
+
+
+
+/* Custom hooks Ex- Tracking the window size: Imagine you want to change your UI based on whether a user is on a mobile phone or a desktop. Instead of writing the "resize" logic inside every component, you create a custom hook called useWindowSize.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    
+    <script type="text/babel">
+        function useWindowSize() {                                        // Custom hook
+          <!-- 1. Initialize state with the current window width -->
+          const [width, setWidth] = React.useState(window.innerWidth);
+
+          React.useEffect(() => {
+            <!-- 2. Define the function to update state -->
+            const handleResize = () => setWidth(window.innerWidth);
+
+            <!-- 3. Setup: Add the event listener when the component mounts -->
+            window.addEventListener('resize', handleResize);
+
+            <!-- 4. Cleanup: Remove the listener when the component unmounts -->
+            return () => {
+              window.removeEventListener('resize', handleResize);
+            };
+          }, []); // Empty array means this runs once on mount
+
+          <!-- 5. Return the value so components can use it -->
+          return width;
+        }
+
+        function MyComponent() {
+          const width = useWindowSize();                            // Using our custom hook
+
+          return (
+            <div style={{ padding: '20px', textAlign: 'center' }}>
+              <h1>The window width is: {width}px</h1>
+              
+              {width < 600 ? (
+                <p style={{ color: 'red' }}>You are on a Mobile View 📱</p>
+              ) : (
+                <p style={{ color: 'blue' }}>You are on a Desktop View 💻</p>
+              )}
+            </div>
+          );
+        }
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<MyComponent />);
+
+    </script>
+  </body>
+</html>
+
+*/
+
+
+
+// !! DRY -> Don't Repeat Yourself.
+// Ex of when we say this- using custom hooks so that, we can use this hooks inside other components. So that, it doesn't need to write repeatedly.
 
 
 
@@ -2461,6 +2539,8 @@ Requirements:
 </html>
 
 */
+
+
 
 
 
