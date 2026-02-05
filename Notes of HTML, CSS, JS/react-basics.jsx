@@ -2582,6 +2582,7 @@ Requirements:
 //                      -> Ex- in code, we accidentally wrote this- " const [count, setCoun] = useState(0) ". VS Code won't tell me but eslint will tell it's a mistake.
 //                      -> For using this eslint, we have to install eslint extension in VS Code named- ESLint. So now, it will show in the setCount by underline it that it's a mistake/typing mistake.
 //                      -> This file configures ESLint, it tell sit what to check for.
+//                      -> Inside this file, in the code, there's a rules section. rules = tells ESLint what to check for. Ex- Inside rules section, after " ], ", we can write this code- " 'react/prop-types': 'off' ". This will turn off this particular rule / check.
 // index.html           -> Contains all the html code for our website.
 // package-lock.json    -> Saves the version numbers of all the packages that we install. So next time we run npm install, this file makes sure that we get the same versions for all of these packages.
 //                      -> npm automatically updates package-lock.json, so we don't need to change this file. npm install will install the same (locked) versions written in package-lock.json (unless you change dependencies, delete the lock file, or use update commands).
@@ -2602,4 +2603,14 @@ Requirements:
 
 
 
-Move previous chatbot project into this 'React setup with Vite'.
+// !! Know that, some codes won't show error/mistake depending on ESLint extension's version.
+
+
+
+// !! Know that, in html code, where we load js library using script src tag like this:
+// <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+// Instead of this, for jsx file usage(as we are using npm), the best practice is load external libraries from 'node_modules' folder.
+// For that, we need to download chatbot into this node_modules folder. For that, we have to install supersimpledev package. 
+
+
+start from 4:22:00
