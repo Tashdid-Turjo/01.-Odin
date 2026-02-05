@@ -2545,5 +2545,61 @@ Requirements:
 
 
 // ?? Proper React setup with Vite -> Organizing code into different files & folders instead of putting everything into one HTML file.
+// !! Command line review in VS Code terminal- bash:
+// TODO: command (You can find all commands in my Git/GitHub Doc's 18, 19 no., Link of Docs: https://docs.google.com/document/d/1xkRGWam96m_Y2dXY99-v5hZ25is9XAA0-u-j3W8wxQc/edit?pli=1&tab=t.0#heading=h.elrwqqw9ajl):
+// mkdir                                        <!-- Here, Directory -> a folder. -->
 
-// !! 
+
+
+// !! NodeJS command line review:
+// node = lets us run JS code outside of a browser
+// npm = node package manager. It contains lots of packages.
+// package = external library
+// npm = lets us install external libraries (or packages) into our project.
+// TODO: Link of NPM package / external library of supersimpledev: https://www.npmjs.com/package/supersimpledev 
+
+
+
+// !! package.json:
+// It contains = all the packages that are needed for the project.
+
+
+
+// !! The proper React setup:
+// -> Using the command line,
+// -> npm,
+// -> vite.
+
+
+
+// !! Inside the created chatbot-project's folder:
+// node_modules folder  -> where npm install all the packages.
+// public               -> contains files that should be available to the public. Public means we can access these using URL. That means, when website is on the internet, I can give you url to this image & will be able access it.
+// src                  -> source folder, that contains all codes for our website, like- CSS, JSX.
+// inside src, 'assets' -> contains images that we want to display on our website with svg format.
+// .gitignore           -> It's used by a tool called git which helps us changes in our code. 
+// eslint.config.js     -> It's used by a tool called eslint which highlights problems/mistakes in our JS code.
+//                      -> Ex- in code, we accidentally wrote this- " const [count, setCoun] = useState(0) ". VS Code won't tell me but eslint will tell it's a mistake.
+//                      -> For using this eslint, we have to install eslint extension in VS Code named- ESLint. So now, it will show in the setCount by underline it that it's a mistake/typing mistake.
+//                      -> This file configures ESLint, it tell sit what to check for.
+// index.html           -> Contains all the html code for our website.
+// package-lock.json    -> Saves the version numbers of all the packages that we install. So next time we run npm install, this file makes sure that we get the same versions for all of these packages.
+//                      -> npm automatically updates package-lock.json, so we don't need to change this file. npm install will install the same (locked) versions written in package-lock.json (unless you change dependencies, delete the lock file, or use update commands).
+//                      -> Benefit/use-case: After `git clone` or `git pull` (or switching branches / CI builds), running `npm install` uses `package-lock.json` to install the exact same dependency versions so the project runs the same everywhere.
+// package.json         -> Has a list of all packages that we need to install to run the project & also contains some other info about our project.
+//                      -> When we npm install a package, it will automatically update this list of packages. Thus, we don't need to change this file.
+// README.md            -> Just text. It provides more info about the project. No code is here.
+// vite.config.js       -> It configures vite so we don't need to change this file.
+//                      -> Vite is the tool that we used to set up our project.
+//                      -> Vite also helps us build the website. That means, it takes all the CSS, JSX & then loads them into the HTML file.
+//                      -> Vite also creates a server. A server puts our website at a url, which is lets say- " localhost:5173 ".
+//                      -> Vite server refreshes the website when we change some code, like- live server extension refreshes automatically.
+//                      -> Vite server is a replacement for live server extension.
+
+
+
+// !! know that, only CSS, JSX, assets file need to be changed based on requirements. Other files should be as it is.
+
+
+
+Move previous chatbot project into this 'React setup with Vite'.
