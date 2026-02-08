@@ -2577,6 +2577,20 @@ Requirements:
 // public               -> contains files that should be available to the public. Public means we can access these using URL. That means, when website is on the internet, I can give you url to this image & will be able access it.
 // src                  -> source folder, that contains all codes for our website, like- CSS, JSX.
 // inside src, 'assets' -> contains images that we want to display on our website with svg format.
+// inside src, App.css  -> contains the original css codes. 
+//                      -> All the CSS for the App component go inside this file. Ex- body style ain't for App component. It's for overall website.
+// inside src, App.jsx  -> contains the original js/jsx codes.
+// inside src, index.css-> This css file is loaded by main.jsx here using this code inside 'main.jsx' file- " import './index.css' ".
+//                      -> All the CSS for the overall website should go inside this file.
+// inside src, main.jsx -> Sets up React & displays App onto the website.
+//                      -> It calls create root, gives it a container & then renders the App component onto the website.
+//                      -> Ex1-   const container = document.querySelector('.js-container');
+//                                ReactDOM.createRoot(container).render(<App />);
+//                      -> Ex2-   createRoot(document.getElementById('root')).render(
+//                                  <StrictMode>                                        // Wraps the App in a component called 'StrictMode'. It's a special component provided by React. ScriptMode gives us some additional checks & wrning when developing our App.
+//                                    <App />
+//                                  </StrictMode>,
+//                                )
 // .gitignore           -> It's used by a tool called git which helps us changes in our code. 
 // eslint.config.js     -> It's used by a tool called eslint which highlights problems/mistakes in our JS code.
 //                      -> Ex- in code, we accidentally wrote this- " const [count, setCoun] = useState(0) ". VS Code won't tell me but eslint will tell it's a mistake.
@@ -2599,6 +2613,10 @@ Requirements:
 
 
 
+// !! Know that, Each component(function ChatInput, function ChatMessages etc.) should be separated into their own different file by inserting all components inside a folder by giving a folder name- 'components'.
+
+
+
 // !! know that, only CSS, JSX, assets file need to be changed based on requirements. Other files should be as it is.
 
 
@@ -2613,4 +2631,58 @@ Requirements:
 // For that, we need to download chatbot into this node_modules folder. For that, we have to install supersimpledev package. 
 
 
-start from 4:22:00
+
+// !! Default Export -> inside App.jsx, when we write this code-
+// import {Chatbot} from 'supersimpledev';
+
+// now, instead of this curly braces, when we write this type of code that doesn't contain curly braces-
+// import RobotProfileImage from './assets/robot/png';          // Here, RobotProfileImage can be any name.
+
+
+
+// !! In the code-
+// import { ChatInput } from './components/ChatInput';          // Here, I have avoided ChatInput.jsx. Bcz, we are using Vite, thus Vite adds .js or .jsx automatically.
+
+
+
+// !! Best practice is- first, import from packages('react') at the top, then JS file(ChatInput.jsx / ChatInput.js) & then other types of files(.png, etc.).
+/*
+import { useState, useEffect, useRef } from 'react'
+import { ChatInput } from './components/ChatInput'
+import RobotProfileImage from './assets/robot.png'
+import UserProfileImage from './assets/user.png'
+import LoadingSpinnerGif from './assets/loading-spinner.gif'
+import './App.css'
+*/
+
+
+
+// !! JS Modules features -> any variables/functions that we create in a file only exists in that file. So, inside (lets say) ChatInput file, 'function ChatInput() {.....}' only exists in that file. It can't be used outside this file. That helps us avoid naming conflicts. Bcz, using same variable/function name in different files, it won't cause error.
+// Now if we use the variable/function outside of the file, we need to export that first. For doing that, infront of the code- 'function ChatInput() {.....}', we will add 'export' like this- 'export function ChatInput() {.....}'.
+
+
+
+// !! JS Modules: Named Export vs Default Export & Using curly braces for Named Export / without curly braces for Default Export:
+// 1. Named Export:
+// export function ChatInput () { 
+//    ..... 
+// }
+
+
+// 2. Default Export:
+// export default ChatMessages              // It's useful if we want to export only one thing from a file.
+                                            // It makes App component a default export of that file, so another file can import it without braces.
+                                            // Ex- import App from './App.jsx'
+                                            // and then render/use it.
+
+
+// Import using curly braces code:
+// import { ChatInput } from './components/ChatInput'         // Only works when useState is a named export.
+
+
+// Import without curly braces code:
+// import ChatMessages from './components/ChatMessages';      // Only works when that file uses default export.
+
+
+// N.B: Know that, there's no fixed like which one is use when. Some people use Default Export bcz it encourages each file to focus on one thing.
+// N.B: Some packages use Named Export while other packages use Default Export.
