@@ -2556,7 +2556,23 @@ Requirements:
 // npm = node package manager. It contains lots of packages.
 // package = external library
 // npm = lets us install external libraries (or packages) into our project.
-// TODO: Link of NPM package / external library of supersimpledev: https://www.npmjs.com/package/supersimpledev 
+// TODO: Link of NPM package / external library of supersimpledev: https://www.npmjs.com/package/supersimpledev
+
+
+
+// !! How " npm run dev " command works:
+// npm run  = tells pc to look inside 'package.json' file for a section called "scripts".
+// dev      = look inside 'package.json' file's "scripts" for "dev" & run the command on the right side of "dev" (which is "Vite").
+// vite command is added by the vite package. It starts the Vite server, which lets us view the React website.
+
+
+
+// !! Learn about Creating your own npm script inside “package.json” file in my Git/GitHub Docs link's 19.4: 
+// The link: https://docs.google.com/document/d/1xkRGWam96m_Y2dXY99-v5hZ25is9XAA0-u-j3W8wxQc/edit?pli=1&tab=t.0#heading=h.2illj4m8wf2n
+
+
+
+// !! Learn about npx create-vite vs npx supersimpledev difference in my Git/GitHub Docs link's 19.5(same link as previous):
 
 
 
@@ -2640,12 +2656,12 @@ Requirements:
 
 
 
-// !! In the code-
+// !! In this code-
 // import { ChatInput } from './components/ChatInput';          // Here, I have avoided ChatInput.jsx. Bcz, we are using Vite, thus Vite adds .js or .jsx automatically.
 
 
 
-// !! Best practice is- first, import from packages('react') at the top, then JS file(ChatInput.jsx / ChatInput.js) & then other types of files(.png, etc.).
+// !! Know that, first, import from packages('react') at the top, then JS file(ChatInput.jsx / ChatInput.js) & then other types of files(.png, etc.).
 /*
 import { useState, useEffect, useRef } from 'react'
 import { ChatInput } from './components/ChatInput'
@@ -2686,3 +2702,10 @@ import './App.css'
 
 // N.B: Know that, there's no fixed like which one is use when. Some people use Default Export bcz it encourages each file to focus on one thing.
 // N.B: Some packages use Named Export while other packages use Default Export.
+
+
+
+// !! Know that, Each component should have its own CSS file.
+
+
+
