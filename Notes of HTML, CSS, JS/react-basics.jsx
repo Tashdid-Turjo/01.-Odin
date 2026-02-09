@@ -1318,7 +1318,7 @@ function ChatMessages({ chatMessages }) {
 N.B: .useEffect usually written as an arrow function, but it's not mandatory.
 Dependency Array [] -> Not mandatory but important.
                     -> No array = runs after every render.
-                    -> []       = runs once on mount.
+                    -> []       = runs once on mount. That means, the useEffect runs only once (when the component first mounts). Mount means the component is created and added to the webpage for the first time.
                     -> [x, y]   = runs when x or y changes.
 
 */
@@ -2708,5 +2708,24 @@ import './App.css'
 // !! Know that, Each component should have its own CSS file.
 
 
+// Chatbot project, why two different ChatMessage, ChatMessages components-
+* **`ChatMessage`**: renders **one** message bubble (text, sender styling, profile icon, time). Reusable “single item” UI.
 
-start from 5h.
+* **`ChatMessages`**: renders the **list** of messages. It loops (`map`) over `chatMessages`, decides which message to show (welcome/loading/normal), and returns many `ChatMessage` components.
+
+Why separate them:
+
+* Keeps code cleaner: **list logic** in one place, **single message UI** in another.
+* Reuse: if you change message bubble design, you edit only `ChatMessage`.
+* Easier to maintain and debug.
+
+
+Know that, A **bubble** is the single chat message box (the rounded UI block that shows one message).
+
+
+
+
+
+
+
+Commit-    installed npm-package- 'dayjs' for adding time inside each & every MessageChannel. 

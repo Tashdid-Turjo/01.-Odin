@@ -9,51 +9,42 @@
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     
     <script type="text/babel">
-      function ChatInput() {
-        return (
-          <>
-            <input placeholder="Send a message to Chatbot" size="25" />
-            <button>Send</button>
-          </>
-        );
-      }
+      function TodoApp() {
+        const [todos, setTodos] = React.useState([]);
 
-      function ChatMessage(props) {
-        const message = props.message;
-        const sender = props.sender;
+        function addTodo(text) {
+          const createdAt = dayjs().valueOf(); // save the current time NOW
 
-        if (sender === 'robot') {
-          return (
-            <div>
-              <img src="robot.png" width="50" />
-              {message}
-            </div>
-          );
+          const newTodo = {
+            id: crypto.randomUUID(),
+            text,
+            createdAt
+          };
+
+          setTodos([...todos, newTodo]);
         }
 
         return (
           <div>
-            {message}
-            <img src="user.png" width="50" />
+            <button onClick={() => addTodo("Study React")}>Add</button>
+
+            {todos.map((t) => (
+              <div key={t.id}>
+                {t.text}
+                <span> — {dayjs(t.createdAt).format("h:mma")}</span>
+              </div>
+            ))}
           </div>
         );
       }
 
-      const app = (
-        <>
-          <ChatInput />
-          <ChatMessage message="hello chatbot" sender="user" />
-          <ChatMessage message="Hello! How can I help you?" sender="robot" />
-          <ChatMessage message="can you get me date?" sender="user" />
-          <ChatMessage message="today is jan12" sender="robot" />
-        </>
-      );
-
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(app);
+      ReactDOM.createRoot(container).render(<TodoApp />);
 
     </script>
   </body>
