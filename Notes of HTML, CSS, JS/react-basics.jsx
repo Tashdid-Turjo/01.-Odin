@@ -22,7 +22,7 @@
 
 
 
-// !! JSX / React JSX Ex (It syntax looks like HTML but is' actually JS cod that React can render to the DOM)-
+// !! JSX / React JSX Ex (It syntax looks like HTML but is' actually JS code that React can render to the DOM)-
 /*
 
 return (
