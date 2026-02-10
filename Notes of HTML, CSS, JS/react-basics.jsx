@@ -27,16 +27,17 @@
 
 return (
   <div
-      className="chat-messages-container">
-      {chatMessages.map((chatMessage) => {
-          return (
-              <ChatMessage
-                  message={chatMessage.message}   // Here, these " message, sender, key " are attributes. " message, sender " name must be same like chatMessages function's props.
-                  sender={chatMessage.sender}
-                  key={chatMessage.id}            // Here, key is a mandatory name in this context. key is a special React attribute used for list items. You cannot rename it to id or anything else and expect React to treat it as the list key.
-              />
-          );
-      })}
+    className="chat-messages-container"
+  >
+    {chatMessages.map((chatMessage) => {
+      return (
+        <ChatMessage
+          message={chatMessage.message}   // Here, these " message, sender, key " are attributes. " message, sender " name must be same like chatMessages function's props.
+          sender={chatMessage.sender}
+          key={chatMessage.id}            // Here, key is a mandatory name in this context. key is a special React attribute used for list items. You cannot rename it to id or anything else and expect React to treat it as the list key.
+        />
+      );
+    })}
   </div>
 );
 
@@ -100,7 +101,7 @@ return (
 
 /*
 <!-- // TODO: ii. In that Ex -> To set-up react, "ReactDOM.createRoot()" is used. -->
-    ReactDOM.createRoot(container).render('Welcome to SuperSimpleDev React Course');
+  ReactDOM.createRoot(container).render('Welcome to SuperSimpleDev React Course');
 
 */
 
