@@ -2708,24 +2708,44 @@ import './App.css'
 // !! Know that, Each component should have its own CSS file.
 
 
-// Chatbot project, why two different ChatMessage, ChatMessages components-
-* **`ChatMessage`**: renders **one** message bubble (text, sender styling, profile icon, time). Reusable “single item” UI.
 
-* **`ChatMessages`**: renders the **list** of messages. It loops (`map`) over `chatMessages`, decides which message to show (welcome/loading/normal), and returns many `ChatMessage` components.
+// !! Persisting React state with `localStorage` (get/set method):
+/*
+Goal: keep `chatMessages` saved even after page refresh.
 
-Why separate them:
+How it works:
+  * `localStorage.getItem('messages')` → read saved data (string)
+  * `JSON.parse(...)` → convert string → array/object
+  * `localStorage.setItem('messages', JSON.stringify(chatMessages))` → save updated state
 
-* Keeps code cleaner: **list logic** in one place, **single message UI** in another.
-* Reuse: if you change message bubble design, you edit only `ChatMessage`.
-* Easier to maintain and debug.
+React pattern:
+  * Use `useState(() => ...)` initializer to load once on first mount
+  * Use `useEffect(..., [chatMessages])` to save whenever messages change
+
+When used: saving small app data like theme, login UI state, draft text, simple chat history, filters/settings.
+
+Mini task for practice:
+Persist a `theme` state (`"light"`/`"dark"`) using `localStorage` so it stays after refresh.
+*/
 
 
-Know that, A **bubble** is the single chat message box (the rounded UI block that shows one message).
+// Ex-
+/*
+
+<!-- Load once (on first render) -->
+const [chatMessages, setChatMessages] = useState(() => {
+  const saved = localStorage.getItem('messages');                        // get
+  return saved ? JSON.parse(saved) : [];                                 // parse or default
+});
+
+<!-- Save whenever chatMessages changes -->
+useEffect(() => {
+  localStorage.setItem('messages', JSON.stringify(chatMessages));       // set
+}, [chatMessages]);
+
+*/
 
 
 
 
 
-
-
-Commit-    installed npm-package- 'dayjs' for adding time inside each & every MessageChannel. 
