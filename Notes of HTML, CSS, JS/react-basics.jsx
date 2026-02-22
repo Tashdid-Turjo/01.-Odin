@@ -729,7 +729,7 @@ function App() {
 /*
 
 const array = React.useState(
-...............
+  ...............
 );
 const chatMessages = array[0];                                  // There can be max two, such as- current data & updater function.
 const setChatMessages = array[1];
@@ -737,14 +737,14 @@ const setChatMessages = array[1];
 
 <!-- Shortcut of the upper code is this: -->
 const array = React.useState(
-...............
+  ...............
 );
 const [chatMessages, setChatMessages] = array;                  // Here, order matters. Thus, you should add variables inside [] serially.
 
 
 <!-- More shortcut: -->
 const [chatMessages, setChatMessages] = React.useState(         // There can be max two, such as- current data(chatMessages) & updater function(setChatMessages).
-...............
+  ...............
 );
 
 */
@@ -786,8 +786,13 @@ function App() {
 
   return (
     <>
-      <CounterButton count={count} setCount={setCount} />
-      <CounterText count={count} />
+      <CounterButton 
+        count={count} 
+        setCount={setCount} 
+      />
+      <CounterText 
+        count={count}
+      />
     </>
   );
 }
@@ -855,12 +860,14 @@ function App() {
 
 
 // !! .getResponse() vs .getResponseAsync() vs .then()
-// .getResponse()       -> returns the reply immediately.(synchrnnous).
+// .getResponse()       -> returns the reply immediately.(synchronous).
 // .getResponseAsync()  -> returns ther reply later (asunchronous).
 //                      -> Here, have to use await / .then(.....)
 //                      -> It's a JS feature that's called async / await.
 // .then()              -> same as .getResponseAsync().
+
 // Ex-
+
 /*
 <!------------------ .getResponse() ------------------>
 function sendMessage() {
@@ -1837,7 +1844,7 @@ function App() {
 /*
 For usestate()  -> live UI update like the text i write will be shown in the webpage.
 For useEffect   -> React does something automatically after render.
-ForuseRef       -> It needs a manual trigger (like a button click) to read or use its value. You manually read/write a value without re-render.
+For useRef      -> It needs a manual trigger (like a button click) to read or use its value. You manually read/write a value without re-render.
 */
 
 
