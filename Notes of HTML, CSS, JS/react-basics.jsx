@@ -191,8 +191,38 @@ return (
 //              -> A piece of website. Like- header, footer, navbar, etc. 
 //              -> Create our own HTML elements.
 //              -> Component name must start with a capital letter, which is PascalCase (each word starts with capital letter, like- ChatInput).
+//              -> We can return only 1 element from a Component. Ex of that-
+
+/*
+
+function HomePage () {
+  <div class="header">              // Here, 2 elements are there for the component- header, home-page.
+    ......
+  </div>
+  
+  <div class="home-page">
+    .....
+  </div>
+}
 
 
+<!-------- Instead of that, we can add Fragment. After that, it will become one element. ------->
+
+function HomePage () {
+  <>
+    <div class="header">              // Here, 2 elements are there for the component- header, home-page.
+      ......
+    </div>
+    
+    <div class="home-page">
+      .....
+    </div>
+  </>
+}
+
+
+
+*/
 
 // !! Same Work but different syntax for React(supersimpledev said, but gpt saying- If ChatInput uses hooks, {ChatInput()} becomes invalid):
 /*
@@ -1997,42 +2027,42 @@ Must thing to do in the coding part:
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     
     <script type="text/babel">
-        function useWindowSize() {                                        // Custom hook
-          <!-- 1. Initialize state with the current window width -->
-          const [width, setWidth] = React.useState(window.innerWidth);
+      function useWindowSize() {                                        // Custom hook
+        <!-- 1. Initialize state with the current window width -->
+        const [width, setWidth] = React.useState(window.innerWidth);
 
-          React.useEffect(() => {
-            <!-- 2. Define the function to update state -->
-            const handleResize = () => setWidth(window.innerWidth);
+        React.useEffect(() => {
+          <!-- 2. Define the function to update state -->
+          const handleResize = () => setWidth(window.innerWidth);
 
-            <!-- 3. Setup: Add the event listener when the component mounts -->
-            window.addEventListener('resize', handleResize);
+          <!-- 3. Setup: Add the event listener when the component mounts -->
+          window.addEventListener('resize', handleResize);
 
-            <!-- 4. Cleanup: Remove the listener when the component unmounts -->
-            return () => {
-              window.removeEventListener('resize', handleResize);
-            };
-          }, []); // Empty array means this runs once on mount
+          <!-- 4. Cleanup: Remove the listener when the component unmounts -->
+          return () => {
+            window.removeEventListener('resize', handleResize);
+          };
+        }, []); // Empty array means this runs once on mount
 
-          <!-- 5. Return the value so components can use it -->
-          return width;
-        }
+        <!-- 5. Return the value so components can use it -->
+        return width;
+      }
 
-        function MyComponent() {
-          const width = useWindowSize();                            // Using our custom hook
+      function MyComponent() {
+        const width = useWindowSize();                            // Using our custom hook
 
-          return (
-            <div style={{ padding: '20px', textAlign: 'center' }}>
-              <h1>The window width is: {width}px</h1>
-              
-              {width < 600 ? (
-                <p style={{ color: 'red' }}>You are on a Mobile View 📱</p>
-              ) : (
-                <p style={{ color: 'blue' }}>You are on a Desktop View 💻</p>
-              )}
-            </div>
-          );
-        }
+        return (
+          <div style={{ padding: '20px', textAlign: 'center' }}>
+            <h1>The window width is: {width}px</h1>
+            
+            {width < 600 ? (
+              <p style={{ color: 'red' }}>You are on a Mobile View 📱</p>
+            ) : (
+              <p style={{ color: 'blue' }}>You are on a Desktop View 💻</p>
+            )}
+          </div>
+        );
+      }
       const container = document.querySelector('.js-container');
       ReactDOM.createRoot(container).render(<MyComponent />);
 
@@ -2618,7 +2648,8 @@ Requirements:
 //                                    <App />
 //                                  </StrictMode>,
 //                                )
-// .gitignore           -> It's used by a tool called git which helps us changes in our code. 
+// .gitignore           -> It's used by a tool called git which helps us changes in our code.
+//                      -> Tells git which files & folders to ignore (not to track changes).
 // eslint.config.js     -> It's used by a tool called eslint which highlights problems/mistakes in our JS code.
 //                      -> Ex- in code, we accidentally wrote this- " const [count, setCoun] = useState(0) ". VS Code won't tell me but eslint will tell it's a mistake.
 //                      -> For using this eslint, we have to install eslint extension in VS Code named- ESLint. So now, it will show in the setCount by underline it that it's a mistake/typing mistake.
@@ -2760,4 +2791,20 @@ useEffect(() => {
 
 
 
-start from 5:00:00
+// ?? React Router, Git, Strat Ecommerce Project:
+// !! Webpage vs Website
+// webpage = a single page
+// website = group of web pages
+
+
+
+// !! React Router:
+// React Router helps you navigate between different views or pages in your React app without reloading the entire page. 
+// When you click a link or perform a navigation action, React Router updates the URL and renders the corresponding component, but it doesn't trigger a full page reload 
+// like traditional web pages. This results in a faster, smoother experience for the user.
+// So, when using React Router, your app behaves like a Single-Page Application (SPA) where only parts of the page update based on the route, rather than reloading the entire page.
+// It creates multiple pages in React.
+// Routing lets us create multiple pages using 1 HTML file. This lets us reuse our HTML code.
+
+
+Start from -> 5:30:00
