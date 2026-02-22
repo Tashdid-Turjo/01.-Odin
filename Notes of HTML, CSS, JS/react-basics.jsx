@@ -22,7 +22,7 @@
 
 
 
-// !! JSX / React JSX Ex (It syntax looks like HTML but is' actually JS code that React can render to the DOM)-
+// !! JSX / React JSX Ex (It syntax looks like HTML but is actually JS code that React can render to the DOM)-
 /*
 
 return (
@@ -65,7 +65,7 @@ return (
     <!-- // TODO: This "text/babel" tells babel to translate all codes into JS. -->
     <script type="text/babel">
       
-      <!-- // TODO: Inside this JS script, we can write HTML code. -->
+      <!-- // TODO: Inside this JS's script, we can write HTML code. -->
       <!-- // TODO: This const button is not the DOM element, rather, it's a React Element. -->
       <!-- // TODO: In JS DOM, where we use "createElement". This " const button = <button>hello</button>; " is a React Element. -->
       <!-- // TODO: Ex of that JS DOM:  -->
@@ -322,8 +322,8 @@ function ChatMessage({ message, sender }) {
 
 
 // !! Using JS's Guard / And Operator (&&) in jsx:
-const result = value1 && value2;          // Here, value1 is the condition & value2 is the result; meaning -> if value1 is true then the result is value2.
-const result = value1 ? value2 : value3;  // Ternary: Here, if value1 -> result is value 2; else -> result is value3.
+// const result = value1 && value2;          // Here, value1 is the condition & value2 is the result; meaning -> if value1 is true then the result is value2.
+// const result = value1 ? value2 : value3;  // Ternary: Here, if value1 -> result is value 2; else -> result is value3.
 
 // Ex:
 /*
@@ -557,7 +557,7 @@ ReactDOM.createRoot(container).render(<App />);
 //          -> data that's connected to the HTML. Thus, when we update the data, it will update the HTML.
 //          -> stores data (numbers, strings, objects, arrays).
 //          -> save data that changes over time.
-//          -> State doesn't update immediately, it's updated after all of the code is finished. Ex of it can be find from chatbot project's this commit- "That external library's response is now showing in the page. Issue: 'The text that i wrote in the textbox, that's not showing, rather ommiting.It's bcz, state doesn't update immediately,"
+//          -> State doesn't update immediately, it's updated after all of the code is finished. Ex of it can be find from chatbot project's this commit- "That external library's response is now showing in the page. Issue: 'The text that i wrote in the textbox, that's not showing, rather ommiting. It's bcz, state doesn't update immediately."
 //          -> By updating State, React automatically updates the website. Thus no need to manually update the website.
 
 
@@ -648,15 +648,18 @@ return (
 
 
 // !! Ex of a common mistake:
+/*
 function sendMessage() {
   console.log('send message');
 }
 
 return (
   <>
-    <button onClick={sendMessage}>Send Message</button>                {/* If you write sendMessage(), then it will directly run & console.log('send message') won't work/show in the console. */}
+    <button onClick={sendMessage}>Send Message</button>                // If you write sendMessage(), then it will directly run & console.log('send message') won't work/show in the console.
   </>
 )
+
+*/
 
 
 
@@ -2681,7 +2684,7 @@ import './App.css'
 
 // !! JS Modules: Named Export vs Default Export & Using curly braces for Named Export / without curly braces for Default Export:
 // 1. Named Export:
-// export function ChatInput () { 
+// export function ChatInput () { N
 //    ..... 
 // }
 
