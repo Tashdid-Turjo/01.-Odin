@@ -2805,13 +2805,44 @@ useEffect(() => {
 // React Router helps you navigate between different views or pages in your React app without reloading the entire page. 
 // When you click a link or perform a navigation action, React Router updates the URL and renders the corresponding component, but it doesn't trigger a full page reload 
 // like traditional web pages. This results in a faster, smoother experience for the user.
-// So, when using React Router, your app behaves like a Single-Page Application (SPA) where only parts of the page update based on the route, rather than reloading the entire page.
+// So, when using React Router, your app behaves like a Single-Page Application (SPA) where only parts of the page update based on the route, rather than reloading the entire page. From all the files, "index.html" is the SPA which contains which means one HTML file (that contains other page's html codes as well) & instead we use React to create multiple pages.
 // It creates multiple pages in React.
 // Routing lets us create multiple pages using 1 HTML file. This lets us reuse our HTML code. This helps in this circumstance -> as different different HTML file is required for each webpages, so you will see that, each HTML code have same type of code. In that case, Routing helps us.
+// React Router Documentation Official Link: https://reactrouter.com/
+// React Router using guidelines link: https://reactrouter.com/start/framework/routing
+// Route = a page.
+// SPA = we only have 1 HTML file(index.html).
+// SPA = we use React to create multiple pages.
+
+
+
+// !! Remember that:
+// import { BrowserRouter } from 'react-router'        // Here, didn't write " ./react-router " bcz, this means, it's going to load it from node_modules inside react-router.
+
+
+// !! <Routes> Component:
+// It tells React all the pages that are in our website.
+// add a page to our website.
+
+
+
+// !! <Route path="/" element={<HomePage />}></Route>
+// path="/"               -> This tells the URL path of the page. Like- localhost:5173/checkout
+// element={<HomePage />} -> This tells which element or component to display.
+
+
+
+// !! React Router Shortcuts:
+// 1. Instead of path="/", we can write this -> index
+// So, path="/"  ===  index
+
+
+// 2. <Route></Route>
+// Here, when inside Route tag, it's empty, we can write this -> <Route />
 
 
 Start from -> 5:32:00
-
+// In the next commit, add this- how to use react router.
 
 
 
