@@ -2668,6 +2668,8 @@ Requirements:
 //                      -> Vite also creates a server. A server puts our website at a url, which is lets say- " localhost:5173 ".
 //                      -> Vite server refreshes the website when we change some code, like- live server extension refreshes automatically.
 //                      -> Vite server is a replacement for live server extension.
+// node_modules         -> It doesn't comes here automatically, rather we install it using "npm install" command.
+//                      -> We don't change anything in this folder, instead we generate this folder using "package.json" file & "npm install" command.
 
 
 
@@ -2805,10 +2807,10 @@ useEffect(() => {
 // like traditional web pages. This results in a faster, smoother experience for the user.
 // So, when using React Router, your app behaves like a Single-Page Application (SPA) where only parts of the page update based on the route, rather than reloading the entire page.
 // It creates multiple pages in React.
-// Routing lets us create multiple pages using 1 HTML file. This lets us reuse our HTML code.
+// Routing lets us create multiple pages using 1 HTML file. This lets us reuse our HTML code. This helps in this circumstance -> as different different HTML file is required for each webpages, so you will see that, each HTML code have same type of code. In that case, Routing helps us.
 
 
-Start from -> 5:30:00
+Start from -> 5:32:00
 
 
 
