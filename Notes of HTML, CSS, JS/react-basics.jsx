@@ -2796,7 +2796,7 @@ useEffect(() => {
 
 
 
-// ?? React Router, Git, Strat Ecommerce Project:
+// ?? React Router(Easy part to learn), Git, Start Ecommerce Project:
 // !! Webpage vs Website
 // webpage = a single page
 // website = group of web pages
@@ -2831,6 +2831,15 @@ useEffect(() => {
 // !! <Route path="/" element={<HomePage />}></Route>
 // path="/"               -> This tells the URL path of the page. Like- localhost:5173/checkout
 // element={<HomePage />} -> This tells which element or component to display.
+
+
+
+// !! Remember that:
+// By default, Link elements(<a>) reload the page. Link element's URL link is this -> localhost:5173 . In my ecommerce-project practise work, HomePage is the default page.
+// When there were multiple HTML files(index.html, checkout.html, orders.html, tracking.html) {when they were use without React setup}, these files/pages needed to be entirely reloaded everytime we switched to another page. But for React Routing & a single page application, we don't have to reload everytime, rather we can just use JS to switch between pages.
+// For doing this, React Router provides a component called <Link> .
+// <Link> = go to another page without reloading.
+// instead of '<a href=.....</a>', we will write '<Link to=.....</Link>' in the code. That means, a == Link, href == to .
 
 
 
@@ -2921,15 +2930,52 @@ export default HomePage;
 
 This component will be displayed when the user visits the homepage (`/` route) of your app.
 
----
+
+### 4. main.jsx:
+
+* `main.jsx` is the entry point of the React app where the app is rendered into the DOM.
+* It initializes the React app, sets up React Strict Mode for development checks, and enables React Router for routing functionality.
+* The createRoot function connects the React app to the `index.html` file (the `<div id="root"></div>` element).
+* The `App` component is wrapped inside StrictMode (for development warnings) and BrowserRouter (for handling routes).
+
+Example of `main.jsx`:
+
+```jsx
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router';
+import './index.css';
+import App from './App.jsx';
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
+);
+```
+
 
 ### Summary:
-
 * index.html: The static HTML file where the React app is rendered.
 * App.jsx: The root component that defines the structure of your app and holds routes.
 * HomePage.jsx: A React component for a specific page, e.g., the homepage.
+* main.jsx: Initializes and renders the React app, setting up routing and development checks.
 
 */
+
+
+
+
+
+// ?? React with Backend, Data Fetching, Load Ecommerce Project Data:
+// Here, we will add backend to make it interactive. So, we'll be able to display a list of products & add products to a cart & create an order. 
+
+
+
+
+
 
 
 
@@ -2937,4 +2983,5 @@ Start from -> 5:40:30
 
 
 
-Commit -> Separate the header into a component to reuse it between the pages.
+Commit -m -> 
+-m        -> 
