@@ -2649,7 +2649,7 @@ Requirements:
 //                                  </StrictMode>,
 //                                )
 // inside src, components folder  -> It's for shared components. Inside this components folder, 
-// inside src, pages folder       -> It's for components that are specific to a page. Inside this pages folder, different different webpages are there. For my Ecommerce-Project practise part, HomePage, CheckoutPage, OrdersPage, TrackingPage are different different webpages.
+// inside src, pages folder       -> It's for components that are specific to a page. Inside this pages folder, different different webpages are there. For my Ecommerce-Project practise part of code, HomePage, CheckoutPage, OrdersPage, TrackingPage are different different webpages that are stored here.
 // .gitignore           -> It's used by a tool called git which helps us changes in our code.
 //                      -> Tells git which files & folders to ignore (not to track changes).
 // eslint.config.js     -> It's used by a tool called eslint which highlights problems/mistakes in our JS code.
