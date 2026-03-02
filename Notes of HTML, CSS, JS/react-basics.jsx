@@ -2845,9 +2845,10 @@ useEffect(() => {
 
 
 // !! React Router Special Feature ( <NavLink> ):
-// Useful for navigation links(links at the top of a page, usually ina header).
-// For doing this, in ecommerce-project that I am currently working, in the Header.jsx file, change <Link> into <NavLink>. But props will be same. 
+// Useful for navigation links(links at the top of a page, usually in a header).
+// For doing this, in ecommerce-project that I am currently working, in the Header.jsx file, change <Link> into <NavLink>. But props are the same. 
 // The specialty of this is, it knows which page is loaded. For example- if you're on the Orders page, it adds a class called active to the Orders link(className="orders-link .... active")
+// The code will be <NavLink></NavLink> instead of <Link></Link> .
 
 
 
