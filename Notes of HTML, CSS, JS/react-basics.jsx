@@ -2822,6 +2822,7 @@ useEffect(() => {
 // import { BrowserRouter } from 'react-router'        // Here, didn't write " ./react-router " bcz, this means, it's going to load it from node_modules inside react-router.
 
 
+
 // !! <Routes> Component:
 // It tells React all the pages that are in our website.
 // add a page to our website.
@@ -2834,7 +2835,7 @@ useEffect(() => {
 
 
 
-// !! Remember that:
+// !! Remember that ( <Link> ):
 // By default, Link elements(<a>) reload the page. Link element's URL link is this -> localhost:5173 . In my ecommerce-project practise work, HomePage is the default page.
 // When there were multiple HTML files(index.html, checkout.html, orders.html, tracking.html) {when they were use without React setup}, these files/pages needed to be entirely reloaded everytime we switched to another page. But for React Routing & a single page application, we don't have to reload everytime, rather we can just use JS to switch between pages.
 // For doing this, React Router provides a component called <Link> .
@@ -2843,15 +2844,23 @@ useEffect(() => {
 
 
 
+// !! React Router Special Feature ( <NavLink> ):
+// Useful for navigation links(links at the top of a page, usually ina header).
+// For doing this, in ecommerce-project that I am currently working, in the Header.jsx file, change <Link> into <NavLink>. But props will be same. 
+// The specialty of this is, it knows which page is loaded. For example- if you're on the Orders page, it adds a class called active to the Orders link(className="orders-link .... active")
+
+
+
 // !! React Router Shortcuts:
 // 1. Instead of writing " path="/" ", we can write this -> " index "
 // So, path="/"  ===  index
 // So, the code becomes -> <Route index    element={<HomePage />} />
 // instead of this code -> <Route path="/" element={<HomePage />} />
-// N.B: Know that, this is only for Home
+// N.B: Know that, this is only for Homepage.
 
 // 2. <Route></Route>
 // Here, when inside Route tag, it's empty, we can write this -> <Route />
+// But if this ain't empty, like- <Route>hello</Route>, then we can't do that.
 
 
 
@@ -2955,12 +2964,17 @@ createRoot(document.getElementById('root')).render(
 
 
 ### Summary:
-* index.html: The static HTML file where the React app is rendered.
-* App.jsx: The root component that defines the structure of your app and holds routes.
+* index.html:   The static HTML file where the React app is rendered.
+* App.jsx:      The root component that defines the structure of your app and holds routes.
 * HomePage.jsx: A React component for a specific page, e.g., the homepage.
-* main.jsx: Initializes and renders the React app, setting up routing and development checks.
+* main.jsx:     Initializes and renders the React app, setting up routing and development checks.
 
 */
+
+
+
+// !! Remember that(git/github related),
+// On some operating systems like Windows and macOS, Git is case-insensitive, meaning it doesn't detect changes when you rename files that only differ in case (e.g., `header.css` to `Header.css`). To fix this, rename the file to something completely different (e.g., `header2.css`), commit the change, and then rename it back to the desired name (`Header.css`). This way, Git will detect the change and register the correct file name.
 
 
 
