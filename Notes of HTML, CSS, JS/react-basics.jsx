@@ -2852,6 +2852,18 @@ useEffect(() => {
 
 
 
+// !! favicon:
+// Using React to change the icon in the tabs -> that's called Favicon.
+
+
+
+// !! 404error message showing page:
+// It's shown whenever the user navigates to a URL path that does not match any of your defined routes.
+// For that, do this  -> add this Route path code in App.jsx == <Route path="*" element={<NotFoundPage />} />
+//                    -> Add another component as NotFoundPage.
+
+
+
 // !! React Router Shortcuts:
 // 1. Instead of writing " path="/" ", we can write this -> " index "
 // So, path="/"  ===  index
