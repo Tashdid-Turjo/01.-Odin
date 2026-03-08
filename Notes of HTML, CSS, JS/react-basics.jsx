@@ -2994,8 +2994,21 @@ createRoot(document.getElementById('root')).render(
 
 
 // ?? React with Backend, Data Fetching, Async Await, Load Ecommerce Project Data:
-// Here, we will add backend to make it interactive. So, we'll be able to display a list of products & add products to a cart & create an order. 
+// !!Here, we will add backend to make it interactive. So, we'll be able to display a list of products & add products to a cart & create an order. 
 
+
+
+// !! Backend = manages the data.
+//            = share data between computers.
+
+
+
+// !! How to add backend, how to use backend.
+// manually add backend folder in a different folder(not inside the folder that you are working) & then inside that backend path, run the command npm install.
+
+
+
+// !! Data Fetching:
 
 
 
@@ -3007,5 +3020,5 @@ Start from -> 6:10:00
 
 
 
-Commit -m -> 
+Commit -m -> Add a BackEnd.
 -m        -> 
