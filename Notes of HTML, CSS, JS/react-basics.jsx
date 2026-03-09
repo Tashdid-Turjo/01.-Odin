@@ -3040,9 +3040,7 @@ createRoot(document.getElementById('root')).render(
 //         = it has a method- .then()
 // In code, fetch's code will be like this-
 /*
-
 fetch('http://localhost:3000/api/products')        // In the URL, http must be there. This code is called Asynchronous code.
-
 */
 
 // In the code, you can't add variables like this- const products = fetch('http://localhost:3000/api/products')
@@ -3050,6 +3048,7 @@ fetch('http://localhost:3000/api/products')        // In the URL, http must be t
 
 
 /* Promise / .then() code will be like this-
+
 fetch('http://localhost:3000/api/products')
   .then((response) => {                                 // When it finishes the backend to fetch/get, it will run the function here inside. That's how Promise works. It will response with data.
     response.json()                                     // .json() = gives us the data that's attached to the response. response.json() is also Asynchronous. So we can't save this in variable like this- "const products = response.json();".
