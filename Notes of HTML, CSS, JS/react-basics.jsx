@@ -3085,6 +3085,7 @@ setTimeout(() => {
   console.log('Done!');                                           // manually repeat a task every second (1000 ms).
 }, 1000);
 
+
 02. async/await (built on Promises):
 
 async function fetchData() {
@@ -3137,6 +3138,7 @@ export function HomePage() {
 
 // !! npm package -> axios
 // = cleaner way to make requests to the backend.
+// Google docs link: https://docs.google.com/document/d/1xkRGWam96m_Y2dXY99-v5hZ25is9XAA0-u-j3W8wxQc/edit?pli=1&tab=t.0#heading=h.wqnroqwek6dw
 
 
 
