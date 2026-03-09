@@ -2999,7 +2999,10 @@ createRoot(document.getElementById('root')).render(
 
 
 // !! Backend = manages the data.
-//            = share data between computers.
+//            = lets us share data between computers.
+//            = when we want to see a product from a website, it doesn't necessary to save all the backend/company's pc's all products. Rather, just the products that we wanna see. So that's where backend comes.
+//            = It's just another pc that's own by the company.
+//            = It can run on the same pc as the frontend.
 
 
 
@@ -3008,7 +3011,135 @@ createRoot(document.getElementById('root')).render(
 
 
 
+// !! How to run backend using localhost:
+// after writing the as usual command -> npm run dev, it will show a port number(it can be 3000). then type the url link: localhost:3000/api/products
+
+
+// !! Template strings to insert:
+// We use dollar then curly braces -> ${}
+// Ex-
+/*
+
+<div className="product-rating-container">
+  <img
+    className="product-rating-stars"
+    src={`images/ratings/rating-${product.rating.stars * 10}.png`}        // Here, it will fetch everything from an object's images & will show every images.
+  />
+</div>
+
+*/
+
+
+
 // !! Data Fetching:
+// = get/fetch data from backend(using our code).
+// One way to get/fetch data from backend is use this built-in function- fetch()
+// fetch() = built-in function, provided by JS.
+//         = returns a Promise.
+// Promise = lets us wait for Asynchronous code to finish.
+//         = it has a method- .then()
+// In code, fetch's code will be like this-
+/*
+
+fetch('http://localhost:3000/api/products')        // In the URL, http must be there. This code is called Asynchronous code.
+
+*/
+
+// In the code, you can't add variables like this- const products = fetch('http://localhost:3000/api/products')
+// Bcz, when we contact a backend, it takes time for this code to react the backend & to get a response. So this code- "fetcth('http://localhost:3000/api/products')" doesn't finishes right away. It finishes at some point in the future. This code is called Asynchronous code. Asynchronous code = code that doesn't finish right away.
+
+
+/* Promise / .then() code will be like this-
+fetch('http://localhost:3000/api/products')
+  .then((response) => {                                 // When it finishes the backend to fetch/get, it will run the function here inside. That's how Promise works. It will response with data.
+    response.json()                                     // .json() = gives us the data that's attached to the response. response.json() is also Asynchronous. So we can't save this in variable like this- "const products = response.json();".
+  })
+
+*/
+
+
+
+// !! Asynchronous code:
+// Asynchronous code = code that doesn't finish right away. That means- Code that doesn’t block the rest of your program while waiting for a task to finish.
+// Ex-
+// 01. fetch('http://localhost:3000/api/products')
+// 02. response.json()
+// 03. setTimeout() / setInterval()
+// 04. Event listeners like click, keyup.
+// We can't save Asynchronous code in a variable like this- "const products = response.json();"
+
+
+
+// !! Promises:
+// Promises = lets us wait for Asynchronous code to finish.
+//          = A way to handle asynchronous operations in JavaScript.
+//          = It represents a value that will be available in the future (resolved or rejected).
+//          = it has a method- .then()
+
+
+
+// !! Asynchronous vs Promises Difference in Ex:
+/*
+01. Callbacks (older style):
+
+setTimeout(() => {
+  console.log('Done!');                                           // manually repeat a task every second (1000 ms).
+}, 1000);
+
+02. async/await (built on Promises):
+
+async function fetchData() {
+  const response = await fetch('http://api.example.com/data');   // don’t need to manually update every second if the data comes asynchronously from the server or event-driven source.
+  const data = await response.json();
+  console.log(data);
+}
+
+*/
+
+
+
+// !! Shortcut:
+/* Both does the same thing:
+1.
+export function HomePage() {
+  fetch('http://localhost:3000/api/products')
+  .then((response) => {
+    response.json().then((data) => {
+      console.log(data);  
+    });
+  })
+}
+
+
+vs
+
+2.
+export function HomePage() {
+  fetch('http://localhost:3000/api/products')
+  .then((response) => {
+    return response.json();
+  }).then((data) => {
+    console.log(data);
+  });
+}
+
+
+*/
+
+// !! Request, Response:
+// When we contact backend using fetch, it's request. When backend responses with data, it's response.
+
+
+
+// !! localhost:
+// = our own pc.
+
+
+
+// !! npm package -> axios
+// = cleaner way to make requests to the backend.
+
+
 
 
 
@@ -3020,5 +3151,5 @@ Start from -> 6:25:50
 
 
 
-Commit -m -> Add a BackEnd.
+Commit -m -> Fetch data from the backend.
 -m        -> 
