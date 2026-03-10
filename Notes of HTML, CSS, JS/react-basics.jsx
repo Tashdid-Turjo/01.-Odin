@@ -3160,6 +3160,18 @@ export function HomePage() {
 
 
 
+// !! URL Path that gives info:
+// Common naming conversion for URL Path is this- /api
+// /api = these URL paths are for interacting with the backend.
+// /api/products = gives products data.
+// /api/cart-items = gives cart data.
+// So, whoever creates the backend decides what the URL paths will be.
+// See the link for ecommerce-backend documentation Link of supersimpledev: https://github.com/SuperSimpleDev/ecommerce-backend-ai/blob/main/documentation.md
+
+
+
+
+
 
 
 
@@ -3167,5 +3179,5 @@ Start from -> 6:25:50
 
 
 
-Commit -m -> Use data from the backend to generate the HTML.
--m        -> Now that we have the data, we need to use it in the products.map to generate the HTML.
+Commit -m -> Add server proxy config for /api and /images.
+-m        -> Setup shortcut for vite for this- 'http://localhost:3000'. So that, we don't have to write that localhost part everytime. For that, we need to do server-proxy configuration in vite.config.js file. That means, 1. if the URL path starts with /api, then the request will automatically go to http://localhost:3000. 2. We can setup when we load image, we also wanna load them using backend. Bcz, backend manages the data including product images. 3. Also in index.html file, we added '/' bcz, '/' is infront of any relative URLs. For instance, 'images/products/shirt.png' becomes '/images/products/shirt.png'.
