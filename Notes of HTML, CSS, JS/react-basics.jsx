@@ -3015,6 +3015,7 @@ createRoot(document.getElementById('root')).render(
 // after writing the as usual command -> npm run dev, it will show a port number(it can be 3000). then type the url link: localhost:3000/api/products
 
 
+
 // !! Template strings to insert:
 // We use dollar then curly braces -> ${}
 // Ex-
@@ -3032,7 +3033,7 @@ createRoot(document.getElementById('root')).render(
 
 
 // !! Data Fetching:
-// = get/fetch data from backend(using our code).
+// Data Fetching = get/fetch data from backend(using our code).
 // One way to get/fetch data from backend is use this built-in function- fetch()
 // fetch() = built-in function, provided by JS.
 //         = returns a Promise.
@@ -3043,8 +3044,8 @@ createRoot(document.getElementById('root')).render(
 fetch('http://localhost:3000/api/products')        // In the URL, http must be there. This code is called Asynchronous code.
 */
 
-// In the code, you can't add variables like this- const products = fetch('http://localhost:3000/api/products')
-// Bcz, when we contact a backend, it takes time for this code to react the backend & to get a response. So this code- "fetcth('http://localhost:3000/api/products')" doesn't finishes right away. It finishes at some point in the future. This code is called Asynchronous code. Asynchronous code = code that doesn't finish right away.
+// In that code, you can't add variables like this- const products = fetch('http://localhost:3000/api/products')
+// Bcz, when we contact a backend, it takes time for this code to react the backend & to get a response. So this code- "fetch('http://localhost:3000/api/products')" doesn't finishes right away. It finishes at some point in the future. This code is called Asynchronous code. Asynchronous code = code that doesn't finish right away.
 
 
 /* Promise / .then() code will be like this-
