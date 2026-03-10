@@ -2967,7 +2967,7 @@ import './index.css';
 import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <StrictMode>                                          // If we use useEffect in any component, then in the console, this useEffect shows twice bcz, StrictMode runs useEffect twice to help us catch bugs & it only does it during development.
     <BrowserRouter>
       <App />
     </BrowserRouter>
@@ -3002,7 +3002,7 @@ createRoot(document.getElementById('root')).render(
 //            = lets us share data between computers.
 //            = when we want to see a product from a website, it doesn't necessary to save all the backend/company's pc's all products. Rather, just the products that we wanna see. So that's where backend comes.
 //            = It's just another pc that's own by the company.
-//            = It can run on the same pc as the frontend.
+//            = It can run on the same pc as the frontend. Thus backend can be seen running using localhost(means our personal pc). But when the website's on internet, the backend will be another pc.
 
 
 
@@ -3032,7 +3032,12 @@ createRoot(document.getElementById('root')).render(
 
 
 
-// !! Data Fetching:
+// !! Request, Response:
+// When we contact backend using fetch, it's request. When backend responses with data, it's response.
+
+
+
+// !! Data Fetching (fetch, promise):
 // Data Fetching = get/fetch data from backend(using our code).
 // One way to get/fetch data from backend is use this built-in function- fetch()
 // fetch() = built-in function, provided by JS.
@@ -3051,7 +3056,7 @@ fetch('http://localhost:3000/api/products')        // In the URL, http must be t
 /* Promise / .then() code will be like this-
 
 fetch('http://localhost:3000/api/products')
-  .then((response) => {                                 // When it finishes the backend to fetch/get, it will run the function here inside. That's how Promise works. It will response with data.
+  .then((response) => {                                 // When it finishes the backend to fetch/get, it will run the function here inside. That's how Promise works. It will response with data. When the fetch from the backend is done, then it will save it as a parameter as response in this inner function.
     response.json()                                     // .json() = gives us the data that's attached to the response. response.json() is also Asynchronous. So we can't save this in variable like this- "const products = response.json();".
   })
 
@@ -3111,7 +3116,6 @@ export function HomePage() {
   })
 }
 
-
 vs
 
 2.
@@ -3124,11 +3128,7 @@ export function HomePage() {
   });
 }
 
-
 */
-
-// !! Request, Response:
-// When we contact backend using fetch, it's request. When backend responses with data, it's response.
 
 
 
@@ -3137,12 +3137,26 @@ export function HomePage() {
 
 
 
-// !! npm package -> axios
+// !! npm package -> axios:
 // = cleaner way to make requests to the backend.
 // Google docs link: https://docs.google.com/document/d/1xkRGWam96m_Y2dXY99-v5hZ25is9XAA0-u-j3W8wxQc/edit?pli=1&tab=t.0#heading=h.wqnroqwek6dw
 
 
 
+// !! Know that:
+// While running backend as well as frontend, both frontend & backend should be run in the different tab(2 different git bash terminal) & run both using the command- npm run dev. So that, by writing the code- "fetch('http://localhost:3000/api/products')" & also writing console.log(response) inside that code, it will show in the console part of the frontend part as well.
+
+
+
+// !! Know that:
+// useEffect = To make a code run once, we put it inside a useEffect.
+// Dependency array = lets us control when useEffect runs.
+// [] = only run once
+
+
+
+// !! / api:
+// = it means these URL paths are for interacting with the backend.
 
 
 
@@ -3153,5 +3167,5 @@ Start from -> 6:25:50
 
 
 
-Commit -m -> Fetch data from the backend.
--m        -> 
+Commit -m -> Use data from the backend to generate the HTML.
+-m        -> Now that we have the data, we need to use it in the products.map to generate the HTML.
