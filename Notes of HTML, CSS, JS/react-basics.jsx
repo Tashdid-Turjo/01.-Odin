@@ -3179,5 +3179,5 @@ Start from -> 6:54:25
 
 
 
-Commit -m -> 
+Commit -m -> Generate HTML for the cart items.
 -m        -> We're going to use the cart to generate HTML for the CheckoutPage. Inside CheckoutPage, we're going to access the cart from the props(thus added cart as props inside CheckoutPage). 
