@@ -3175,9 +3175,9 @@ export function HomePage() {
 
 
 
-Start from -> 6:25:50
+Start from -> 6:54:25
 
 
 
-Commit -m -> Add server proxy config for /api and /images.
--m        -> Setup shortcut for vite for this- 'http://localhost:3000'. So that, we don't have to write that localhost part everytime. For that, we need to do server-proxy configuration in vite.config.js file. That means, 1. if the URL path starts with /api, then the request will automatically go to http://localhost:3000. 2. We can setup when we load image, we also wanna load them using backend. Bcz, backend manages the data including product images. 3. Also in index.html file, we added '/' bcz, '/' is infront of any relative URLs. For instance, 'images/products/shirt.png' becomes '/images/products/shirt.png'.
+Commit -m -> 
+-m        -> We're going to use the cart to generate HTML for the CheckoutPage. Inside CheckoutPage, we're going to access the cart from the props(thus added cart as props inside CheckoutPage). 
