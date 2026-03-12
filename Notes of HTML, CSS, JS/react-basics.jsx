@@ -3170,7 +3170,10 @@ export function HomePage() {
 
 
 
-
+// !! Query Parameter:
+// After the URL link- '/api/cart-items', we add "?expand=product". So the URL is this- '/api/cart-items?expand=product'. That's called query parameter.
+// It lets us add additional info to our request.
+// When the backend receives this query parameter, it's going to add product details to the cart. So it's going to expand cart with product details.
 
 
 
@@ -3179,5 +3182,5 @@ Start from -> 6:54:25
 
 
 
-Commit -m -> Generate HTML for the cart items.
--m        -> We're going to use the cart to generate HTML for the CheckoutPage. Inside CheckoutPage, we're going to access the cart from the props(thus added cart as props inside CheckoutPage). 
+Commit -m -> 
+-m        -> 
