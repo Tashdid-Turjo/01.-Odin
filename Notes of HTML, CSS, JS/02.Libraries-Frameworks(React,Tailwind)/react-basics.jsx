@@ -1,5 +1,5 @@
 // From YT: SuperSimpleDev. Link: https://www.youtube.com/watch?v=TtPXvEcE11E
-
+// React Books My Google Drive Link: https://drive.google.com/drive/folders/1uZPwNU2JWXZFZ-UhoK6oOEKLEgJiaH8U
 /*
 -> Keyword:
            -> 
@@ -3182,5 +3182,5 @@ Start from -> 7:03:20
 
 
 
-Commit -m -> 
+Commit -m -> Generate HTML for the delivery options in CheckoutPage component.
 -m        -> 
