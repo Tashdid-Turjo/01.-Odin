@@ -3177,14 +3177,17 @@ export function HomePage() {
 
 
 
-// !! It's backend's work do to calculations(manage the data).
+// !! Frontend's & Backend's Task:
+// It's frontend's work to present the data in easy to read way on website.
+// It's backend's work do to calculations(manage the data).
 
 
 
 
-Start from -> 7:03:20
+
+Start from -> 7:19:10
 
 
 
-Commit -m -> Generate HTML for the delivery options in CheckoutPage component.
+Commit -m -> Generate HTML for the deliveryOptions in CheckoutPage component.
 -m        -> 
