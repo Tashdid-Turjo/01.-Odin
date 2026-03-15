@@ -3189,5 +3189,5 @@ Start from -> 7:19:10
 
 
 
-Commit -m -> Generate HTML for the deliveryOptions in CheckoutPage component.
+Commit -m -> 
 -m        -> 
