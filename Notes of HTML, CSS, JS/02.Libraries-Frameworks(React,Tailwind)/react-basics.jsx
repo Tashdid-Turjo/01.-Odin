@@ -3177,6 +3177,10 @@ export function HomePage() {
 
 
 
+// !! It's backend's work do to calculations(manage the data).
+
+
+
 
 Start from -> 7:03:20
 
