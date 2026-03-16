@@ -3189,5 +3189,5 @@ Start from -> 7:19:10
 
 
 
-Commit -m -> 
--m        -> 
+Commit -m -> Generate HTML for the OrdersPage.
+-m        -> Now OrdersPage, TrackingPage is showing in the webpage after adding props inside this Component. In OrdersPage, inside order-details-grid, added Fragment<></> bcz there's 3 elements. Now we can't just add this '<></>' bcz when we loop through an array, each element that we return should have a key property & we can't add props to fragments like this, rather we need to add Full Fragment syntax like this- '<Fragment></Fragment>'. 
