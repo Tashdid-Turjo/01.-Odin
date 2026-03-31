@@ -7,7 +7,6 @@
 
 
 
-
 // ?? React Basics, JSX:
 // !! 1. React & ReactDOM:
 // React    -> Shared features. 
@@ -2796,7 +2795,7 @@ useEffect(() => {
 
 
 
-// ?? React Router(Easy part to learn), Git, Start Ecommerce Project:
+// ?? React Router(It's Easy to learn), Git, Start Ecommerce Project:
 // !! Webpage vs Website
 // webpage = a single page
 // website = group of web pages
