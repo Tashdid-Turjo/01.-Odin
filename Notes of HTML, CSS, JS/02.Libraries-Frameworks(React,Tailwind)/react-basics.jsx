@@ -3188,5 +3188,5 @@ Start from -> 7:37:20
 
 
 
-Commit -m -> 
+Commit -m -> Separate codes into more smaller Components of OrderSummary.
 -m        ->  
