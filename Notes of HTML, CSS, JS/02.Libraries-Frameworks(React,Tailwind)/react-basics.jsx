@@ -3184,9 +3184,9 @@ export function HomePage() {
 
 
 
-Start from -> 7:37:20
+Start from -> 7:48:00
 
 
 
-Commit -m -> Separate codes into more smaller Components of OrderSummary.
+Commit -m -> 
 -m        ->  
