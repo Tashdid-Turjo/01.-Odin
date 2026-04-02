@@ -3189,7 +3189,7 @@ export function HomePage() {
 
 // !! Know that:
 // The inner function in useEffect shouldn't return a Promise.
-// It should only return nothing or a cleanlup function like this-
+// It should only return nothing or a cleanup function like this-
 
 /*
 
@@ -3215,5 +3215,5 @@ Start from -> 7:48:00
 
 
 
-Commit -m -> Use async await instead of promises.
--m        ->  Asynch await lets us write code like normal code.
+Commit -m -> 
+-m        -> 
