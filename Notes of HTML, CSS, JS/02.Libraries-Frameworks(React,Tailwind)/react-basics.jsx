@@ -3182,11 +3182,38 @@ export function HomePage() {
 
 
 
+// !! Async Await:
+// It lets us write asynchronous code like normal code. 
+
+
+
+// !! Know that:
+// The inner function in useEffect shouldn't return a Promise.
+// It should only return nothing or a cleanlup function like this-
+
+/*
+
+useEffect(() => {
+  window.addEventListener('scroll', () => {
+
+  });
+
+  return () => {
+    window.removeEventListener('scroll');
+  };
+}, []);  
+
+*/
+
+// A cleanup function is useful if we want to do some cleanup when this component is removed.
+
+
+
 
 
 Start from -> 7:48:00
 
 
 
-Commit -m -> 
--m        ->  
+Commit -m -> Use async await instead of promises.
+-m        ->  Asynch await lets us write code like normal code.
