@@ -2643,7 +2643,7 @@ Requirements:
 //                      -> Ex1-   const container = document.querySelector('.js-container');
 //                                ReactDOM.createRoot(container).render(<App />);
 //                      -> Ex2-   createRoot(document.getElementById('root')).render(
-//                                  <StrictMode>                                        // Wraps the App in a component called 'StrictMode'. It's a special component provided by React. ScriptMode gives us some additional checks & wrning when developing our App.
+//                                  <StrictMode>                                        // Wraps the App in a component called 'StrictMode'. It's a special component provided by React. ScriptMode gives us some additional checks & warning when developing our App.
 //                                    <App />
 //                                  </StrictMode>,
 //                                )
@@ -3137,7 +3137,7 @@ export function HomePage() {
 
 
 // !! npm package -> axios:
-// = cleaner way to make requests to the backend.
+// = cleaner/easier way to make requests to the backend.
 // Google docs link: https://docs.google.com/document/d/1xkRGWam96m_Y2dXY99-v5hZ25is9XAA0-u-j3W8wxQc/edit?pli=1&tab=t.0#heading=h.wqnroqwek6dw
 
 
@@ -3271,6 +3271,21 @@ useEffect(() => {
 */
 
 
+// N.B: When using async await inside useEffect, we need to create a new function & then run the function otherwise it will give error.
+
+
+
+
+
+// ?? Data Mutation -> Instead of getting data from backend, we'll update data in the backend & we'll be able to add products to our cart and create orders.
+
+
+
+
+
+
+
+
 
 
 Start from -> 7:54:43
@@ -3278,6 +3293,4 @@ Start from -> 7:54:43
 
 
 Commit -m -> 
--m        -> To solve it, we create a new function inside useEffect which should be ordinary function thus, removed the previous async. Here, we used arrow function. 
-
-
+-m        -> 
