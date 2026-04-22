@@ -3188,7 +3188,7 @@ export function HomePage() {
 
 
 // !! Know that:
-// The inner function in useEffect shouldn't return a Promise.
+// The inner function in useEffect shouldn't return a Promise/.then .
 // It should only return nothing or a cleanup function like this-
 
 /*
@@ -3278,4 +3278,6 @@ Start from -> 7:54:43
 
 
 Commit -m -> 
--m        -> To solve it, we craete a new function inside useEffect. Here, we used arrow function. 
+-m        -> To solve it, we create a new function inside useEffect which should be ordinary function thus, removed the previous async. Here, we used arrow function. 
+
+
