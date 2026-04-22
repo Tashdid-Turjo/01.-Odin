@@ -3209,6 +3209,68 @@ useEffect(() => {
 
 
 
+// !! Ordinary/Regular vs Async Function:
+// Ordinary/ Regular Function: 
+// A function without async is just called a regular function (or synchronous function).
+// It runs line by line and immediately returns a value.
+// Ex-
+/*
+
+function greet() {
+  return "Hello";
+}
+
+*/
+
+
+// Async Function:
+// A function with async keyword is called an async function (or asynchronous function).
+// It waits for slow operations (like API calls) to finish before moving on, using the await keyword inside it.
+// Ex-
+/*
+
+async function fetchData() {
+  const data = await fetch("https://api.example.com/data");
+  return data;
+}
+
+*/
+
+
+// N.B:
+// You can only use await inside an async function. If you try to use await in a regular function, you'll get an error.
+// Ex of that-
+/*
+
+// ❌ Wrong
+function getUser() {
+  const user = await fetchUser(); // Error!
+}
+
+// ✅ Correct
+async function getUser() {
+  const user = await fetchUser(); // Works fine
+}
+
+*/
+
+
+// N.B: In React, you'll mostly see async functions when fetching data from an API, like inside a useEffect:
+/*
+
+useEffect(() => {
+  async function loadData() {
+    const response = await fetch("/api/products");
+    const data = await response.json();
+    setProducts(data);
+  }
+
+  loadData();
+}, []);
+
+*/
+
+
 
 
 Start from -> 7:54:43
@@ -3216,4 +3278,4 @@ Start from -> 7:54:43
 
 
 Commit -m -> 
--m        -> 
+-m        -> To solve it, we craete a new function inside useEffect. Here, we used arrow function. 
