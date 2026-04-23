@@ -2975,6 +2975,12 @@ createRoot(document.getElementById('root')).render(
 ```
 
 
+N.B: How does StrictMode helps: In React, your code is supposed to be predictable. 
+There's some cases where same code, same everything, but the output / console shouldn't show different output. In that case, running twice helps out. 
+If you run the same code 1 time or 100 times, the result on the screen should be the same.
+So, if your code shows different results when it runs twice versus when it runs once, it means your code is "unstable."
+
+
 ### Summary:
 * index.html:   The static HTML file where the React app is rendered.
 * App.jsx:      The root component that defines the structure of your app and holds routes.
