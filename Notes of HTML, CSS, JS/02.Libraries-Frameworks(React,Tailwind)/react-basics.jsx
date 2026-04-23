@@ -3300,7 +3300,7 @@ useEffect(() => {
 
 
 
-Start from -> 8:00:16  start from 7h exercise.
+Start from -> 8:00:23  start from 7h exercise.
 
 
 
