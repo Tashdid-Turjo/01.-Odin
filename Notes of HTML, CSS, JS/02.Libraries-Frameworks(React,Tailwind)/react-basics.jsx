@@ -3281,6 +3281,12 @@ useEffect(() => {
 
 
 
+// !! Idempotence:
+// In the world of programming, Idempotence is a fancy word for a very simple rule which means:
+// No matter how many times you do the same thing, the final result stays the same.
+
+
+
 
 
 // ?? Data Mutation -> Instead of getting data from backend, we'll update data in the backend & we'll be able to add products to our cart and create orders.
