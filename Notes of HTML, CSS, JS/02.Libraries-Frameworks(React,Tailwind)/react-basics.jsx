@@ -2628,7 +2628,7 @@ Requirements:
 
 
 
-// !! Inside the created chatbot-project's folder:
+// !! Inside the created chatbot-project's folder structure:
 // node_modules folder  -> where npm install all the packages.
 // public               -> contains files that should be available to the public. Public means we can access these using URL. That means, when website is on the internet, I can give you url to this image & will be able access it.
 // src                  -> source folder, that contains all codes for our website, like- CSS, JSX.

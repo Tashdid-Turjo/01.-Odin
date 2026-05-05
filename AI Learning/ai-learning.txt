@@ -1,0 +1,2 @@
+## brain dump style(bad one) vs lookup table style(good one, like a cheat sheet)
+
