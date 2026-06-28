@@ -42,3 +42,13 @@
 
 
 
+// !! Select vs Select Distinct
+// SELECT           -> (Give me everything, duplicates included)
+// SELECT DISTINCT  -> (Give me a unique list. That means, the duplicate names are stripped away automatically)
+
+
+
+// !! 
+
+
+start from IN part.
