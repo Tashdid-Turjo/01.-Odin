@@ -32,3 +32,13 @@
 // !! Inner, Left, Right, Outer JOIN:
 // 🔄 The Golden Rule for both LEFT and RIGHT Joins:
 // Whichever table is the "outer" boss (Left for LEFT JOIN, Right for RIGHT JOIN), its data will safely stay intact. If the opposite table has multiple matching pieces, the boss table's data simply duplicates as many times as needed to line up with them side-by-side.
+
+
+
+
+// !! Where vs Having:
+// WHERE filters individual rows before they are grouped.
+// HAVING filters the summary piles after they are grouped.
+
+
+
