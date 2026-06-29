@@ -48,7 +48,70 @@
 
 
 
-// !! 
+// !! FROM the Link: https://www.sqlteaching.com/#!select
+/*
+SELECT * 
+
+SELECT specific columns 
+
+WHERE ... Equals 
+
+WHERE ... Greater than 
+
+WHERE ... Greater than or equal 
+
+AND 
+
+OR 
+
+IN 
+
+DISTINCT 
+
+ORDER BY -> For Sorting.
+
+LIMIT # of returned rows 
+
+COUNT(*) 
+
+COUNT(*) ... WHERE 
+
+SUM 
+
+AVG 
+
+MAX and MIN 
+
+GROUP BY 
+
+Nested queries 
+
+NULL 
+
+Date 
+
+Inner joins 
+
+Multiple joins 
+
+Joins with WHERE 
+
+Left joins 
+
+Table alias 
+
+Column alias 
+
+Self joins 
+
+LIKE 
+
+CASE 
+
+SUBSTR 
+
+COALESCE
+
+*/
 
 
-start from IN part.
