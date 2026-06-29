@@ -115,3 +115,4 @@ COALESCE
 */
 
 
+start from 'Joins with WHERE'
