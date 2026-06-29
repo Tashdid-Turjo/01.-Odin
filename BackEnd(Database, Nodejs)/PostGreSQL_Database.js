@@ -115,4 +115,4 @@ COALESCE
 */
 
 
-start from 'Joins with WHERE'
+start from 'Left joins'
