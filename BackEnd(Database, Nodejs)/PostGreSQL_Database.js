@@ -115,4 +115,4 @@ COALESCE
 */
 
 
-start from 'Left joins'
+start from 'Table alias'
