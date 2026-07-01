@@ -102,7 +102,7 @@ Table alias
 
 Column alias 
 
-Self joins 
+Self joins -> (a bit tough for first time practice.)
 
 LIKE 
 
