@@ -115,4 +115,4 @@ COALESCE
 */
 
 
-start from 'Table alias'
+start from 'CASE'
