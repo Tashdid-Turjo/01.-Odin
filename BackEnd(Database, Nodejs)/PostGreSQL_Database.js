@@ -115,4 +115,4 @@ COALESCE
 */
 
 
-start from 'CASE'
+start from 'SUBSTR'
