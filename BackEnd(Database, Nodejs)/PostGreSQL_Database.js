@@ -49,6 +49,7 @@
 
 
 // !! FROM the Link: https://www.sqlteaching.com/#!select
+// All SS are inside 'SQLTeaching_Website_SS' Folder.
 /*
 SELECT * 
 
@@ -115,4 +116,3 @@ COALESCE
 */
 
 
-start from 'SUBSTR'
