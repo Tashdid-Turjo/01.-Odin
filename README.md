@@ -1,6 +1,5 @@
 ###Notes:
 
-
 -> Photo Credit:
             -> used The Odin Project's photos for practising.
 
